@@ -38,3 +38,31 @@ if(hambre){ // Una variable declarada tal cual es undefined
 } else {
     console.log("Sigamos trabajando")
 }
+
+// funciones tradicionales
+function construir(){
+    console.log("Construyendo casa");
+};
+
+construir();
+
+// funciones modernas
+() => { // operador flecha =>
+    console.log("Construyendo casa anónima");
+}; 
+
+// constante que guarda funcion
+const casa = () => { 
+    console.log("Construyendo casa con constante");
+}; 
+
+casa();
+
+const desayuno = (comida) => {
+    console.log("El desayuno de hoy es " + comida);
+};
+
+desayuno(huevitos);
+
+// a javascript no le interesan los puntos y comas ";"
+
