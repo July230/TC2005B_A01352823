@@ -2,3 +2,8 @@
 Ian Julián Estrada Castro
 Archivo de estilo css 
 */
+
+body {
+    margin: 0 auto;
+    max-width: 50em;
+  }
