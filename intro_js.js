@@ -20,3 +20,21 @@ const precio = 50;
 
 // forma moderna y mas segura de declarar variables
 const cantidad = 1 // solo acceso a las llaves
+
+// tipos de datos
+// Number para numeros
+
+//alert, prompt, confirm
+alert("Hola"); // Desplegar alerta
+
+const nombre = prompt("¿Cómo te llamas?");
+
+console.log("Hola " + nombre);
+
+const hambre = confirm("¿Tienes hambre?");
+
+if(hambre){ // Una variable declarada tal cual es undefined
+    console.log("Es hora de desayunar");
+} else {
+    console.log("Sigamos trabajando")
+}
