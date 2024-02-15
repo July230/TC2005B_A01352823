@@ -270,11 +270,40 @@
             <p>
                 La elección de casa unidad depende del contexto específico y requerimientos del diseño, así como usabilidad del sitio web o aplicación.
             </p>
-            <ol>
-                <li>Porcentaje</li>
-                <li>Píxeles</li>
-                <li>Puntos</li>
-            </ol>
+            <table>
+                <tr>
+                    <td>Unidad</td>
+                    <td>Descripción</td>
+                    <td>Consideraciones</td>
+                </tr>
+                <tr>
+                    <td>Porcentaje(%)</td>
+                    <td>Representa una proporción del tamaño del contenedor padre.</td>
+                    <td>
+                        Puede ser útil para crear diseños responsivos, es decir, que se ajusten en relación al tamaño del contenedor. 
+                        Es útil cuando se quiere que los elementos escalen en relación al contenedor, 
+                        aunque los porcentajes pueden tener comportamientos impredecibles en ciertos contextos, especialmente cuando se trabaja con elementos anidados o con márgenes y rellenos.
+                    </td>
+                </tr>
+                <tr>
+                    <td>Píxeles(px)</td>
+                    <td>Representa un píxel de la pantalla del dispositivo de visualización.</td>
+                    <td>
+                        Los píxeles proporcionan un control preciso sobre las dimensiones y el posicionamiento de los elementos. 
+                        El uso de píxeles puede garantizar una apariencia consistente en diferentes dispositivos y resoluciones de pantalla.
+                        Sin embargo, los píxeles pueden no escalar adecuadamente en dispositivos de alta resolución, lo que puede resultar en elementos pequeños o borrosos en pantallas de alta densidad de píxeles
+                    </td>
+                </tr>
+                <tr>
+                    <td>Puntos(pt)</td>
+                    <td>Representa 1/72 de una pulgada en una pantalla de visualización. En la impresión, un punto es igual a 1/72 de una pulgada en el papel.</td>
+                    <td>
+                        Los puntos son una unidad de medida comúnmente utilizada en diseño para impresión. 
+                        Sin embargo, los puntos pueden no ser la mejor opción para la web, ya que no escalan con el tamaño de la ventana del navegador
+                        y pueden causar problemas de legibilidad y usabilidad en diferentes dispositivos y resoluciones de pantalla.
+                    </td>
+                </tr>
+            </table>
         </div>
         <div class="Pregunta">
             <h5>¿Por qué el uso de una versión minimizada del CSS mejora el rendimiento del sitio?</h5>
