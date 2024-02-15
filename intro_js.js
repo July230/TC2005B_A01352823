@@ -62,7 +62,46 @@ const desayuno = (comida) => {
     console.log("El desayuno de hoy es " + comida);
 };
 
-desayuno(huevitos);
+desayuno("huevitos");
 
 // a javascript no le interesan los puntos y comas ";"
 
+// arreglos
+// El arreglo es constante pero no el contenido
+const arreglo = ["Elemento"];
+const arreglo2 = new Array();
+arreglo.push("Otro elemento");
+arreglo.push(5);
+arreglo[10] = "Uno mas" // El arreglo cambia de tamaño y pone esto al final
+console.log(arreglo); // Muestra el arreglo
+
+
+//arreglos asociativos
+arreglo["dos"] = 8;
+console.log(arreglo);
+
+// recorrido tradicional del arreglo
+for(let i = 0; i < arreglo.length; i++){
+    console.log(arreglo[i]);
+}
+
+// recorridos alternativos del arreglo
+for(let posicion of arreglo){
+    console.log(posicion);
+}
+
+//Objetos
+const objeto = {atributo: "valor", atributo2: "valor2"};
+objeto.atributo3 = 5;
+console.log(objeto);
+
+for(let atributo in objeto){
+    console.log(atributo);
+}
+
+// con in imprime valores
+// con of imprime los nombres
+
+
+// modificar html
+document.write("hola"); // no es lo mejor ni recomendable
