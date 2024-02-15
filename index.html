@@ -8,11 +8,13 @@
         <link rel="stylesheet" type="text/css" href="estilo.css">
     </head>
     <body> <!--El cuerpo del sitio web-->
-        <img src="Wallpaper_Starbound1.jpeg" width="1000" alt="A desert planet, a gas giant and a moon"> <!--Imagen y grosor-->
+        <div class="image_container">
+            <img id="Starbound_picture" src="Wallpaper_Starbound1.jpeg" alt="Un planeta desértico, un gigante gaseoso y una luna"> <!--Imagen y grosor-->
+        </div>
         <h1>Ian Julián Estrada Castro</h1>
         <h4>Matrícula - A01352823</h4>
         <h4>Estudiante del Tec de Monterrey</h4>
-        <img src="IMG_6870.jpeg" width="200" alt="A picture of me">
+        <img src="IMG_6870.jpeg" width="200" alt="Una foto de mí">
         <p> <!--Parrafo-->
             Soy originario de Irapuato y actualmente estudio la carrera Ingeniería en Tecnologías Computacionales (ITC) 
             en el Tec de monterrey. Me gustan los rompecabezas y tengo un gran aprecio por los videojuegos prácticamente desde niño. 
@@ -28,9 +30,9 @@
 
         <hr>
         <h3>Algunos de los videojuegos que más me gustan son:</h3>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/aNbtX3GX5vA?si=88b5LZkF0aIx0RTo" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> <!--Desde compartir en Youtube para insertar en html-->
         <ol id="Videojuegos">
             <li style="font-size: 20pt; color: darkblue"><strong>Starbound</strong></li>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/aNbtX3GX5vA?si=88b5LZkF0aIx0RTo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> <!--Desde compartir en Youtube para insertar en html-->
             <li style="font-size: 20pt; color: red"><strong>For Honor</strong></li>
             <li style="font-size: 20pt; color: black"><strong>Hollow Knight</strong></li>
             <li style="font-size: 20pt; color: green"><strong>Minecraft</strong></li>
@@ -62,7 +64,7 @@
             <li>Parámetros de consulta - Son datos opcionales que se pueden incluir en la URL para pasar información al servidor, "?q=valor".</li>
             <li>Fragmentos - Opcionalmente, se puede especificar un fragmento para enlazar directamente a una sección específica de una página web.</li>
         </ol>
-        <img src="URL_partes.jpeg" width="350px">
+        <img src="URL_partes.jpeg" width="350" alt="Partes de una URL">
         
         <h5>¿Cuál es el propósito de los métodos HTTP: GET, HEAD, POST, PUT, PATCH, DELETE?</h5>
         <p>
@@ -87,7 +89,7 @@
         </p>
         <h5>Un servidor web devuelve una respuesta HTTP con código 200. ¿Qué significa esto? ¿Ocurrió algún error?</h5>
         <p id="Pregunta6">
-            No, no hubo ningún error. El código de respuesta de estado satisfactorio HTTP 200 <string>OK</string> indica que la solicitud ha tenido éxito. Una respuesta 200 es almacenable de forma predeterminada.
+            No, no hubo ningún error. El código de respuesta de estado satisfactorio HTTP 200 <strong>OK</strong> indica que la solicitud ha tenido éxito. Una respuesta 200 es almacenable de forma predeterminada.
         </p>
         <h5>¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al sitio y se encontró con un error 404? ¿Por qué?</h5>
         <p id="Pregunta7">
@@ -172,9 +174,9 @@
         <a href="https://html5test.opensuse.org/">EnlaceOpenUse</a>
         <ol>
             <li>Google Chrome</li>
-            <img src="Test_google_chrome.png" width="200">
+            <img src="Test_google_chrome.png" width="200" alt="Test en Google Chrome">
             <li>Safari</li>
-            <img src="Test_safari.png" width="200">
+            <img src="Test_safari.png" width="200" id="Test en Safari">
         </ol>
         <h5>¿Cuál es el ciclo de vida de los sistemas de información?</h5>
         <p id="Pregunta14">
