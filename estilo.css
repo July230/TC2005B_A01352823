@@ -70,3 +70,7 @@ header a:hover {
   max-width: 100%;
   height: auto;
 }
+
+.fuentes {
+  font-family: "Helvetica", "Arial", sans-serif;
+}
