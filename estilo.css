@@ -74,3 +74,15 @@ header a:hover {
 .fuentes {
   font-family: "Helvetica", "Arial", sans-serif;
 }
+
+.red {
+  color: red;
+}
+
+#Diamantes {
+  color: cyan;
+}
+
+#unidades {
+  border-color: black;
+}
