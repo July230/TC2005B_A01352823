@@ -163,7 +163,7 @@
                 <li>Elemento tr (table row)</li>
                 <li>Elemento th (table header)</li>
                 <li>Elemento td (table data)</li>
-                <li>Elemento caption</li>
+                <li>Element caption</li>
             </ol>
             <p>Componentes de estilo</p>
             <ol>
@@ -345,20 +345,107 @@
         </div>
         <hr class="barra">
         <h3>Agregando JavaScript</h3>
+        <p>
+            JavaScript es un lenguaje de programación que los desarrolladores utilizan para hacer páginas web interactivas. Desde actualizar fuentes de redes sociales a mostrar animaciones y mapas interactivos, las funciones de JavaScript pueden mejorar la experiencia del usuario de un sitio web. 
+            Como lenguaje de scripting del lado del servidor, se trata de una de las principales tecnologías de la World Wide Web. (Amazon)
+            Se trata de un lenguaje de programación de alto nivel que se utiliza principalmente para crear páginas web interactivas y dinámicas. 
+            Fue creado originalmente por Brendan Eich en 1995 mientras trabajaba en Netscape Communications Corporation. Inicialmente, se diseñó para agregar interactividad a las páginas web, permitiendo a los desarrolladores controlar el comportamiento del navegador web del cliente.
+            A lo largo de los años, JavaScript ha evolucionado significativamente y ahora es uno de los lenguajes de programación más populares y versátiles. Se utiliza no solo en el desarrollo web, sino también en aplicaciones de servidor, desarrollo de aplicaciones móviles, desarrollo de juegos, aplicaciones de escritorio y mucho más.
+        </p>
         <div class="Pregunta">
             <h5>¿Qué diferencias y semejanzas hay entre Java y JavaScript?</h5>
+            <p>De acuerdo al sitio oficial de Java</p>
+            <ol>
+                <li>El lenguaje de programación JavaScript, desarrollador por Netscape, Inc., no forma parte de la plataforma Java.</li>
+                <li>JavaScript no crea applets ni aplicaciones independientes. En su forma más habitual, JavaScript está en documentos HTML y puede proporcionar niveles de interactividad en las páginas web que no se pueden conseguir con HTML simple.</li>
+                <li>Java es un lenguaje de programación OOP, mientras que Java Script es un lenguaje de scripts OOP.</li>
+                <li>Ambos tienen diferencias significativas en sintaxis y estructura</li>
+            </ol>
         </div>
         <div class="Pregunta">
             <h5>¿Qué métodos tiene el objeto Date? (Menciona al menos 5*)</h5>
+            <p>Date proporciona métodos para obtener y establecer diferentes partes de una fecha como el año, día, mes, hora, minutos, segundos y milisegundos</p>
+            <table>
+                <thead>
+                    <tr>
+                        <td>Método</td>
+                        <td>Descripción</td>
+                    </tr>
+                    <tr>
+                        <td>getDate</td>
+                        <td>Devuelve el día del mes (entre 1-31) para la fecha representada por el objeto Date</td>
+                    </tr>
+                    <tr>
+                        <td>getMonth()</td>
+                        <td>Devuelve el mes (un número del 0 al 11) para la fecha representada por el objeto Date. Se indexa desde 0 (enero) hasta 11 (diciembre)</td>
+                    </tr>
+                    <tr>
+                        <td>getFullYear</td>
+                        <td>Devuelve el año (como un número de cuatro dígitos) para la fecha representada por el objeto Date</td>
+                    </tr>
+                    <tr>
+                        <td>getHours</td>
+                        <td>Devuelve la hora (un número del 0 al 23) para la fecha representada por el objeto Date</td>
+                    </tr>
+                    <tr>
+                        <td>getMinutes</td>
+                        <td>Devuelve los minutos (un número del 0 al 59) para la fecha representada por el objeto Date</td>
+                    </tr>
+                </thead>
+            </table>
         </div>
         <div class="Pregunta">
             <h5>¿Qué métodos tienen los arreglos? (Menciona al menos 5*)</h5>
+            <p>
+                En JavaScript, un arreglo (o array en inglés) es una estructura de datos que se utiliza para almacenar una colección ordenada de elementos. 
+            </p>
+            <table>
+                <thead>
+                    <tr>
+                        <td>Método</td>
+                        <td>Descripción</td>
+                    </tr>
+                    <tr>
+                        <td>push</td>
+                        <td>Añade uno o más elementos al final de un array y devuelve la nueva longitud del array.</td>
+                    </tr>
+                    <tr>
+                        <td>pop</td>
+                        <td>Elimina el último elemento de un array y devuelve ese elemento.</td>
+                    </tr>
+                    <tr>
+                        <td>shift</td>
+                        <td>Elimina el primer elemento de un array y devuelve ese elemento.</td>
+                    </tr>
+                    <tr>
+                        <td>unshift</td>
+                        <td>Añade uno o más elementos al principio de un array y devuelve la nueva longitud del array.</td>
+                    </tr>
+                    <tr>
+                        <td>splice</td>
+                        <td>Cambia el contenido de un array eliminando elementos existentes y/o añadiendo nuevos elementos.</td>
+                    </tr>
+                </thead>
+            </table>
         </div>
         <div class="Pregunta">
             <h5>¿Cómo se declara una variable con alcance local dentro de una función?</h5>
+            <p>
+                En JavaScript, se pude declarar una variable con alcance local dentro de una función utilizando las palabras reservadas let y const dentro del bloque de la función.
+                La variable estará disponible sólo dentro de la función en la que se declara y no será accesible desde fuera de ella.
+            </p>
         </div>
         <div class="Pregunta">
             <h5>¿Qué implicaciones tiene utilizar variables globales dentro de funciones?</h5>
+            <p>
+                Utilizar variables globales dentro de funciones puede tener varias implicaciones importantes en la forma en que se comporta y mantiene el código, algunas son las siguientes.
+            </p>
+            <ol>
+                <li>Contaminación del espacio global - Las variables globales estan disponibles en todo el programa. lo que significa que pueden ser accedidas y modificadas desde cualquier parte del código. Si bien puede ser útil en ciertos casos, depende de la situación.</li>
+                <li>Posibles conflictos de nombres - Al utilizar variables globales, existe el riesgo de que se produzcan conflictos de nombres con variables globales definidas por otras partes del código, bibliotecas externas o incluso el propio entorno de ejecución.</li>
+                <li>Dificultad para entender y mantener el código - Pueden dificultar la comprensión del flujo de datos y la lógica del programa, especialmente en proyectos grandes o complejos. </li>
+                <li>Acoplamiento - Puede aumentar el acoplamiento entre diferentes partes del código, lo que puede hacer que sea más difícil reutilizar, probar y mantener esas partes de manera independiente. </li>
+            </ol>
         </div>
 
         <hr class="barra">
@@ -413,6 +500,7 @@
                 <li>González, E. (s. f.). ¿Cuáles son las versiones de HTML? Diferencias entre HTML 4 y HTML 5. Significado de strict. . . (CU00706B). aprenderaprogramar.com. https://www.aprenderaprogramar.com/index.php?option=com_content&view=article&id=444:icuales-son-las-versiones-de-html-diferencias-entre-html-4-y-html-5-significado-de-strict-cu00706b&catid=69&Itemid=192</li>
                 <li>Métodos de petición HTTP - HTTP | MDN. (2023, 24 julio). MDN Web Docs. https://developer.mozilla.org/es/docs/Web/HTTP/Methods</li>
                 <li>Pol, T. (2023, 29 septiembre). ¿Qué es una URL? significado, estructura y consejos de optimización. Semrush Blog. https://es.semrush.com/blog/que-es-una-url/</li>
+                <li>¿Qué es JavaScript? - Explicación de JavaScript (JS) - AWS. (s. f.). Amazon Web Services, Inc. https://aws.amazon.com/es/what-is/javascript/#:~:text=JavaScript%20es%20un%20lenguaje%20de,usuario%20de%20un%20sitio%20web.</li>
                 <li>Referencia de Atributos HTML - HTML: Lenguaje de etiquetas de hipertexto | MDN. (2023, 28 noviembre). MDN Web Docs. https://developer.mozilla.org/es/docs/Web/HTML/Attributes</li>
                 <li>Varangouli, E. (2023, 20 enero). Lista de tags HTML: hoja de trucos HTML. ¿Qué son y para qué sirven? Semrush Blog. https://es.semrush.com/blog/lista-de-html-tags/</li>
             </ol>
