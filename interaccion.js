@@ -26,29 +26,37 @@ function generarTabla(){
 
 generarTabla();
 
+
+// Suma de dos numeros
 function VerificarSuma(){
     // Generar dos números aleatorios del 1 al 10
     // random devuelve de 0 a 1
     // floor redondea al numero entero
-    let numero1 = Math.floor((Math.random * 10) + 1); // El +1 es para que tambien haya 10
-    let numero2 = Math.floor((Math.random * 10) + 1);
+    let numero1 = Math.floor(Math.random() * 10) + 1 // El +1 es para que tambien haya 10
+    let numero2 = Math.floor(Math.random() * 10) + 1;
 
     // Guardar el resultado correcto
     let sumaCorrecta = numero1 + numero2;
 
     // Solicitar la entrada del resultado
     let tiempoInicio = Date.now();
-    let respuestaUsuario = prompt("Cuanto es la suma de " + numero1 + "+" + numero2 + "?");
+    let respuestaUsuario = prompt("Cuanto es " + numero1.toString() + " + " + numero2.toString() + " ?");
     let tiempoFinal = Date.now();
     let tiempoTotal = (tiempoFinal - tiempoInicio) / 1000; // Convertir a segundos
 
     // Verificar resultado
     // parseInt analiza una cadena y devuelve un entero
-    if(respuestaUsuario != null && parseInt(respuestaUsuario) === sumaCorrecta){
-        alert("Respuesta correcta, tardaste " + tiempoTotal + "segundos");
-    } else {
-        alert("Respuesta incorrecta o cancelada, tardaste " + tiempoTotal + "segundos");
+    if (respuestaUsuario !== null && !isNaN(respuestaUsuario)){
+        respuestaUsuario = parseInt(respuestaUsuario); // Convertir la respuesta a un número entero
+        if(respuestaUsuario != null && parseInt(respuestaUsuario) === sumaCorrecta){
+            alert("Respuesta correcta, tardaste " + tiempoTotal + "segundos");
+        } else {
+            alert("Respuesta incorrecta o cancelada, tardaste " + tiempoTotal + "segundos");
+        }
     }
+    // Mostrar tiempo transcurrido en la consola del navegador
+    console.log("Tiempo transcurrido: " + tiempoTranscurrido + " segundos.");
 }
 
 VerificarSuma();
+
