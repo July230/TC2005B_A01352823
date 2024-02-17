@@ -19,7 +19,7 @@ var juego = "Starbound"; // var tiene acceso a toda la funcion
 const precio = 50; 
 
 // forma moderna y mas segura de declarar variables
-const cantidad = 1 // solo acceso a las llaves
+let cantidad = 1 // solo acceso a las llaves
 
 // tipos de datos
 // Number para numeros
