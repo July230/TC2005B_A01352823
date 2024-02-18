@@ -5,7 +5,9 @@ Problemas de JavaScript
 */
 
 
+console.log("Ejercicios de JavaScript");
 
+console.log("1 - Generar una tabla, esta aparecerá en el html");
 function generarTabla(){
     let numero = prompt("Ingresa un número");
     document.write("<table border='1'>");
@@ -28,6 +30,7 @@ generarTabla();
 
 
 // Suma de dos numeros
+console.log("2 - Verificar suma")
 function VerificarSuma(){
     // Generar dos números aleatorios del 1 al 10
     // random devuelve de 0 a 1
@@ -51,18 +54,18 @@ function VerificarSuma(){
         if(respuestaUsuario != null && parseInt(respuestaUsuario) === sumaCorrecta){
             alert("Respuesta correcta, tardaste " + tiempoTotal + "segundos");
         } else {
-            alert("Respuesta incorrecta o cancelada, tardaste " + tiempoTotal + "segundos");
+            alert("Respuesta incorrecta o cancelada, la respuesta era: " + sumaCorrecta + " , Tardaste " + tiempoTotal + "segundos");
         }
     }
     // Mostrar tiempo transcurrido en la consola del navegador
-    console.log("Tiempo transcurrido al sumar es de: " + tiempoTotal + " segundos.");
+    console.log("Tiempo transcurrido al sumar fue de: " + tiempoTotal + " segundos.");
 }
 
 VerificarSuma();
 
 // Funcion contador
+console.log("Ejercicio 3 - El arreglo se llama numeros, adicionalmente hay uno llamado arreglo")
 function contador(numeros) {
-    console.log("Ejercicio 3: El arreglo se llama numeros, adicionalmente hay uno llamado arreglo")
     // Inicializar contadores
     let negativos = 0;
     let ceros = 0;
@@ -95,21 +98,22 @@ let arreglo = [-10, -6, -8, "a", 0, 3, 2, 5, 0, 10, "b", 0, 8, 4];
 
 contador(numeros);
 
+console.log("Ejercicio 4 - Promedios en una matriz")
 function promedios(matriz){
     let promedios = [];
 
     // Recorred cada fila de la matriz
     for(let i = 0; i < matriz.length; i++){
         let fila = matriz[i];
-        let suma = 0;
+        let contar = 0;
 
         // Calcular la suma de los elementos en la fila
         for(let j = 0; j < fila.length; j++){
-            suma += fila[j];
+            contar += fila[j];
         }
 
         // Calcular el promedio de la fila
-        let promedio = suma / (fila.length);
+        let promedio = contar / (fila.length);
 
         // Agregar el promedio al arreglo de promedios
         promedios.push(promedio);
@@ -128,3 +132,50 @@ let matriz = [
 
 promedios(matriz);
 console.log("La matriz se llama matriz. Los promedios en cada fila son: " + promedios(matriz));
+
+// Numero inverso
+console.log("5 - Inverso, hay que hacer varios pasos")
+function inverso(UnNumero){
+    console.log("Convertir el número en un string, usar split para convertirlo en un arreglo de caracteres, reverse para invertir el orden y finalmente join para devolverlo a una cadena.")
+    // Convertir el número en una cadena, separarlo en un arreglo, invertirlo y unirlo
+    let numeroInverso = UnNumero.toString().split("").reverse().join("");
+    return numeroInverso;
+}
+
+let numero = 12345;
+console.log("El numero es: " + numero + ", el numero invertido es: " + inverso(numero));
+
+// Problema de mi interes, suma de fracciones
+
+console.log("Suma de fracciones")
+function Fraccion(numerador, denominador){
+    this.numerador = numerador;
+    this.denominador = denominador;
+}
+
+function sumarFracciones(fraccion1, fraccion2){
+    let sumaNumerador = fraccion1.numerador * fraccion2.denominador + fraccion2.numerador * fraccion1.denominador;
+    let sumaDenominador = fraccion1.denominador * fraccion2.denominador;
+
+    return new Fraccion(sumaNumerador, sumaDenominador);
+}
+
+function mostrarResultado(){
+    let fraccion1Input = document.getElementById("fraccion1").value; // Obtener el valor del input
+    let fraccion2Input = document.getElementById("fraccion2").value;
+
+    let fraccion1Numerador = parseInt(fraccion1Input.split("/")[0]); // El valor se separa en dos partes ustilizando / como delimitador
+    let fraccion1Denominador = parseInt(fraccion1Input.split("/")[1]); // Al ser [1], devuelve el segundo elemento
+
+    let fraccion2Numerador = parseInt(fraccion2Input.split("/")[0]);
+    let fraccion2Denominador = parseInt(fraccion2Input.split("/")[1]);
+
+    let fraccion1 = new Fraccion(fraccion1Numerador, fraccion1Denominador)
+    let fraccion2 = new Fraccion(fraccion2Numerador, fraccion2Denominador)
+
+    let suma = sumarFracciones(fraccion1, fraccion2);
+
+    document.getElementById("resultado").innerText = "La suma de las fracciones es: " + suma.numerador + "/" + suma.denominador;
+    console.log("La suma de las fracciones es: " + suma.numerador + "/" + suma.denominador)
+}
+
