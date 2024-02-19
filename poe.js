@@ -8,7 +8,7 @@ const construir_casa = () => {
     const imagen = document.getElementById("imagen_construir");
     imagen.src = "https://i.redd.it/iynraw638q531.png";
     boton.innerHTML = "Terminar casa" // Modifica el html internamente
-    boton.className = "button is-link"; // Cambiar el color desde js
+    boton.className = "button is-link"; // Cambiar el color del boton desde js
     boton.onclick = terminar_casa;
 };
 
