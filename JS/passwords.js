@@ -29,3 +29,26 @@ const password = () => {
 }
 
 boton.onclick = password;
+
+const requisitos = () => {
+    const contrasenia = document.getElementById("password").value;
+    const requisitos = document.getElementById("requisitos");
+
+    // verificar la contraseña cumple con los requisitos usando ReGex
+    const tieneMayuscula = /[A-Z]/test(contrasenia);
+    const tieneMinuscula = /[a-z]/test(contrasenia);
+    const tieneDigito = /\d/.test(contrasenia);
+    const tieneCaracterEspecial = /°|#$%&*+-()_</.test(constrasenia);
+    const longitudCorrecta = constrasenia.length >= 8;
+
+    // construir mensaje de requisitos
+    let mensaje = "Requisitos de contraseña: ";
+    mensaje += longitudCorrecta ? "<br> - Tiene al menos 8 caracteres" : "<br> - La contraseña debe ser de al menos 8 caracteres";
+    mensaje += tieneMayuscula ? "<br> - Tiene al menos una mauyscula" : "<br> - Falta una mayuscula";
+    mensaje += tieneMinuscula ? "<br> - Tiene al menos una minuscula" : "<br> - Falta una minuscula";
+    mensaje += tieneDigito ? "<br> - Tiene al menos una minuscula" : "<br> - Falta una minuscula";
+    mensaje += tieneCaracterEspecial ? "<br> - Tiene al menos un caracter especial" : "<br> - Falta un caracter especial";
+
+    // Actualizar el contenido del elemento html
+    requisitos.innerHTML = mensaje;
+}
