@@ -9,7 +9,7 @@ const password = () => {
     console.log("click");
     const contrasenia = document.getElementById("password").value;
     const confirmarContrasenia = document.getElementById("confirmPassword").value;
-    const MensajeError = document.getElementById("MensajeError");
+    const MensajeError = document.getElementById("Mensaje_Error");
 
     // Verificar si las contraseñas coinciden
     if(contrasenia !== confirmarContrasenia){
@@ -19,12 +19,11 @@ const password = () => {
         const patron = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}$/;
         // La contraseña tiene al menos 8 caracteres, al menos una mayuscula, al menos una minuscula, al menos un digito  y al menos un caracter especial
         if(!patron.test(contrasenia)){
-            MensajeError.textContent = "La contraseña tiene al menos 8 caracteres, al menos una mayuscula, al menos una minuscula, al menos un digito  y al menos un caracter especial";   
+            MensajeError.textContent = "La contraseña debe tener al menos 8 caracteres, al menos una mayuscula, al menos una minuscula, al menos un digito  y al menos un caracter especial";   
         } else {
-            MensajeError.textContent = "";
+            MensajeError.textContent = "Contraseña validada correctamente";
             alert("Contraseña validada correctamente")
-            MensajeError.getElementById("MensajeError").style.visibility = "hidden";
-
+            MensajeError.getElementById("Mensaje_Error").style.visibility = "hidden";
         }
     }
 }
