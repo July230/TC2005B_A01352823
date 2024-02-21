@@ -30,15 +30,15 @@ const password = () => {
 
 boton.onclick = password;
 
-const requisitos = () => {
+const verificarRequisitos = () => {
     const contrasenia = document.getElementById("password").value;
     const requisitos = document.getElementById("requisitos");
 
-    // verificar la contraseña cumple con los requisitos usando ReGex
-    const tieneMayuscula = /[A-Z]/test(contrasenia);
-    const tieneMinuscula = /[a-z]/test(contrasenia);
+    // verificar la contraseña cumple con los requisitos usando RegEx
+    const tieneMayuscula = /[A-Z]/.test(contrasenia);
+    const tieneMinuscula = /[a-z]/.test(contrasenia);
     const tieneDigito = /\d/.test(contrasenia);
-    const tieneCaracterEspecial = /°|#$%&*+-()_</.test(constrasenia);
+    const tieneCaracterEspecial = /[°#$%&*+\-()_]/.test(constrasenia);
     const longitudCorrecta = constrasenia.length >= 8;
 
     // construir mensaje de requisitos
@@ -52,3 +52,5 @@ const requisitos = () => {
     // Actualizar el contenido del elemento html
     requisitos.innerHTML = mensaje;
 }
+
+document.getElementById("requisitos").addEventListener("input", verificarRequisitos);
