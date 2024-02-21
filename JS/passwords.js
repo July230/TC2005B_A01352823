@@ -18,12 +18,12 @@ const password = () => {
         // Utilizar una expresión regular para comprobar que cuenta con caracteres especiales
         const patron = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}$/;
         // La contraseña tiene al menos 8 caracteres, al menos una mayuscula, al menos una minuscula, al menos un digito  y al menos un caracter especial
-        if(!patron.test(contrasenia)){
+        if(!patron.test(contrasenia)){ // Si pasa la prueba
             MensajeError.textContent = "La contraseña debe tener al menos 8 caracteres, al menos una mayuscula, al menos una minuscula, al menos un digito  y al menos un caracter especial";   
         } else {
             MensajeError.textContent = "Contraseña validada correctamente";
             alert("Contraseña validada correctamente")
-            MensajeError.getElementById("Mensaje_Error").style.visibility = "hidden";
+            document.getElementById("Mensaje_Error").style.visibility = "hidden";
         }
     }
 }
@@ -38,19 +38,51 @@ const verificarRequisitos = () => {
     const tieneMayuscula = /[A-Z]/.test(contrasenia);
     const tieneMinuscula = /[a-z]/.test(contrasenia);
     const tieneDigito = /\d/.test(contrasenia);
-    const tieneCaracterEspecial = /[°#$%&*+\-()_]/.test(constrasenia);
-    const longitudCorrecta = constrasenia.length >= 8;
+    const tieneCaracterEspecial = /[°#$%&*+\-()_]/.test(contrasenia);
+    const longitudCorrecta = contrasenia.length >= 8;
 
     // construir mensaje de requisitos
-    let mensaje = "Requisitos de contraseña: ";
-    mensaje += longitudCorrecta ? "<br> - Tiene al menos 8 caracteres" : "<br> - La contraseña debe ser de al menos 8 caracteres";
-    mensaje += tieneMayuscula ? "<br> - Tiene al menos una mauyscula" : "<br> - Falta una mayuscula";
-    mensaje += tieneMinuscula ? "<br> - Tiene al menos una minuscula" : "<br> - Falta una minuscula";
-    mensaje += tieneDigito ? "<br> - Tiene al menos una minuscula" : "<br> - Falta una minuscula";
-    mensaje += tieneCaracterEspecial ? "<br> - Tiene al menos un caracter especial" : "<br> - Falta un caracter especial";
+    let mensaje = "La contraseña tiene:<br>";
+    /*mensaje += longitudCorrecta ? "<i class='material-icons green-text'>check_box</i> Al menos 8 caracteres<br>" : "<i class='material-icons red-text'>check_box_outline_blank</i> Al menos 8 caracteres<br>";
+    mensaje += tieneMayuscula ? "<i class='material-icons green-text'>check_box</i> Al menos una mayúscula<br>" : "<i class='material-icons red-text'>check_box_outline_blank</i> Al menos una mayúscula<br>";
+    mensaje += tieneMinuscula ? "<i class='material-icons green-text'>check_box</i> Al menos una minúscula<br>" : "<i class='material-icons red-text'>check_box_outline_blank</i> Al menos una minúscula<br>";
+    mensaje += tieneDigito ? "<i class='material-icons green-text'>check_box</i> Al menos un dígito<br>" : "<i class='material-icons red-text'>check_box_outline_blank</i> Al menos un dígito<br>";
+    mensaje += tieneCaracterEspecial ? "<i class='material-icons green-text'>check_box</i> Al menos un caracter especial<br>" : "<i class='material-icons red-text'>check_box_outline_blank</i> Al menos un caracter especial<br>";*/
+    // condición ? expresión 1 : expresión 2, es una forma abreviada de escribir if-else
+
+    
+    if(longitudCorrecta){
+        mensaje += "<i class='material-icons green-text'>check_box</i> Al menos 8 caracteres<br>";
+    } else {
+        "<i class='material-icons red-text'>check_box_outline_blank</i> Al menos 8 caracteres<br>";
+    }
+
+    if(tieneMayuscula){
+        mensaje += "<i class='material-icons green-text'>check_box</i> Al menos una mayúscula<br>";
+    } else {
+        mensaje += "<i class='material-icons red-text'>check_box_outline_blank</i> Al menos una mayúscula<br>";
+    }
+
+    if(tieneMinuscula){
+        mensaje += "<i class='material-icons green-text'>check_box</i> Al menos una minúscula<br>";
+    } else {
+        mensaje += "<i class='material-icons red-text'>check_box_outline_blank</i> Al menos una minúscula<br>";
+    }
+
+    if(tieneDigito){
+        mensaje += "<i class='material-icons green-text'>check_box</i> Al menos un dígito<br>"
+    } else {
+        mensaje += "<i class='material-icons red-text'>check_box_outline_blank</i> Al menos un dígito<br>";
+    }
+
+    if(tieneCaracterEspecial){
+        mensaje += "<i class='material-icons green-text'>check_box</i> Al menos un caracter especial<br>";
+    } else {
+        mensaje += "<i class='material-icons red-text'>check_box_outline_blank</i> Al menos un caracter especial<br>";
+    }
 
     // Actualizar el contenido del elemento html
     requisitos.innerHTML = mensaje;
 }
 
-document.getElementById("requisitos").addEventListener("input", verificarRequisitos);
+document.getElementById("password").addEventListener("input", verificarRequisitos);
