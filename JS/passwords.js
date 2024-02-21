@@ -50,11 +50,11 @@ const verificarRequisitos = () => {
     mensaje += tieneCaracterEspecial ? "<i class='material-icons green-text'>check_box</i> Al menos un caracter especial<br>" : "<i class='material-icons red-text'>check_box_outline_blank</i> Al menos un caracter especial<br>";*/
     // condición ? expresión 1 : expresión 2, es una forma abreviada de escribir if-else
 
-    
+
     if(longitudCorrecta){
         mensaje += "<i class='material-icons green-text'>check_box</i> Al menos 8 caracteres<br>";
     } else {
-        "<i class='material-icons red-text'>check_box_outline_blank</i> Al menos 8 caracteres<br>";
+        mensaje += "<i class='material-icons red-text'>check_box_outline_blank</i> Al menos 8 caracteres<br>";
     }
 
     if(tieneMayuscula){
