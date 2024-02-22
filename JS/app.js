@@ -26,3 +26,18 @@ for(let item of arreglo){
 setTimeout(() => {console.log("Jojo te hackié")}, 7000); // Escribirá el mensaje a los 7000 milisegundos
 
 console.log("Esto se imprime antes de los números");
+
+// Creando nuestro propio servidor
+
+// http es un módulo de node con todas las funcones de un servidor web
+const http = require('http');
+
+const server = http.createServer((request, response) => {
+    console.log(request.url);
+    response.setHeader('Content-Type', 'text/html'); // Responder con código de html
+    response.write("Hola mundo desde node"); // Mensaje
+    response.end(); // Devuelve la respuesta
+})
+
+server.listen(3000); // Debe escuchar por un puerto. Importante, no usar uno ya establecido, de preferencia usar uno arriba de 1000
+// Importante, siempre "matar" el proceso antes de guardar de nuevo
