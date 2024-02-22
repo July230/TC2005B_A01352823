@@ -9,4 +9,14 @@ const filesystem = require('fs');
 // en el archivo indicado en el primer parámetro
 // Con comillas simples es literal
 // Comillas dobles pueden permitir algunos procesos dentro de ese archivos
-filesystem.writeFileSync("hola.txt", "Hola desde node");
+filesystem.writeFileSync("hola.txt", "Hola desde node"); // Esto escribirá un "Hola desde node" en un hola.txt en la misma ubicación donde esté, o en su defecto, donde se indique
+
+
+const arreglo = [5000, 60, 90, 100, 10, 20, 10000, 0, 120, 2000, 340, 1000] // Un arreglo
+
+for(let item of arreglo){
+    // setTimeout con dos parametros ("Tiempo que se va a ejecutar", "ejecutar"), los items del arreglo se toman como milisegundos
+    setTimeout(() => {
+        console.log(item);
+    }, item)
+}
