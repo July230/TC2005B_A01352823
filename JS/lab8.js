@@ -25,6 +25,24 @@ const promedio = (arreglo) => {
 console.log("Promedio de numeros: ", promedio(numeros));
 
 
+// Sucesión de fibonacci
+const fibonacci = () => {
+    console.log("Esta es una sucesión de fibonacci, muestra los diez primeros números");
+    let primer_numero = 0;
+    let segundo_numero = 1;
+    let suma_numeros = 0;
+
+    console.log(primer_numero);
+    for(let i = 0; i < 9; i++){
+        suma_numeros = primer_numero + segundo_numero;
+        console.log(suma_numeros);
+        primer_numero = segundo_numero;
+        segundo_numero = suma_numeros;
+
+    }
+    return suma_numeros;
+}
+console.log(fibonacci());
 
 // Recibe un string y lo escribe en un archivo de texto
 const escribir = () => {
@@ -35,25 +53,4 @@ const escribir = () => {
     });
 }
 escribir();
-
-
-
-/*
-const promedio = (arreglo) => {
-    let suma = 0;
-    for(let i = 0; i < arreglo.length; i++){
-        suma += arreglo[i];
-    }
-    return suma / arreglo.length;
-}
-
-function promedio(arreglo) {
-    let suma = 0;
-    for(let i = 0; i < arreglo.length; i++){
-        suma += arreglo[i];
-    }
-    return suma / arreglo.length;
-    // console.log("Primedio del arreglo: " + promedio)
-}
-*/
 
