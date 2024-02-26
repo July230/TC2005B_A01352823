@@ -274,17 +274,27 @@ const server = http.createServer((request, response) => {
         response.end();
   
       } else if (request.url == "/construir") {
-  
+        response.write(header);
+        response.write(`
+            <h1 class="title">Agregar una construcción</h1>
+            <form action="construir" method="POST">
+                <label class="label" for="nombre">Nombre</label>
+                <input id="nombre" type="text" class="input"><br>
+                <label class="label" for="imagen">Imagen</label>
+                <input id="imagen" type="text" class="input"><br><br>
+                <input class="button is-success" type="submit" value="Construir">
+            </form>
+        `);
+        response.write(footer);
+        response.end();
       } else {
   
         //Código de respuesta para recurso no encontrado
         response.statusCode = 404;
-  
+
         response.setHeader('Content-Type', 'text/html');
         response.write(header);
-        response.write(`
-            <h1 class="title">Ups, la aldea que estás buscando no existe.</h1>
-        `);
+        response.write(`<title>Ups, esta aldea no existe</title>`);
         response.write(footer);
         
         response.end();
