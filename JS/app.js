@@ -58,8 +58,8 @@ const header = `
                       Home
                     </a>
               
-                    <a class="navbar-item">
-                      Documentation
+                    <a class="navbar-item" href="/construir">
+                      Construir
                     </a>
               
                     <div class="navbar-item has-dropdown is-hoverable">
@@ -273,20 +273,44 @@ const server = http.createServer((request, response) => {
         response.write(footer);
         response.end();
   
-      } else if (request.url == "/construir") {
+      } else if (request.url == "/construir" && request.method == "GET") {
         response.write(header);
         response.write(`
             <h1 class="title">Agregar una construcción</h1>
-            <form action="construir" method="POST">
+            <form action="/construir" method="POST">
                 <label class="label" for="nombre">Nombre</label>
-                <input id="nombre" type="text" class="input"><br>
+                <input name="nombre" id="nombre" type="text" class="input"><br>
                 <label class="label" for="imagen">Imagen</label>
-                <input id="imagen" type="text" class="input"><br><br>
+                <input name="imagen" id="imagen" type="text" class="input"><br><br> 
                 <input class="button is-success" type="submit" value="Construir">
             </form>
         `);
+
+        // Al servidor llegan los names
+        // id es del lado del usuario
         response.write(footer);
         response.end();
+      } else if (request.url == "/construir" && request.method == "POST"){
+        request.on('data', (dato) => { // on escucha los eventos, cada dato que llega, imprime el dato que le llega al servidor 
+            console.log(dato);
+        });
+        // Tal cual, en consola el texto aparece en ascii (hexadecimal) guardado en un buffer, llega en bytes
+
+        const datos = [];
+        request.on('data', (dato) => { 
+            console.log(dato);
+            datos.push(dato);
+        });
+        return request.on('end', () => { // Esta función devolvera lo enviado por on en forma de texto
+            const datos_completos = Buffer.concat(datos).toString();
+            console.log(datos_completos);
+            const nombre = datos_completos.split('&')[0].split('=')[1];
+            console.log(nombre);
+            const imagen = datos_completos.split('&')[1].split('=')[1];
+            console.log(imagen);
+            return response.end();
+        });
+
       } else {
   
         //Código de respuesta para recurso no encontrado
@@ -294,7 +318,7 @@ const server = http.createServer((request, response) => {
 
         response.setHeader('Content-Type', 'text/html');
         response.write(header);
-        response.write(`<title>Ups, esta aldea no existe</title>`);
+        response.write(`<h1>Ups, esta aldea no existe</h1>`);
         response.write(footer);
         
         response.end();
