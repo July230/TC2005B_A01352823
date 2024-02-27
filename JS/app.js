@@ -1,5 +1,5 @@
 /*Este archivo será para la introducción al lab 8 usando node*/
-
+/*
 console.log("Hola mundo desde node"); // Usar comando node "nombre de archivo" para ejecutar el archivo .js
 
 //fs es el módulo para manipular el sistema de archivos
@@ -234,3 +234,24 @@ const server = http.createServer((request, response) => {
 
 server.listen(3000); // Debe escuchar por un puerto. Importante, no usar uno ya establecido, de preferencia usar uno arriba de 1000
 // Importante, siempre "matar" el proceso antes de guardar de nuevo
+*/
+
+const express = require('express');
+const app = express();
+
+//Middleware
+app.use((request, response, next) => {
+  console.log('Middleware!');
+  next(); //Le permite a la petición avanzar hacia el siguiente middleware
+});
+
+app.use('/construir', (request, response, next) => {
+  response.send('Respuesta de la ruta "/construir"'); 
+});
+
+app.use((request, response, next) => {
+  console.log('Otro middleware!');
+  response.send('¡Hola mundo!'); //Manda la respuesta
+});
+
+app.listen(3000);
