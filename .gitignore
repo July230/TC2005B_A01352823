@@ -2,7 +2,7 @@
 # Los archivos que esten aquí no se subiran al repositorio remoto
 
 # Node artifact files
-node_modules/
+#node_modules/
 
 # Archivo de MacOS
-.DS_Store
+# .DS_Store
