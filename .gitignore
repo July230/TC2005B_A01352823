@@ -2,4 +2,4 @@
 # Los archivos que esten aquí no se subiran al repositorio remoto
 
 # Node artifact files
-node_modedules
+node_modedules/
