@@ -4,5 +4,5 @@
 # Node artifact files
 node_modules/
 
-
+# Archivo de MacOS
 .DS_Store
