@@ -257,7 +257,7 @@ app.use((request, response, next) => {
 });
 
 // Registrar el middleware con el modulo construcciones
-const rutasConstrucciones = require('../LAB12/routes/construcciones.routes.js'); // Con el punto se indica que está al mismo nivel que el archivo a iniciar
+const rutasConstrucciones = require('./routes/construcciones.routes.js'); // Con el punto se indica que está al mismo nivel que el archivo a iniciar
 
 // Llevar a la ruta asociada a la constante rutasConstrucciones
 app.use('/', rutasConstrucciones);

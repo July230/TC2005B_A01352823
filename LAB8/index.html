@@ -1,26 +1,24 @@
 <!--Ian Julián Estrada Castro-->
-<!--Este archivo tiene como fin el uso de un framework de estilo, en este caso, Materialize-->
+<!--En este laboratorio se abordaran brevemente los conceptos fundamentales para comenzar con construcción de software y toma de desiciones-->
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <!--Let browser know website is optimized for mobile-->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Laboratorio</title>
-        <!--Import Google Icon Font-->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <!--Import materialize.css-->
-        <link type="text/css" rel="stylesheet" href="CSS/materialize.min.css"  media="screen,projection"/>
+<html lang="es">
+    <head> <!--El encabezado del sitio web-->
+        <meta charset="UTF-8"> <!--Esto permitirá leer acentos-->
+        <meta name="viewport" content="width=device-width, initial-scale=1"> <!--Esto hará que sea responsiva-->
+        <title>Laboratorio</title> <!--El navegador utilizará el título como referencia-->
+        <link rel="stylesheet" type="text/css" href="../CSS/estilo.css">
     </head>
-
-    <body>
+    <body> <!--El cuerpo del sitio web-->
         <div class="image_container">
-            <img id="Starbound_picture" src="IMAGENES/Wallpaper_Starbound1.jpeg" alt="Un planeta desértico, un gigante gaseoso y una luna"> <!--Imagen y grosor-->
+            <img id="Starbound_picture" src="../IMAGENES/Wallpaper_Starbound1.jpeg" alt="Un planeta desértico, un gigante gaseoso y una luna"> <!--Imagen y grosor-->
         </div>
+        <nav>
+            <a href="Starbound.html">Hola Mundo Starbound</a>
+        </nav>
         <h1>Ian Julián Estrada Castro</h1>
         <h4>Matrícula - A01352823</h4>
         <h4>Estudiante del Tec de Monterrey</h4>
-        <img src="IMAGENES/IMG_6870.jpeg" width="200" alt="Una foto de mí">
+        <img src="../IMAGENES/IMG_6870.jpeg" width="200" alt="Una foto de mí">
         <p> <!--Parrafo-->
             Soy originario de Irapuato y actualmente estudio la carrera Ingeniería en Tecnologías Computacionales (ITC) 
             en el Tec de monterrey. Me gustan los rompecabezas y tengo un gran aprecio por los videojuegos prácticamente desde niño. 
@@ -452,42 +450,26 @@
                 <li>Acoplamiento - Puede aumentar el acoplamiento entre diferentes partes del código, lo que puede hacer que sea más difícil reutilizar, probar y mantener esas partes de manera independiente. </li>
             </ol>
         </div>
-        <div class="EjerciciosJava">
-            <h5>Ejercicios de JavaScript</h5>
-            <p>El siguiente enlace lleva al archivo donde se realizaron los ejercicios</p>
-            <a href="EjerciciosJava.html">Ejercicios</a>
-        </div>
+        <h3>Introducción a node</h3>
+        <p>
+            Node.js es un entorno de ejecución de JavaScript de código abierto, interpreta línea por línea en lugar de todo el código como un compilador. Este entorno permitirá acceder a los archivos locales, algo que un novagador no podría.
+        </p>
+        <h5>Instalando Node</h5>
+        <p>
+            En la página oficial <a href="https://nodejs.org/en">Node.js</a>. Se instala el paquete, en este caso se instaló el recomendado para la mayoría de usuarios, el LTS (Long Term Support).
+            Una vez instado, ir a la terminal y comprobar usando el comando "node --version". 
+        </p>
+        <h5>Usando Node</h5>
+        <p>
+            Para usar el ambiente, escribir "node" en la terminal, serás recibido con un mensaje de bienvenido. Ahora en la consola se puede usar código de JavaScript.
+            Para salir de node hay varias formas, una es a través del comando de la terminal "Ctrl+C", otro método es a través del comando de node ".exit"
+            Para iniciar un archivo, se utiliza "node" seguido del nombre del archivo de JavaScript. 
+        </p>
+        <p>
+            En node existen los require, el equivalente al include e import de C++ y Python respectivamente
+        </p>
 
-        <hr class="barra">
-        <h3>Frameworks de estilo</h3>
-        <p>
-            Un framework de CSS es una biblioteca de código predefinido, diseñada para implementar estilos y diseños rápidos y consistentes en un sitio web. 
-            Traen código preescrito y reusable para elementos y componentes de diseño comunes, que se aplican fácilmente al HTML base. Así, se crean interfaces de usuario familiares y consistentes, o diseños de sitios web.
-            Los frameworks de CSS son utilizados por desarrolladores front-end para implementar con rapidez elementos como cuadrículas adaptables, formularios, y botones con estilo, u otros elementos importantes de UI, tanto en páginas web como en aplicaciones.
-            Algunos de los frameworks más conocidos son:
-        </p>
-        <ol>
-            <li>Bootstrap</li>
-            <li>Foundation</li>
-            <li>Materialize</li>
-            <li>Bulma</li>
-            <li>Tailwind</li>
-        </ol>
-        <a href="index.html">Regresar a principal</a>
-        <h5>Material design</h5>
-        <p>
-            El material design es un estilo de diseño desarrollado por Google que se presentó al público en 2014, a la par de la versión Android Lollipop. 
-            Este se enfoca en los aspectos visuales que corresponden al sistema operativo Android, aunque también es una normativa que se aplica en diferentes páginas web y plataformas. (KeepCoding, 2022)
-            El objetivo principal de Material Design es crear una experiencia de usuario intuitiva y consistente a través de diferentes plataformas y dispositivos, incluidos teléfonos móviles, tabletas, computadoras de escritorio y más. Se basa en principios de diseño claros y directos, así como en una estética moderna y minimalista.
-            Algunas características clave de Material design son:
-        </p>
-        <ol>
-            <li>Diseño visual limpio y moderno - Para crear interfaces atractivas y agradables a la vista</li>
-            <li>Movimiento y animación - Incorporar transiciones fluidas y animaciones suaves para mejorar la experiencia del usuario</li>
-            <li>Profundidad y realismo - Utilizando técnicas de profundidad, sombreado y capas</li>
-            <li>Componentes y patrones de diseño reutilizables - Construir aplicaciones y sitios web de manera eficiente y coherente</li>
-        </ol>
-        <hr class="barra">
+        
         <div class="fuentes">
             <h3>Fuentes bibliográficas</h3>
             <ol>
@@ -504,10 +486,12 @@
                 <li>Controles de formulario originales - Aprende desarrollo web | MDN. (s. f.). MDN Web Docs. https://developer.mozilla.org/es/docs/Learn/Forms/Basic_native_form_controls</li>
                 <li>Equipo editorial, Etecé. (2023c, noviembre 19). ¿Qué es la World Wide Web? - Concepto, importancia y más. Concepto. https://concepto.de/www/</li>
                 <li>Equipo editorial, Etecé. (2023d, noviembre 19). URL - Concepto, usos, partes y características. Concepto. https://concepto.de/url/</li>
+                <li>freeCodeCamp.org. (2018, 22 octubre). What's the Document Object Model, and why you should know how to use it. https://www.freecodecamp.org/news/whats-the-document-object-model-and-why-you-should-know-how-to-use-it-1a2d0bc5429d/</li>
                 <li>González, E. (s. f.). ¿Cuáles son las versiones de HTML? Diferencias entre HTML 4 y HTML 5. Significado de strict. . . (CU00706B). aprenderaprogramar.com. https://www.aprenderaprogramar.com/index.php?option=com_content&view=article&id=444:icuales-son-las-versiones-de-html-diferencias-entre-html-4-y-html-5-significado-de-strict-cu00706b&catid=69&Itemid=192</li>
+                <li>KeepCoding, R. (2022, 5 abril). ¿Qué es el material design? | KeepCoding Bootcamps. KeepCoding Bootcamps. https://keepcoding.io/blog/que-es-material-design/</li>
                 <li>Métodos de petición HTTP - HTTP | MDN. (2023, 24 julio). MDN Web Docs. https://developer.mozilla.org/es/docs/Web/HTTP/Methods</li>
                 <li>Pol, T. (2023, 29 septiembre). ¿Qué es una URL? significado, estructura y consejos de optimización. Semrush Blog. https://es.semrush.com/blog/que-es-una-url/</li>
-                <li>¿Qué es JavaScript? - Explicación de JavaScript (JS) - AWS. (s. f.). Amazon Web Services, Inc. https://aws.amazon.com/es/what-is/javascript/#:~:text=JavaScript%20es%20un%20lenguaje%20de,usuario%20de%20un%20sitio%20web.</li>
+                <li>¿Qué es JavaScript? - Explicación de JavaScript (JS) - AWS. (s.f.). Amazon Web Services, Inc. https://aws.amazon.com/es/what-is/javascript/#:~:text=JavaScript%20es%20un%20lenguaje%20de,usuario%20de%20un%20sitio%20web.</li>
                 <li>Referencia de Atributos HTML - HTML: Lenguaje de etiquetas de hipertexto | MDN. (2023, 28 noviembre). MDN Web Docs. https://developer.mozilla.org/es/docs/Web/HTML/Attributes</li>
                 <li>Varangouli, E. (2023, 20 enero). Lista de tags HTML: hoja de trucos HTML. ¿Qué son y para qué sirven? Semrush Blog. https://es.semrush.com/blog/lista-de-html-tags/</li>
             </ol>
@@ -516,9 +500,7 @@
             <h3>Datos de contacto</h3>
             <p>Correro: a01352823@tec.mx</p>
             <a href="https://miscompetenciastec21.tec.mx/elumen/portfolio/Xkx1RplSbGbQc4O142">Portafolio</a> <!--Asociar un enlace-->
-            <!--JavaScript at end of body for optimized loading-->
-            <script type="text/javascript" src="JS/materialize.min.js"></script>
             <p>Para este trabajo se utilizó Visual Studio Code</p>
         </footer>
     </body>
-  </html>
+</html>
