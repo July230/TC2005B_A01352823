@@ -294,14 +294,14 @@ const server = http.createServer((request, response) => {
               <div class="card">
                 <div class="card-image">
                   <figure class="image is-4by3">
-                    <img src="https://static.wikia.nocookie.net/starboundgame/images/4/4a/Hylotl_%28Male%29_-_Race_-_Starbound.png/revision/latest/scale-to-width/360?cb=20210330182242" alt="Placeholder image">
+                    <img src="https://static.wikia.nocookie.net/starbound/images/f/f4/CaligulasAquarium.jpg/revision/latest?cb=20150108165612&path-prefix=es" alt="Placeholder image">
                   </figure>
                 </div>
                 <div class="card-content">
                   <div class="media">
                     <div class="media-left">
                       <figure class="image is-48x48">
-                        <img src="https://static.wikia.nocookie.net/starboundgame/images/4/4a/Hylotl_%28Male%29_-_Race_-_Starbound.png/revision/latest/scale-to-width/360?cb=20210330182242" alt="Placeholder image">
+                        <img src="https://static.wikia.nocookie.net/starbound/images/f/f4/CaligulasAquarium.jpg/revision/latest?cb=20150108165612&path-prefix=es" alt="Placeholder image">
                       </figure>
                     </div>
                     <div class="media-content">
@@ -408,14 +408,14 @@ const server = http.createServer((request, response) => {
               <div class="card">
                 <div class="card-image">
                   <figure class="image is-4by3">
-                    <img src="https://static.wikia.nocookie.net/starbound/images/8/8e/Latest.png/revision/latest?cb=20150108020413&path-prefix=es" alt="Placeholder image">
+                    <img src="https://static.wikia.nocookie.net/starboundgame/images/6/65/Apex_%28Male%29_-_Race_-_Starbound.png/revision/latest/scale-to-width/360?cb=20220218121928" alt="Placeholder image">
                   </figure>
                 </div>
                 <div class="card-content">
                   <div class="media">
                     <div class="media-left">
                       <figure class="image is-48x48">
-                        <img src="https://static.wikia.nocookie.net/starbound/images/8/8e/Latest.png/revision/latest?cb=20150108020413&path-prefix=es" alt="Placeholder image">
+                        <img src="https://static.wikia.nocookie.net/starboundgame/images/6/65/Apex_%28Male%29_-_Race_-_Starbound.png/revision/latest/scale-to-width/360?cb=20220218121928" alt="Placeholder image">
                       </figure>
                     </div>
                     <div class="media-content">
@@ -446,14 +446,14 @@ const server = http.createServer((request, response) => {
               <div class="card">
                 <div class="card-image">
                   <figure class="image is-4by3">
-                    <img src="https://static.wikia.nocookie.net/starbound/images/0/01/Glitch.png/revision/latest?cb=20130415132726" alt="Placeholder image">
+                    <img src="https://preview.redd.it/glitch-upscale-on-u-madneutronstars-character-brightblade-v0-xhuaa0abag981.png" alt="Placeholder image">
                   </figure>
                 </div>
                 <div class="card-content">
                   <div class="media">
                     <div class="media-left">
                       <figure class="image is-48x48">
-                        <img src="https://static.wikia.nocookie.net/starbound/images/0/01/Glitch.png/revision/latest?cb=20130415132726" alt="Placeholder image">
+                        <img src="https://preview.redd.it/glitch-upscale-on-u-madneutronstars-character-brightblade-v0-xhuaa0abag981.png" alt="Placeholder image">
                       </figure>
                     </div>
                     <div class="media-content">
@@ -484,14 +484,14 @@ const server = http.createServer((request, response) => {
               <div class="card">
                 <div class="card-image">
                   <figure class="image is-4by3">
-                    <img src="https://community.playstarbound.com/proxy.php?image=http%3A%2F%2Fplaystarbound.com%2Fwp-content%2Fuploads%2F2013%2F04%2FNovakid.png&hash=b9bdb3e2e650152c890b852fe21438aa" alt="Placeholder image">
+                    <img src="https://static.wikia.nocookie.net/starboundgame/images/f/f0/Novakid_Male.png/revision/latest?cb=20130609132450" alt="Placeholder image">
                   </figure>
                 </div>
                 <div class="card-content">
                   <div class="media">
                     <div class="media-left">
                       <figure class="image is-48x48">
-                        <img src="https://community.playstarbound.com/proxy.php?image=http%3A%2F%2Fplaystarbound.com%2Fwp-content%2Fuploads%2F2013%2F04%2FNovakid.png&hash=b9bdb3e2e650152c890b852fe21438aa" alt="Placeholder image">
+                        <img src="https://static.wikia.nocookie.net/starboundgame/images/f/f0/Novakid_Male.png/revision/latest?cb=20130609132450" alt="Placeholder image">
                       </figure>
                     </div>
                     <div class="media-content">
