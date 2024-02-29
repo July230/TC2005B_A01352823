@@ -239,8 +239,10 @@ server.listen(3000); // Debe escuchar por un puerto. Importante, no usar uno ya 
 const express = require('express');
 const app = express();
 
-const path = require('path') // Path es un modulo de node
+app.set('view engine', 'ejs');
+app.set('views', 'views');
 
+const path = require('path') // Path es un modulo de node
 app.use(express.static(path.join(__dirname, 'public'))); // Darles acceso a la carpeta pública
 
 const bodyParser = require('body-parser'); 
