@@ -1,0 +1,250 @@
+<!--Ian Julián Estrada Castro 
+    Este es un documento html para integrar todo lo visto en los laboratorios-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Starbound</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"> <!--Importar el ccs de bulma-->
+    </head>
+    <body>
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+              <a class="navbar-item" href="https://bulma.io">
+                <img src="https://i1.sndcdn.com/artworks-000109033152-zvlom3-t500x500.jpg" width="112" height="28">
+              </a>
+          
+              <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+              </a>
+            </div>
+
+            <div id="navbarBasicExample" class="navbar-menu">
+                <div class="navbar-start">
+                  <a class="navbar-item">
+                    Home
+                  </a>
+            
+                  <a class="navbar-item">
+                    Documentation
+                  </a>
+            
+                  <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                      Razas
+                    </a>
+                      <div class="navbar-dropdown">
+                      <a class="navbar-item" href="/humano">
+                          Humano
+                      </a>
+                      <a class="navbar-item" href="/hylotl">
+                          Hylotl
+                      </a>
+                      <a class="navbar-item" href="/avian">
+                          Avian
+                      </a>
+                      <a class="navbar-item" href="/floran">
+                          Floran
+                      </a>
+                      <a class="navbar-item" href="/apex">
+                          Apex
+                      </a>
+                      <a class="navbar-item" href="/glitch">
+                          Glitch
+                      </a>
+                      <a class="navbar-item" href="/novakid">
+                          Novakid
+                      </a>
+                      <hr class="navbar-divider">
+                      <a class="navbar-item">
+                        Report an issue
+                      </a>
+                    </div>
+                  </div>
+                  <a class="navbar-item" href="index.html">
+                    Regresar a principal
+                  </a>
+                </div>
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                      <div class="buttons">
+                        <a class="button is-link">
+                          <strong>Sign up</strong>
+                        </a>
+                        <a class="button is-light">
+                          Log in
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+        </nav>
+        <section class="section">
+            <div class="container">
+              <h1 class="title">Hola Mundo Starbound</h1>
+              <p class="subtitle">Mi primer sitio con <strong>Bulma</strong>!</p>
+              <div class="block">
+                <figure class="image is-256x256">
+                  <img id="imagen_construir" src="https://i.redd.it/6c1r6kb495mx.jpg" >
+                </figure>
+              </div>
+              <div>
+                <button id="boton_construir" class="button is-primary">Construir casa</button> <!--Un boton para cambiar imagen-->
+              </div>
+              <br>
+            </div>
+            <div class="columns">
+              <div class="column">
+                  <div class="card">
+                      <div class="card-image">
+                        <figure class="image is-4by3">
+                          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+                        </figure>
+                      </div>
+                      <div class="card-content">
+                        <div class="media">
+                          <div class="media-left">
+                            <figure class="image is-48x48">
+                              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+                            </figure>
+                          </div>
+                          <div class="media-content">
+                            <p class="title is-4">John Smith</p>
+                            <p class="subtitle is-6">@johnsmith</p>
+                          </div>
+                        </div>
+                    
+                        <div class="content">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                          Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                          <a href="#">#css</a> <a href="#">#responsive</a>
+                          <br>
+                          <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                        </div>
+                      </div>
+                    </div>
+              </div>
+
+              <div class="column">
+                  <div class="card">
+                      <div class="card-image">
+                        <figure class="image is-4by3">
+                          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+                        </figure>
+                      </div>
+                      <div class="card-content">
+                        <div class="media">
+                          <div class="media-left">
+                            <figure class="image is-48x48">
+                              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+                            </figure>
+                          </div>
+                          <div class="media-content">
+                            <p class="title is-4">John Smith</p>
+                            <p class="subtitle is-6">@johnsmith</p>
+                          </div>
+                        </div>
+                    
+                        <div class="content">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                          Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                          <a href="#">#css</a> <a href="#">#responsive</a>
+                          <br>
+                          <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                        </div>
+                      </div>
+                    </div>
+              </div>
+
+              <div class="column">
+                  <div class="card">
+                      <div class="card-image">
+                        <figure class="image is-4by3">
+                          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+                        </figure>
+                      </div>
+                      <div class="card-content">
+                        <div class="media">
+                          <div class="media-left">
+                            <figure class="image is-48x48">
+                              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+                            </figure>
+                          </div>
+                          <div class="media-content">
+                            <p class="title is-4">John Smith</p>
+                            <p class="subtitle is-6">@johnsmith</p>
+                          </div>
+                        </div>
+                    
+                        <div class="content">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                          Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                          <a href="#">#css</a> <a href="#">#responsive</a>
+                          <br>
+                          <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                        </div>
+                      </div>
+                    </div>
+              </div>
+
+              <div class="column">
+                  <div class="card">
+                      <div class="card-image">
+                        <figure class="image is-4by3">
+                          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+                        </figure>
+                      </div>
+                      <div class="card-content">
+                        <div class="media">
+                          <div class="media-left">
+                            <figure class="image is-48x48">
+                              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+                            </figure>
+                          </div>
+                          <div class="media-content">
+                            <p class="title is-4">John Smith</p>
+                            <p class="subtitle is-6">@johnsmith</p>
+                          </div>
+                        </div>
+                    
+                        <div class="content">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                          Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                          <a href="#">#css</a> <a href="#">#responsive</a>
+                          <br>
+                          <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                        </div>
+                      </div>
+                    </div>
+              </div>
+            </div>
+            <table>
+                <tbody>
+                    <tr><td>Mesa</td><td id="Diamantes">Diamantes</td></tr>
+                </tbody>
+                <thead>
+                    <tr><th>Muebles</th><th>Minerales</th></tr>
+                </thead>
+                <tfoot class="red">
+                    <tr><td colspan="2">Tabla de objetos de Starbound</td></tr>
+                </tfoot>
+            </table>
+        </section>
+
+
+
+        <footer class="footer">
+            <div class="content has-text-centered">
+              <p>
+                <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
+                <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+                is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+              </p>
+            </div>
+        </footer>
+        <script src="JS/poe.js"></script>
+    </body>
+</html>

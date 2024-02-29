@@ -241,6 +241,8 @@ const app = express();
 
 const path = require('path') // Path es un modulo de node
 
+app.use(express.static(path.join(__dirname, 'public'))); // Darles acceso a la carpeta pública
+
 const bodyParser = require('body-parser'); 
 
 // body parser le agrega un objeto llamado body al request, contiene lo que le e

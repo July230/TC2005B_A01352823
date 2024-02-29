@@ -1,0 +1,574 @@
+<!--Ian Julián Estrada Castro-->
+<!--En este laboratorio se abordaran brevemente los conceptos fundamentales para comenzar con construcción de software y toma de desiciones-->
+<!DOCTYPE html>
+<html lang="es">
+    <head> <!--El encabezado del sitio web-->
+        <meta charset="UTF-8"> <!--Esto permitirá leer acentos-->
+        <meta name="viewport" content="width=device-width, initial-scale=1"> <!--Esto hará que sea responsiva-->
+        <title>Laboratorio</title> <!--El navegador utilizará el título como referencia-->
+        <link rel="stylesheet" type="text/css" href="../CSS/estilo.css">
+    </head>
+    <body> <!--El cuerpo del sitio web-->
+        <div class="image_container">
+            <img id="Starbound_picture" src="IMAGENES/Wallpaper_Starbound1.jpeg" alt="Un planeta desértico, un gigante gaseoso y una luna"> <!--Imagen y grosor-->
+        </div>
+        <nav>
+            <a href="Starbound.html">Hola Mundo Starbound</a>
+            <a href="passwords.html">Laboratorio 6</a>
+        </nav>
+        <h1>Ian Julián Estrada Castro</h1>
+        <h4>Matrícula - A01352823</h4>
+        <h4>Estudiante del Tec de Monterrey</h4>
+        <img src="IMAGENES/IMG_6870.jpeg" width="200" alt="Una foto de mí">
+        <p> <!--Parrafo-->
+            Soy originario de Irapuato y actualmente estudio la carrera Ingeniería en Tecnologías Computacionales (ITC) 
+            en el Tec de monterrey. Me gustan los rompecabezas y tengo un gran aprecio por los videojuegos prácticamente desde niño. 
+            Actualmente se tocar piano y he hecho algunas interpretaciones musicales de piezas principalmente de videojuegos.
+        </p>
+        <hr class="barra"> <!--línea horizontal-->
+        <p>
+            Actualmente curso cuarto semestre. No es mi primera vez creando algo en HTML5, sin embargo, es cierto que ha pasado tiempo desde que trabaje con este.
+            Espero recordar los conceptos básicos y fundamentales a través de estos laboratorios para así poder integrarlos al proyecto.
+        </p>
+        <hr>
+
+
+        <hr class="barra">
+        <h3>Algunos de los videojuegos que más me gustan son:</h3>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/aNbtX3GX5vA?si=88b5LZkF0aIx0RTo" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> <!--Desde compartir en Youtube para insertar en html-->
+        <ol id="Videojuegos">
+            <li style="font-size: 20pt; color: darkblue"><strong>Starbound</strong></li>
+            <li style="font-size: 20pt; color: red"><strong>For Honor</strong></li>
+            <li style="font-size: 20pt; color: black"><strong>Hollow Knight</strong></li>
+            <li style="font-size: 20pt; color: green"><strong>Minecraft</strong></li>
+            <li style="font-size: 20pt; color: lightblue"><strong>ASTRONEER</strong></li>
+            <li style="font-size: 20pt; color: lightgreen"><strong>Terraria</strong></li>
+        </ol>
+
+        <hr class="barra">
+        <h3>Preguntas primera actividad</h3>
+        <div class="Pregunta">
+            <h5>¿Cuál es la diferencia entre Internet y la World Wide Web?</h5>
+            <p>
+            Internet:Red informática mundial, descentralizada, formada por la conexión directa entre computadoras mediante un protocolo especial de comunicación. (RAE, s.f.)
+            World Wide Web: Abreviado a WWW, se rata de una red de alcance mundial, que consiste en un complejo sistema de hipertextos e hipermedios interconectados entre sí y a los que puede tenerse acceso mediante una conexión a Internet y un conjunto de software especializado.
+            Por lo tanto, la diferencia radica en que el internet es la conexión entre computadoras y dispositivos mientras que la World Wide Web (WWW) es la enorme colección de paginas que se asientan sobre esa conexión, esto significa que se requiere de internet para acceder a la web.
+            </p>
+        </div>
+        <div class="Pregunta">
+            <h5>¿Cuáles son las partes de un URL?</h5>
+            <p>
+                Uniform Resourse Locator Consiste en la secuencia estándar de caracteres que identifica y permite localizar y recuperar una información determinada en la web. Consiste de las siguientes partes básicas:
+            </p>
+            <ol> <!--Lista-->
+                <li>Protocolo de red - Indica el protocolo de comunicación que se utilizará para acceder al recurso. Algunos ejemplos son HTTP (Hypertext Transfer Protocol), HTTPS (HTTP Secure) para páginas web, FTP (File Transfer Protocol), etc.</li> <!--li para un elemento-->
+                <li>Servicio/Subdominio - Es la dirección que identifica de manera única a una página web en Internet.</li>
+                <li>Dominio - Hace referencia al nombre único que identifica a un sitio web. Gracias a los nombres de dominio, no tenemos que utilizar direcciones IP para acceder a cada uno de los recursos de Internet.</li>
+                <li>TLD/Extensión - Top Level Domains, es la parte final de una dirección web e indica la naturaleza del dominio (.com, .org, .edu, etc.).</li>
+                <li>Ruta/Carpeta - Describe el contenido dentro de una subcarpeta.</li>
+                <li>Slug - Especifica la ubicación del recurso dentro del servidor.</li>
+            </ol>
+            <p>Adicionalmente es posible encontrar</p>
+            <ol>
+                <li>Parámetros de consulta - Son datos opcionales que se pueden incluir en la URL para pasar información al servidor, "?q=valor".</li>
+                <li>Fragmentos - Opcionalmente, se puede especificar un fragmento para enlazar directamente a una sección específica de una página web.</li>
+            </ol>
+            <img src="IMAGENES/URL_partes.jpeg" width="350" alt="Partes de una URL">
+        </div>
+        <div class="Pregunta">
+            <h5>¿Cuál es el propósito de los métodos HTTP: GET, HEAD, POST, PUT, PATCH, DELETE?</h5>
+            <p>
+                HTTP define un conjunto de métodos de petición para indicar la acción que se desea realizar para un recurso determinado. Cada método tiene un propósito específico:
+            </p>
+            <ol> 
+                <li>GET - Se utiliza para solicitar datos de un recurso específico en el servidor.</li> 
+                <li>HEAD - Es similar a GET, pero solo solicita los encabezados de respuesta del servidor, sin solicitar el cuerpo del recurso.</li>
+                <li>PUT - Se utiliza para enviar datos al servidor para crear o reemplazar el recurso especificado por la URL con los datos proporcionados.</li>
+                <li>POST - Se utiliza para enviar datos al servidor para su procesamiento.</li>
+                <li>PATCH - Se utiliza para aplicar modificaciones parciales a un recurso (actualizar).</li>
+                <li>DELETE - Se utiliza para solicitar al servidor que elimine el recurso especificado por la URL.</li>
+            </ol>
+        </div>
+        <div class="Pregunta">
+        <h5>¿Qué método HTTP se debe utilizar al enviar un formulario HTML, por ejemplo cuando ingresas tu usuario y contraseña en algún sitio? ¿Por qué?</h5>
+            <p>
+                El método para enviar datos es post, y este es el que debe usarse para el formulario. Los datos enviados a través de post no son visibles en la URL a diferencia de get, lo que hace que post sea más seguro. 
+                Post no tiene limitaciones en la cantidad de datos que puede enviar mientras que get está limitado por la longitud máxima del URL. 
+            </p>
+        </div>
+        <div class="Pregunta">
+        <h5>¿Qué método HTTP se utiliza cuando a través de un navegador web se accede a una página a través de un URL?</h5>
+            <p>
+                Al acceder a una página a través de un navegador utilizando sólo una URL, el método por defecto es get. El métdo get se usa para solicitar recursos específicos del servidor. Al escribir una URL y dar enter, el navegador envía una solicitud get al servidor para obtener la página web correspondiente.
+            </p>
+        </div>
+        <div class="Pregunta">
+            <h5>Un servidor web devuelve una respuesta HTTP con código 200. ¿Qué significa esto? ¿Ocurrió algún error?</h5>
+            <p>
+                No, no hubo ningún error. El código de respuesta de estado satisfactorio HTTP 200 <strong>OK</strong> indica que la solicitud ha tenido éxito. Una respuesta 200 es almacenable de forma predeterminada.
+            </p>
+        </div>
+        <div class="Pregunta">
+            <h5>¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al sitio y se encontró con un error 404? ¿Por qué?</h5>
+            <p>
+                El error <strong>404 not found</strong> indica que el servidor no pudo encontrar el contenido solicitado. Este código de respuesta es uno de los más famosos dada su alta ocurrencia en la web.
+                Por lo tanto, si es responsabilidad del desarrollador corregir su sitio web, porque el desarrollador es quien tiene el conocimiento técnico para identificar y solucionar el problema, 
+                tiene la responsabilidad de darle mantenimiento y de garantizar que el sitio web funcione correctamente. 
+            </p>
+        </div>
+        <div class="Pregunta">
+            <h5>¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al sitio y se encontró con un error 500? ¿Por qué?</h5>
+            <p id="Pregunta8">
+                El error <strong>500 internal server error</strong> indica que el servidor ha encontrado una situación que no sabe cómo manejarla. 
+                Es responsabilidad del desarrollador corregir un sitio web si se reporta este error. 
+                El error 500 puede ser causado por problemas en el código del servidor, como errores de programación, falta de recursos o problemas de configuración. 
+                Es responsabilidad del desarrollador identificar y corregir estos problemas para restaurar la funcionalidad del sitio web. El desarrollador es responsable de garantizar un buen funcionamiento y experiencia de usuario.
+            </p>
+        </div>
+        <div class="Pregunta">
+            <h5>¿Qué significa que un atributo HTML5 esté depreciado o desaprobado (deprecated)? Menciona algunos elementos de HTML 4 que en HTML5 estén desaprobados.</h5>
+            <p>
+                La última especificación oficial de HTML se publicó en diciembre de 1999 y se denomina HTML 4.01. Los atributos HTML proporcionan información adicional a los elementos HTML sobre cómo se debe procesar o mostrar el contenido. 
+                Los atributos se agregan a las etiquetas HTML utilizando la sintaxis de "nombre de atributo=valor". Cuando un atributo HTML5 está "depreciado" o "desaprobado" (deprecated), significa que aunque aún es compatible y funcionará en los navegadores web, se considera obsoleto o no se recomienda su uso. 
+                Algunos de estos son:
+            </p>
+            <ol>
+                <li>Elemento font</li>
+                <li>Atributo align</li>
+                <li>Atributo frameborder</li>
+                <li>Atributo border</li>
+            </ol>
+        </div>
+        <div class="Pregunta">
+            <h5>¿Cuáles son las diferencias principales entre HTML 4 y HTML5?</h5>
+            <p>
+                HTML5 representó una evolución significativa sobre HTML 4, con una serie de nuevas características, mejoras y estándares que abordan las necesidades de la red moderna. 
+                Algunas diferencias principales son:
+            </p>
+            <ol>
+                <li>Nuevos elementos semánticos</li>
+                <li>Soporte multimedia mejorado</li>
+                <li>Formularios mejorados</li>
+                <li>Gráficos y animaciones</li>
+                <li>Almacenamiento local</li>
+                <li>Geolocalización</li>
+                <li>Soporte para aplicaciones web</li>
+            </ol>
+        </div>
+        <div class="Pregunta">
+            <h5>¿Qué componentes de estructura y estilo tiene una tabla?</h5>
+            <p>
+                Una tabla es un conjunto estructurado de datos distribuidos en filas y columnas (datos tabulados). 
+                Una tabla permite buscar con rapidez y facilidad valores entre diferentes tipos de datos que indiquen algún tipo de conexión.
+            </p>
+            <p>Componentes de estructura</p>
+            <ol>
+                <li>Elemento table</li>
+                <li>Elemento tr (table row)</li>
+                <li>Elemento th (table header)</li>
+                <li>Elemento td (table data)</li>
+                <li>Element caption</li>
+            </ol>
+            <p>Componentes de estilo</p>
+            <ol>
+                <li>Atributos de estilo en línea</li>
+                <li>Frameworks y librerías CSS</li>
+            </ol>
+        </div>
+        <div class="Pregunta">
+            <h5>¿Cuáles son los principales controles de una forma HTML5?</h5>
+            <p>
+                HTML5 introdujo varios nuevos tipos de controles de formulario que permiten a los desarrolladores crear formularios más ricos y funcionales. 
+                Algunos controles de formulario en HTML5 son:
+            </p>
+            <ol>
+                <li>input type="text"</li>
+                <li>input type="password"</li>
+                <li>input type="email"</li>
+                <li>input type="tel"</li>
+                <li>input type="number"</li>
+                <li>input type="date", input type="time", input type="datetime-local"</li>
+                <li>input type="checkbox"</li>
+                <li>input type="radio"</li>
+                <li>input type="file"</li>
+                <li>input type="submit", input type="reset", button type="submit"</li>
+            </ol>
+        </div>
+        <div class="Pregunta">
+            <h5>¿Qué tanto soporte HTML5 tiene el navegador que utilizas? Puedes utilizar la siguiente página para descubrirlo</h5>
+            <a href="http://html5test.com/">Enlace</a>
+            <p>
+                El enlace proporcionado no funciona, por lo que se utilizó este otro. Estos fueron los resultados
+            </p>
+            <a href="https://html5test.opensuse.org/">EnlaceOpenUse</a>
+            <table>
+                <thead>
+                    <tr>
+                        <td>Navegador</td>
+                        <td>Resultado</td>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>Google Chrome</td>
+                    <td><img src="IMAGENES/Test_google_chrome.png" width="200" alt="Test en Google Chrome"></td>
+                </tr>
+                <tr>
+                    <td>Safari</td>
+                    <td><img src="IMAGENES/Test_safari.png" width="200" alt="Test en Safari"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="Pregunta">
+            <h5>¿Cuál es el ciclo de vida de los sistemas de información?</h5>
+            <p>
+                El ciclo de vida de los sistemas de información es un marco metodológico que describe las etapas típicas por las que pasa un sistema de información, desde su concepción inicial hasta su despliegue, mantenimiento y eventual retiro. 
+                Hay varios modelos, pero el más común es el modelo en cascada:
+            </p>
+            <ol>
+                <li>Planificación</li>
+                <li>Análisis</li>
+                <li>Diseño</li>
+                <li>Implementación</li>
+                <li>Pruebas</li>
+                <li>Despliegue</li>
+                <li>Mantenimiento</li>
+            </ol>
+        </div>
+        <div class="Pregunta">
+            <h5>¿Cuál es el ciclo de desarrollo de sistemas de información?</h5>
+            <p>
+                A diferencia del ciclo de vida del sistema de información, que se centra en las fases del proyecto desde la concepción hasta el despliegue y mantenimiento, el ciclo de desarrollo se enfoca en las actividades específicas de desarrollo de software.
+            </p>
+            <ol>
+                <li>Recolección de requisitos</li>
+                <li>Diseño</li>
+                <li>Implementación</li>
+                <li>Pruebas</li>
+                <li>Despliegue</li>
+                <li>Mantenimiento</li>
+            </ol>
+        </div>
+
+        <hr class="barra">
+        <h3 class="red">Hola mundo Minecraft</h3>
+        <table>
+            <tbody>
+                <tr><td>Manzanas</td><td id="Diamantes">Diamantes</td></tr>
+            </tbody>
+            <thead>
+                <tr><th>Comida</th><th>Minerales</th></tr>
+            </thead>
+            <tfoot class="red">
+                <tr><td colspan="2">Tabla de objetos de Minecraft</td></tr>
+            </tfoot>
+        </table>
+
+        <hr class="barra">
+        <h3>Agregando estilo con CSS</h3>
+        <div class="Pregunta">
+            <h5>Como ingeniero de software ¿cuál es tu recomendación sobre el uso de !important en un CSS?</h5>
+            <p>
+                La directiva !important en CSS es utilizada para otorgar prioridad a una regla específica sobre otras reglas que podrían aplicarse al mismo elemento HTML.
+                Cuando se añade !important a una propiedad en una regla CSS, esta propiedad prevalecerá sobre propiedades con la misma especificidad que no tengan !important.
+            </p>
+            <p>
+                La recomendación es tratar de evitar el uso de !important en la medida de lo posible. Si bien puede ser útil en ciertas situaciones para problemas de especificidad,
+                su uso excesivo puede llevar a un código difícil de mantener y depurar. Además, puede ser muy complicado realizar actualizaciones futuras.
+            </p>
+        </div>
+        <div class="Pregunta">
+            <h5>Si se pone una imagen de fondo en una página HTML, ¿por qué debe escogerse con cuidado?</h5>
+            <p>
+                Lo ideal cuando se trata de un fondo, es que este no sea impedimento para que el usuario o cliente consulte lo que el sitio web tiene de forma eficiente. Un fondo inefectivo dificulta la lectura y en algunos casos la hace ilegible.
+                Las imagenes no se quedan atrás, pues dependiendo de los colores, pueden dificultar la legibilidad del contenido. Además, se le suman algunos aspectos:
+            </p>
+            <ol>
+                <li>Legibilidad del contenido - La imagen de fondo no debe interferir con la legibilidad de contenido</li>
+                <li>Coherencia visual - La imagen debe complementar el diseño general de la página y ser coherente con su contenido</li>
+                <li>Velocidad de carga - Las imagenes de fondo grandes pueden afectar negativamente el tiempo de carga de la página</li>
+                <li>Compatibilidad con dispositivos - La imagen debe ser compatible con una variedad de dispositivos y tamaños de pantalla</li>
+                <li>Accesibilidad - Se debe tener en cuenta la accesibilidad web al elegir una imagen de fondo.</li>
+            </ol>
+        </div>
+        <div class="Pregunta">
+            <h5>Como ingeniero de software, ¿cuál es tu recomendación al elegir las unidades de un propiedad de estilo entre %, px y pt?</h5>
+            <p>
+                La elección de casa unidad depende del contexto específico y requerimientos del diseño, así como usabilidad del sitio web o aplicación.
+            </p>
+            <table id="unidades">
+                <thead>
+                    <tr>
+                        <td>Unidad</td>
+                        <td>Descripción</td>
+                        <td>Consideraciones</td>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>Porcentaje(%)</td>
+                    <td>Representa una proporción del tamaño del contenedor padre.</td>
+                    <td>
+                        Puede ser útil para crear diseños responsivos, es decir, que se ajusten en relación al tamaño del contenedor. 
+                        Es útil cuando se quiere que los elementos escalen en relación al contenedor, 
+                        aunque los porcentajes pueden tener comportamientos impredecibles en ciertos contextos, especialmente cuando se trabaja con elementos anidados o con márgenes y rellenos.
+                    </td>
+                </tr>
+                <tr>
+                    <td>Píxeles(px)</td>
+                    <td>Representa un píxel de la pantalla del dispositivo de visualización.</td>
+                    <td>
+                        Los píxeles proporcionan un control preciso sobre las dimensiones y el posicionamiento de los elementos. 
+                        El uso de píxeles puede garantizar una apariencia consistente en diferentes dispositivos y resoluciones de pantalla.
+                        Sin embargo, los píxeles pueden no escalar adecuadamente en dispositivos de alta resolución, lo que puede resultar en elementos pequeños o borrosos en pantallas de alta densidad de píxeles
+                    </td>
+                </tr>
+                <tr>
+                    <td>Puntos(pt)</td>
+                    <td>Representa 0.3527 mm, lo que es equivalente a 1/72 de una pulgada en una pantalla de visualización. En la impresión, un punto es igual a 1/72 de una pulgada en el papel.</td>
+                    <td>
+                        Los puntos son una unidad de medida comúnmente utilizada en diseño para impresión. 
+                        Sin embargo, los puntos pueden no ser la mejor opción para la web, ya que no escalan con el tamaño de la ventana del navegador
+                        y pueden causar problemas de legibilidad y usabilidad en diferentes dispositivos y resoluciones de pantalla.
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="Pregunta">
+            <h5>¿Por qué el uso de una versión minimizada del CSS mejora el rendimiento del sitio?</h5>
+            <p>
+                Una versión minimizada mejora el rendimiento del sitio web por dos razones principales:
+            </p>
+            <ol>
+                <li>
+                    Reducción de tamaño del archivo - Elminina todos los caracteres innecesarios, como espacios en blanco, comentarios y líneas vacías, lo que reduce significativamente el tamaño del archivo CSS.
+                    Esto significa que se transferirá una menor cantidad de datos desde el servidor al navegador del usuario.
+                </li>
+                <li>
+                    Optimización de velocidad de carga - Se mejora la velocidad de carga del sitio web. Los CSS's minimizados se cargan más rápido desde el servidor, lo que reduce el tiempo de espera del usuario antes de que se pueda el contenido de la página.
+                </li>
+            </ol>
+        </div>
+        <hr class="barra">
+        <h3>Agregando JavaScript</h3>
+        <p>
+            JavaScript es un lenguaje de programación que los desarrolladores utilizan para hacer páginas web interactivas. Desde actualizar fuentes de redes sociales a mostrar animaciones y mapas interactivos, las funciones de JavaScript pueden mejorar la experiencia del usuario de un sitio web. 
+            Como lenguaje de scripting del lado del servidor, se trata de una de las principales tecnologías de la World Wide Web. (Amazon)
+            Se trata de un lenguaje de programación de alto nivel que se utiliza principalmente para crear páginas web interactivas y dinámicas. 
+            Fue creado originalmente por Brendan Eich en 1995 mientras trabajaba en Netscape Communications Corporation. Inicialmente, se diseñó para agregar interactividad a las páginas web, permitiendo a los desarrolladores controlar el comportamiento del navegador web del cliente.
+            A lo largo de los años, JavaScript ha evolucionado significativamente y ahora es uno de los lenguajes de programación más populares y versátiles. Se utiliza no solo en el desarrollo web, sino también en aplicaciones de servidor, desarrollo de aplicaciones móviles, desarrollo de juegos, aplicaciones de escritorio y mucho más.
+        </p>
+        <div class="Pregunta">
+            <h5>¿Qué diferencias y semejanzas hay entre Java y JavaScript?</h5>
+            <p>De acuerdo al sitio oficial de Java</p>
+            <ol>
+                <li>El lenguaje de programación JavaScript, desarrollador por Netscape, Inc., no forma parte de la plataforma Java.</li>
+                <li>JavaScript no crea applets ni aplicaciones independientes. En su forma más habitual, JavaScript está en documentos HTML y puede proporcionar niveles de interactividad en las páginas web que no se pueden conseguir con HTML simple.</li>
+                <li>Java es un lenguaje de programación OOP, mientras que Java Script es un lenguaje de scripts OOP.</li>
+                <li>Ambos tienen diferencias significativas en sintaxis y estructura</li>
+            </ol>
+        </div>
+        <div class="Pregunta">
+            <h5>¿Qué métodos tiene el objeto Date? (Menciona al menos 5*)</h5>
+            <p>Date proporciona métodos para obtener y establecer diferentes partes de una fecha como el año, día, mes, hora, minutos, segundos y milisegundos</p>
+            <table>
+                <thead>
+                    <tr>
+                        <td>Método</td>
+                        <td>Descripción</td>
+                    </tr>
+                    <tr>
+                        <td>getDate</td>
+                        <td>Devuelve el día del mes (entre 1-31) para la fecha representada por el objeto Date</td>
+                    </tr>
+                    <tr>
+                        <td>getMonth()</td>
+                        <td>Devuelve el mes (un número del 0 al 11) para la fecha representada por el objeto Date. Se indexa desde 0 (enero) hasta 11 (diciembre)</td>
+                    </tr>
+                    <tr>
+                        <td>getFullYear</td>
+                        <td>Devuelve el año (como un número de cuatro dígitos) para la fecha representada por el objeto Date</td>
+                    </tr>
+                    <tr>
+                        <td>getHours</td>
+                        <td>Devuelve la hora (un número del 0 al 23) para la fecha representada por el objeto Date</td>
+                    </tr>
+                    <tr>
+                        <td>getMinutes</td>
+                        <td>Devuelve los minutos (un número del 0 al 59) para la fecha representada por el objeto Date</td>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="Pregunta">
+            <h5>¿Qué métodos tienen los arreglos? (Menciona al menos 5*)</h5>
+            <p>
+                En JavaScript, un arreglo (o array en inglés) es una estructura de datos que se utiliza para almacenar una colección ordenada de elementos. 
+            </p>
+            <table>
+                <thead>
+                    <tr>
+                        <td>Método</td>
+                        <td>Descripción</td>
+                    </tr>
+                    <tr>
+                        <td>push</td>
+                        <td>Añade uno o más elementos al final de un array y devuelve la nueva longitud del array.</td>
+                    </tr>
+                    <tr>
+                        <td>pop</td>
+                        <td>Elimina el último elemento de un array y devuelve ese elemento.</td>
+                    </tr>
+                    <tr>
+                        <td>shift</td>
+                        <td>Elimina el primer elemento de un array y devuelve ese elemento.</td>
+                    </tr>
+                    <tr>
+                        <td>unshift</td>
+                        <td>Añade uno o más elementos al principio de un array y devuelve la nueva longitud del array.</td>
+                    </tr>
+                    <tr>
+                        <td>splice</td>
+                        <td>Cambia el contenido de un array eliminando elementos existentes y/o añadiendo nuevos elementos.</td>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="Pregunta">
+            <h5>¿Cómo se declara una variable con alcance local dentro de una función?</h5>
+            <p>
+                En JavaScript, se pude declarar una variable con alcance local dentro de una función utilizando las palabras reservadas let y const dentro del bloque de la función.
+                La variable estará disponible sólo dentro de la función en la que se declara y no será accesible desde fuera de ella.
+            </p>
+        </div>
+        <div class="Pregunta">
+            <h5>¿Qué implicaciones tiene utilizar variables globales dentro de funciones?</h5>
+            <p>
+                Utilizar variables globales dentro de funciones puede tener varias implicaciones importantes en la forma en que se comporta y mantiene el código, algunas son las siguientes.
+            </p>
+            <ol>
+                <li>Contaminación del espacio global - Las variables globales estan disponibles en todo el programa. lo que significa que pueden ser accedidas y modificadas desde cualquier parte del código. Si bien puede ser útil en ciertos casos, depende de la situación.</li>
+                <li>Posibles conflictos de nombres - Al utilizar variables globales, existe el riesgo de que se produzcan conflictos de nombres con variables globales definidas por otras partes del código, bibliotecas externas o incluso el propio entorno de ejecución.</li>
+                <li>Dificultad para entender y mantener el código - Pueden dificultar la comprensión del flujo de datos y la lógica del programa, especialmente en proyectos grandes o complejos. </li>
+                <li>Acoplamiento - Puede aumentar el acoplamiento entre diferentes partes del código, lo que puede hacer que sea más difícil reutilizar, probar y mantener esas partes de manera independiente. </li>
+            </ol>
+        </div>
+        <div class="EjerciciosJava">
+            <h5>Ejercicios de JavaScript</h5>
+            <p>El siguiente enlace lleva al archivo donde se realizaron los ejercicios</p>
+            <a href="EjerciciosJava.html">Ejercicios</a>
+        </div>
+
+        <hr class="barra">
+        <h3>Frameworks de estilo</h3>
+        <p>
+            Un framework de CSS es una biblioteca de código predefinido, diseñada para implementar estilos y diseños rápidos y consistentes en un sitio web. 
+            Traen código preescrito y reusable para elementos y componentes de diseño comunes, que se aplican fácilmente al HTML base. Así, se crean interfaces de usuario familiares y consistentes, o diseños de sitios web.
+            Los frameworks de CSS son utilizados por desarrolladores front-end para implementar con rapidez elementos como cuadrículas adaptables, formularios, y botones con estilo, u otros elementos importantes de UI, tanto en páginas web como en aplicaciones.
+            Algunos de los frameworks más conocidos son:
+        </p>
+        <ol>
+            <li>Bootstrap</li>
+            <li>Foundation</li>
+            <li>Materialize</li>
+            <li>Bulma</li>
+            <li>Tailwind</li>
+        </ol>
+        <p>Sin embargo, no son las únicos frameworks que existen. En el siguiente enlace se muestra cómo se vería esta página si se usara la plantilla del framework Materialize</p>
+        <a href="framework.html">Página usando Materialize</a>
+        <h5>Material design</h5>
+        <p>
+            El material design es un estilo de diseño desarrollado por Google que se presentó al público en 2014, a la par de la versión Android Lollipop. 
+            Este se enfoca en los aspectos visuales que corresponden al sistema operativo Android, aunque también es una normativa que se aplica en diferentes páginas web y plataformas. (KeepCoding, 2022)
+            El objetivo principal de Material Design es crear una experiencia de usuario intuitiva y consistente a través de diferentes plataformas y dispositivos, incluidos teléfonos móviles, tabletas, computadoras de escritorio y más. Se basa en principios de diseño claros y directos, así como en una estética moderna y minimalista.
+            Algunas características clave de Material design son:
+        </p>
+        <ol>
+            <li>Diseño visual limpio y moderno - Para crear interfaces atractivas y agradables a la vista</li>
+            <li>Movimiento y animación - Incorporar transiciones fluidas y animaciones suaves para mejorar la experiencia del usuario</li>
+            <li>Profundidad y realismo - Utilizando técnicas de profundidad, sombreado y capas</li>
+            <li>Componentes y patrones de diseño reutilizables - Construir aplicaciones y sitios web de manera eficiente y coherente</li>
+        </ol>
+        <hr class="barra">
+        <h3>Programación orientada a eventos</h3>
+        <h5>DOM</h5>
+        <p>
+            DOM son siglas de Document Object Model, esta es la interfaz que representa como documentos HTML y XML son leidos por el navegador.
+            Le permite a un lenguaje (JavaScript) a manipular, estructurar y estilizar el sitio. Despues de que el navegador lee el documento HTML, crea un árbol representador llamado DOM y define como el árbol puede ser accedido.
+        </p>
+        <h5>¿Por qué es una buena práctica usar JavaScript para checar que sean válidos los inputs de las formas antes de enviar los datos al servidor?</h5>
+        <p>
+            Usar JavaScript para validar los inputs de los formularios es buena práctica principalmente para mejorar la experiencia de usuario, algunas razones son:
+        </p>
+        <ol>
+            <li>Una mejor experiencia de usuario - Permite dar retroalimentación inmediata sobre cualquier error en los datos ingresados.</li>
+            <li>Reducción de tiempos de carga - Puede ayudar a reducir la carga al eliminar solicitudes de datos incorrectos o incompletos.</li>
+            <li>Mejor seguridad - Puede ayudar a prevenir ataques de seguridad comunes</li>
+        </ol>
+        <h5>¿Cómo puedes saltarte la seguridad de validaciones hechas con JavaScript?</h5>
+        <p>
+            Saltarse la seguridad usualmente implica eludir la lógica de validación del lado del cliente con el fin de enviar datos incorrectos e incluso maliciosos al servidor.
+        </p>
+        <ol>
+            <li>Desactivar JavaScript - Si se confía exclusivamente en la validación del lado del cliente, un usuario puede desactivar JavaScript en su navegador y enviar datos no válidos al servido.r</li>
+            <li>Modificar el código de JavaScript - Un usuario puede modificar el código para que sea posible eliminar o alterar la lógica de validación.</li>
+        </ol>
+        <h5>Si te puedes saltar la seguridad de las validaciones de JavaScript, entonces ¿por qué la primera pregunta dice que es una buena práctica?</h5>
+        <p>
+            Principalmente con el fin de evitar un ataque común y mantener la integridad de los datos segura. La validación es una capa de seguridad y es importante por las razones mencionadas en la primera pregunta. Sin embargo, no es la única capa de seguridad.
+            En cualquier caso, es una buena práctica por la experiencia de usuario, entre mejor sea la experiencia, mejor recibimiento tendrá tu programa.
+        </p>
+
+        <hr class="barra">
+        <h3>Introducción a node</h3>
+        <p>
+            Node.js es un entorno de ejecución de JavaScript de código abierto, interpreta línea por línea en lugar de todo el código como un compilador. Este entorno permitirá acceder a los archivos locales, algo que un novagador no podría.
+        </p>
+        <h5>Instalando Node</h5>
+        <p>
+            En la página oficial <a href="https://nodejs.org/en">Node.js</a>. Se instala el paquete, en este caso se instaló el recomendado para la mayoría de usuarios, el LTS (Long Term Support).
+            Una vez instado, ir a la terminal y comprobar usando el comando "node --version". 
+        </p>
+        <h5>Usando Node</h5>
+        <p>
+            Para usar el ambiente, escribir "node" en la terminal, serás recibido con un mensaje de bienvenido. Ahora en la consola se puede usar código de JavaScript.
+            Para salir de node hay varias formas, una es a través del comando de la terminal "Ctrl+C", otro método es a través del comando de node ".exit"
+            Para iniciar un archivo, se utiliza "node" seguido del nombre del archivo de JavaScript. 
+        </p>
+        <p>
+            En node existen los require, el equivalente al include e import de C++ y Python respectivamente
+        </p>
+
+        
+        <div class="fuentes">
+            <h3>Fuentes bibliográficas</h3>
+            <ol>
+                <li>!important - CSS: Cascading Style Sheets | MDN. (2023, 20 diciembre). MDN Web Docs. https://developer.mozilla.org/en-US/docs/Web/CSS/important</li>
+                <li>200 OK - HTTP | MDN. (2023, 23 febrero). MDN Web Docs. https://developer.mozilla.org/es/docs/Web/HTTP/Status/200</li>
+                <li>16 CSS Frameworks to Help You Build Faster & Launch in Style. (2023, 22 junio). Guías Para Sitios Web, Tips & Conocimiento. https://www.dreamhost.com/blog/es/frameworks-css-populares/#:~:text=Un%20framework%20de%20CSS%20es,aplican%20f%C3%A1cilmente%20al%20HTML%20base.</li>
+                <li>Aceituno, M. L. (s.f.). 1.2.2. Medidas de las letras. https://libros.uvq.edu.ar/spm/122_medidas_de_las_letras.html#:~:text=Usualmente%20el%20tama%C3%B1o%20de%20las,%2C%201%2F72%20de%20pulgada.</li>
+                <li>Aviani, G. (2019, 12 septiembre). An introduction to HTTP: everything you need to know. freeCodeCamp.org. https://www.freecodecamp.org/news/http-and-everything-you-need-to-know-about-it/</li>
+                <li>Berzal F.(s.f.) El ciclo de vida de un sistema de información. Diseño de bases de datos. Recuperado el 12 de febrero de 2024. https://flanagan.ugr.es/docencia/2005-2006/2/apuntes/ciclovida.pdf</li>
+                <li>Códigos de estado de respuesta HTTP - HTTP | MDN. (2022, 26 noviembre). MDN Web Docs. https://developer.mozilla.org/es/docs/Web/HTTP/Status</li>
+                <li>Collado, V. (2022, 23 febrero). ¿Qué es una dirección web o url? Cloud Computing | Adaptix Networks | Cómputo en la Nube. https://www.adaptixnetworks.com/que-es-una-direccion-web-o-url/</li>
+                <li>Cómo estructurar un formulario HTML - Aprende desarrollo web | MDN. (s. f.). MDN Web Docs. https://developer.mozilla.org/es/docs/Learn/Forms/How_to_structure_a_web_form</li>
+                <li>Conceptos básicos de las tablas HTML - Aprende desarrollo web | MDN. (s. f.). MDN Web Docs. https://developer.mozilla.org/es/docs/Learn/HTML/Tables/Basics</li>
+                <li>Controles de formulario originales - Aprende desarrollo web | MDN. (s. f.). MDN Web Docs. https://developer.mozilla.org/es/docs/Learn/Forms/Basic_native_form_controls</li>
+                <li>Equipo editorial, Etecé. (2023c, noviembre 19). ¿Qué es la World Wide Web? - Concepto, importancia y más. Concepto. https://concepto.de/www/</li>
+                <li>Equipo editorial, Etecé. (2023d, noviembre 19). URL - Concepto, usos, partes y características. Concepto. https://concepto.de/url/</li>
+                <li>freeCodeCamp.org. (2018, 22 octubre). What's the Document Object Model, and why you should know how to use it. https://www.freecodecamp.org/news/whats-the-document-object-model-and-why-you-should-know-how-to-use-it-1a2d0bc5429d/</li>
+                <li>González, E. (s. f.). ¿Cuáles son las versiones de HTML? Diferencias entre HTML 4 y HTML 5. Significado de strict. . . (CU00706B). aprenderaprogramar.com. https://www.aprenderaprogramar.com/index.php?option=com_content&view=article&id=444:icuales-son-las-versiones-de-html-diferencias-entre-html-4-y-html-5-significado-de-strict-cu00706b&catid=69&Itemid=192</li>
+                <li>KeepCoding, R. (2022, 5 abril). ¿Qué es el material design? | KeepCoding Bootcamps. KeepCoding Bootcamps. https://keepcoding.io/blog/que-es-material-design/</li>
+                <li>Métodos de petición HTTP - HTTP | MDN. (2023, 24 julio). MDN Web Docs. https://developer.mozilla.org/es/docs/Web/HTTP/Methods</li>
+                <li>Pol, T. (2023, 29 septiembre). ¿Qué es una URL? significado, estructura y consejos de optimización. Semrush Blog. https://es.semrush.com/blog/que-es-una-url/</li>
+                <li>¿Qué es JavaScript? - Explicación de JavaScript (JS) - AWS. (s.f.). Amazon Web Services, Inc. https://aws.amazon.com/es/what-is/javascript/#:~:text=JavaScript%20es%20un%20lenguaje%20de,usuario%20de%20un%20sitio%20web.</li>
+                <li>Referencia de Atributos HTML - HTML: Lenguaje de etiquetas de hipertexto | MDN. (2023, 28 noviembre). MDN Web Docs. https://developer.mozilla.org/es/docs/Web/HTML/Attributes</li>
+                <li>Varangouli, E. (2023, 20 enero). Lista de tags HTML: hoja de trucos HTML. ¿Qué son y para qué sirven? Semrush Blog. https://es.semrush.com/blog/lista-de-html-tags/</li>
+            </ol>
+        </div>
+        <footer> <!--Pie de página del sitio web-->
+            <h3>Datos de contacto</h3>
+            <p>Correro: a01352823@tec.mx</p>
+            <a href="https://miscompetenciastec21.tec.mx/elumen/portfolio/Xkx1RplSbGbQc4O142">Portafolio</a> <!--Asociar un enlace-->
+            <p>Para este trabajo se utilizó Visual Studio Code</p>
+        </footer>
+    </body>
+</html>
