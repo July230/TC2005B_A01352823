@@ -113,6 +113,7 @@ const footer = `
 
 const planetas = [{nombre: "Mundo desértico", imagen: "https://starbounder.org/mediawiki/images/1/18/Desert_Planet.png", descripcion: "Los mundos desérticos se caracterizan por estar cubiertos casi en su totalidad por arena, aun así, es posible hallar vida."}];
 
+// Los archivos se reestructuran en módulos, como aún no es muy grande, entonces es un módulo por página a mostrar
 router.get('/', (request, response, next) => {
     response.send(`
     <!DOCTYPE html>
@@ -292,16 +293,11 @@ router.get('/enviar', (request, response, next) => {
     `;
     html_respuesta += footer;
     response.send(html_respuesta);
-})
+});
 
 router.post('/enviar', (request, response, next) => {
-    const nuevoPlaneta = {
-        nombre: request.body.nombre,
-        imagen: request.body.imagen,
-        descripcion: request.body.descripcion
-    }
-    console.log(request.body);
-    planetas.push(request.body);
+    console.log(request.body); // Los datos de enviar son capturados por el servidor y se almacenan en el arreglo planetas
+    planetas.push(request.body); // Con request body se accede al cuerpo de la solicitud http que se está enviando al servidor
     response.redirect('/planetas');
 });
 
@@ -574,11 +570,11 @@ router.use('/novakid', (request, response, next) => {
 
 router.use((request, response, next) => {
     response.status(404);
-    response.send(header);
     response.send(`
+        ${header}
         <h1>Lo que buscas no existe</h1>
+        ${footer};
     `);
-    response.send(footer);
 });
 
 module.exports = router;
