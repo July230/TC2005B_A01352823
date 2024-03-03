@@ -8,14 +8,14 @@ const router = express.Router();
 const planetas = [{nombre: "Mundo desértico", imagen: "https://starbounder.org/mediawiki/images/1/18/Desert_Planet.png", descripcion: "Los mundos desérticos se caracterizan por estar cubiertos casi en su totalidad por arena, aun así, es posible hallar vida."}];
 
 // Ahora las rutas llevaran a un archivo tipo ejs, uno que combina html con javaScript de forma válida
-router.get('/enviar', (request, response, next) => {
-    response.render('enviar'); // En lugar de poner el html aquí, redireccionar al html con ejs
+router.get('/planetas', (request, response, next) => {
+    response.render('planetas'); // En lugar de poner el html aquí, redireccionar al html con ejs
 });
 
-router.post('/construir', (request, response, next) => {
+router.post('/enviar', (request, response, next) => {
     console.log(request.body);
     planetas.push(request.body);
-    response.redirect('/');
+    response.redirect('/planetas');
 });
 router.get('/', (request, response, next) => {
     console.log('Ruta /');
