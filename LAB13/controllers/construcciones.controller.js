@@ -1,5 +1,7 @@
 // Un archivo de controlador, la lógica de como va a interactuar
 
+const Construccion = require("../models/construccion.model");
+
 // Ahora el arreglo esta en controller y no en routes
 /*
 const construcciones = [
@@ -17,14 +19,16 @@ exports.get_construir = (request, response, next) => { // Para ruta get de const
 };
 
 exports.post_construir = (request, response, next) => { // Para la ruta post
-    console.log(request.body);
-    construcciones.push(request.body); // Agregar nuevo elemento al arreglo construcciones
+    console.log(request.body); // Imprime la peticion
+    // Antes se hacia push, pero ahora eso esta en modelo
+    const construccion = new Construccion(request.body.nombre, request.body.imagen); // Crear una instancia de la clase
+    construccion.save(); // Se guarda en el arreglo 
     response.redirect('/');
 };
 
 exports.get_root = (request, response, next) => { // Para la ruta raiz
     console.log('Ruta /');
     response.render('construcciones', {
-        construcciones: construcciones,
+        construcciones: Construccion.fetchAll(), // Ahora en lugar del arreglo, es la instancia de la clase Construccion
     });
 }
