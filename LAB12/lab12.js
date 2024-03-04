@@ -18,10 +18,10 @@ app.use((request, response, next) => {
     next(); //Le permite a la petición avanzar hacia el siguiente middleware
 });
 
-// Registrar el middleware con el modulo construcciones
+// Registrar el middleware con el modulo planetas
 const rutasPlanetas = require('./routes/planetas.routes.js'); // Con el punto se indica que está al mismo nivel que el archivo a iniciar
 
-// Llevar a la ruta asociada a la constante rutasConstrucciones
+// Llevar a la ruta asociada a la constante rutasPlanetas
 app.use('/', rutasPlanetas);
 
 // Si no se encuentra la ruta
