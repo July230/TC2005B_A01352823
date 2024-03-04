@@ -8,7 +8,7 @@ exports.get_registrar = (request, response, next) => { // Para ruta get de regis
     response.render('enviar'); // Hace render a la pagina construir
 };
 
-exports.post_resistrar = (request, response, next) => { // Para la ruta post
+exports.post_registrar = (request, response, next) => { // Para la ruta post
     console.log(request.body); // Imprime la peticion
     // Antes se hacia push, pero ahora eso esta en modelo
     const planeta = new Planeta(request.body.nombre, request.body.imagen, request.body.descripcion); // Crear una instancia de la clase
@@ -26,7 +26,7 @@ exports.get_planetas = (request, response, next) => { // Para la ruta que tiene 
 
 exports.get_root = (request, response, next) => { // Para ruta raiz
     console.log('Ruta /');
-    response.render('/'); // Hace render a la pagina raiz
+    response.render('starbound'); // Hace render a la pagina raiz
 };
 
 exports.get_humano = (request, response, next) => { // Para ruta get de humano

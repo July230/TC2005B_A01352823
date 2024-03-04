@@ -1,5 +1,5 @@
-/* Laboratorio 12 
-Refactorizar el código usando path y ejs
+/* Laboratorio 13
+Usar la arquitectura MVC
 */
 
 const express = require('express');

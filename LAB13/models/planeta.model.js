@@ -1,11 +1,13 @@
 /* Archivo de un modelo, el de planeta, este modelo y sus metodos se haran con base al diagrama de secuancia del laboratorio 13 */
 
 // Ahora el arreglo de los planetas esta en model
-const planetas = [{
+const planetas = [
+    {
     nombre: "Mundo desértico", 
     imagen: "https://starbounder.org/mediawiki/images/1/18/Desert_Planet.png", 
-    descripcion: "Los mundos desérticos se caracterizan por estar cubiertos casi en su totalidad por arena, aun así, es posible hallar vida."
-}];
+    descripcion: "Los mundos desérticos se caracterizan por estar cubiertos casi en su totalidad por arena, aun así, es posible hallar vida.",
+    }
+];
 
 module.exports = class Planeta {
     // Constructor de una clase. Sirve para crear un nuevo objeto, y en el se definen las propiedades del modelo

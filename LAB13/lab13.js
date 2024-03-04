@@ -22,7 +22,7 @@ app.use((request, response, next) => {
   next(); //Le permite a la petición avanzar hacia el siguiente middleware
 });
 
-//Registrar el middleware con el módulo construcciones
+//Registrar el middleware con el módulo planetas
 const rutasPlanetas = require('./routes/planetas.routes');
 
 app.use('/', rutasPlanetas);
