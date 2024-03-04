@@ -12,7 +12,7 @@ router.get('/construir', construccionesController.post_construir); // Nuevo cont
 
 router.get('/', construccionesController.get_root); // Nuevo controlador con get raiz
 
-// Ahora es unicamente las rutas
+// Ahora son unicamente las rutas
 
 // use y get hacen lo mismo pero get es específico para get y use es general
 
