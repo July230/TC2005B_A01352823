@@ -1,32 +1,32 @@
 <!--Html que corresponde a planetas enviados-->
 <%- include('includes/header.ejs') %>
 
-<h1 class="title">Hola Mundo Starbound</h1>
+<h1 class="title">Planetas registrados</h1>
 <div class="columns">
 <!--Funciones de javaScript dentro de los operadores <%%>-->
-    <% for (let construccion of construcciones) { %>
+    <% for (let planeta of planetas) { %>
         <div class="column">
             <div class="card">
                 <div class="card-image">
                 <figure class="image is-4by3">
-                    <img src="<%=planeta.imagen%>" alt="Imagen de <%= planeta.nombre %>">
+                    <img src="<%= planeta.imagen %>" alt="Imagen de <%= planeta.nombre %>">
                 </figure>
                 </div>
                 <div class="card-content">
                     <div class="media">
                         <div class="media-left">
                         <figure class="image is-48x48">
-                            <img src="<%=planeta.imagen%>" alt="Imagen de <%= planeta.nombre %>">
+                            <img src="<%= planeta.imagen %>" alt="Imagen de <%= planeta.nombre %>">
                         </figure>
                         </div>
                         <div class="media-content">
-                        <p class="title is-4"><%=planeta.nombre%></p> <!--Usar igual, es mas seguro y se evitan ataques de scripting-->
-                        <p class="subtitle is-6">@<%=planeta.nombre%></p>
+                        <p class="title is-4"><%= planeta.nombre %></p> <!--Usar igual, es mas seguro y se evitan ataques de scripting-->
+                        <p class="subtitle is-6">@<%= planeta.nombre %></p>
                         </div>
                     </div>
                 
                     <div class="content">
-                        <%=planeta.descripcion%>
+                        <%= planeta.descripcion %>
                         <a>@bulmaio</a>.
                         <a href="#">#css</a> <a href="#">#responsive</a>
                         <br>
