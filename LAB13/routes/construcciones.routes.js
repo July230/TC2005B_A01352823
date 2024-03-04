@@ -2,21 +2,19 @@
 
 const express = require('express');
 const router = express.Router();
+const construccionesController = require('../controllers/construcciones.controller'); // De donde saca los controladores
 
-const construcciones = [{nombre: "casa", imagen: "https://i.blogs.es/7cfcd0/casas-en-minecraft/840_560.jpeg"}];
 
-router.get('/construir', (request, response, next) => {
-    response.render('construir'); 
-});
-router.post('/construir', (request, response, next) => {
-    console.log(request.body);
-    construcciones.push(request.body);
-    response.redirect('/');
-});
-router.get('/', (request, response, next) => {
-    console.log('Ruta /');
-    response.render('construcciones', {
-        construcciones: construcciones,
-    });
-});
+// Aquí el orden importa, va de middleware en middleware
+router.get('/construir', construccionesController.get_construir); // Nuevo controlador con get construir
+
+router.get('/construir', construccionesController.post_construir); // Nuevo controlador con post construir
+
+router.get('/', construccionesController.get_root); // Nuevo controlador con get raiz
+
+// Ahora es unicamente las rutas
+
+// use y get hacen lo mismo pero get es específico para get y use es general
+
+
 module.exports = router;
