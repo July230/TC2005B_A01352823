@@ -48,12 +48,16 @@ router.get('/floran', (request, response, next) => {
     response.render('floran'); 
 });
 
-router.get('/floran', (request, response, next) => { 
-    response.render('floran'); 
-});
-
 router.get('/apex', (request, response, next) => { 
     response.render('apex'); 
+});
+
+router.get('/glitch', (request, response, next) => { 
+    response.render('glitch'); 
+});
+
+router.get('/novakid', (request, response, next) => { 
+    response.render('novakid'); 
 });
 
 module.exports = router;
