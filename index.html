@@ -548,6 +548,25 @@
             <li>Una herramienta para la terminal (command line utility) para interactuar con dicho repositorio que te ayuda a la instalación de utilidades, manejo de dependencias y la publicación de paquetes.</li>
         </ul>
         <h3>Package.json</h3>
+        <p>
+            Este archivo indica a npm que el directorio en el que se encuentra es en efecto un proyecto o paquete npm. 
+            Este archivo contiene la información del paquete incluyendo la descripción del mismo, versión, autor y más importante aún, dependencias.
+            El archivo Package.json se genera a través del comando <strong>npm init</strong> y llenando los campos correspondientes. 
+        </p>
+        <ul>
+            <li>version: Corresponde a la versión del proyecto.</li>
+            <li>description: Una breve descripción del proyecto.</li>
+            <li>entry point: Define cuál será el punto de "entrada" del proyecto. Esto es, que archivo se ejecutará cuando se importe el proyecto dentro de otro.</li>
+            <li>test command: Aquí se puede definir el comando que se quiere ejecutar para realizar las pruebas del proyecto</li>
+            <li>git repository: Define la url del repositorio git en donde este proyecto está alojado, se utiliza para informar a los usuarios del paquete el repositorio en donde encontrar el código fuente del proyecto.</li>
+            <li>author: El nombre e email de quien creó este proyecto.</li>
+            <li>license: Identifica el tipo de licencia de uso del proyecto. Permite a las personas saber que y que no está permitido al usar el código.</li>
+            <li>private: Es un valor booleano que te permite evitar que el paquete se publique en el repositorio. Si lo que se crea es un proyecto personal este valor será true.</li>
+        </ul>
+        <p>El archivo Package.json puede contener algunos de los siguientes campos:</p>
+        <ul>
+            <li>npm scripts: </li>
+        </ul>
         <h3>Introducción a express</h3>
         <p>
             
@@ -577,6 +596,7 @@
                 <li>Equipo editorial, Etecé. (2023d, noviembre 19). URL - Concepto, usos, partes y características. Concepto. https://concepto.de/url/</li>
                 <li>freeCodeCamp.org. (2018, 22 octubre). What's the Document Object Model, and why you should know how to use it. https://www.freecodecamp.org/news/whats-the-document-object-model-and-why-you-should-know-how-to-use-it-1a2d0bc5429d/</li>
                 <li>González, E. (s. f.). ¿Cuáles son las versiones de HTML? Diferencias entre HTML 4 y HTML 5. Significado de strict. . . (CU00706B). aprenderaprogramar.com. https://www.aprenderaprogramar.com/index.php?option=com_content&view=article&id=444:icuales-son-las-versiones-de-html-diferencias-entre-html-4-y-html-5-significado-de-strict-cu00706b&catid=69&Itemid=192</li>
+                <li>Hernandez, M. (2021, 8 febrero). ¿Qué es NPM? freeCodeCamp.org. https://www.freecodecamp.org/espanol/news/que-es-npm/</li>
                 <li>KeepCoding, R. (2022, 5 abril). ¿Qué es el material design? | KeepCoding Bootcamps. KeepCoding Bootcamps. https://keepcoding.io/blog/que-es-material-design/</li>
                 <li>Métodos de petición HTTP - HTTP | MDN. (2023, 24 julio). MDN Web Docs. https://developer.mozilla.org/es/docs/Web/HTTP/Methods</li>
                 <li>Pol, T. (2023, 29 septiembre). ¿Qué es una URL? significado, estructura y consejos de optimización. Semrush Blog. https://es.semrush.com/blog/que-es-una-url/</li>
