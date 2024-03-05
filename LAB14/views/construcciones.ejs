@@ -4,7 +4,7 @@
 
 <div class="columns">
 
-    <% for (let construccion of construcciones) { %>
+    <% for (let construccion of construcciones) { %> <!--Por cada vódigo de JavaScript, poner los operadores <%%>-->
 
         <div class="column">
             <div class="card">
@@ -39,10 +39,10 @@
         
     <% } %>
 
-    <% if(ultima_construccion != ''){
-        <div>La últmia construcción fue <%= ultima_construccion %> </div>
-    <% } %>
+</div>     
 
-</div>        
+<% if(ultima_construccion != '') { %>
+    <div>La última construcción fue <%= ultima_construccion %>.</div>
+<% } %>
 
 <%- include('includes/foot.ejs') %>

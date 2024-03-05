@@ -13,7 +13,10 @@ exports.post_construir = (request, response, next) => { // Para la ruta post
     // Request.body es una forma de request que guarda la petición que se hizo
     const construccion = new Construccion(request.body.nombre, request.body.imagen); // Crear una instancia de la clase
     construccion.save(); // Se guarda en el arreglo 
-    response.setHeader('Set-Cookie', 'ultima_construccion=', request.body.name); // Definir una cookie
+    
+    // Definir una cookie
+    // Para que la cookie no pueda ser leída por el código js del navegador, se le puede agregar la propiedad HttpOnly
+    response.setHeader('Set-Cookie', 'ultima_construccion=', request.body.name + '; HttpOnly'); 
     response.redirect('/');
 };
 

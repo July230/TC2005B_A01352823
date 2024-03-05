@@ -8,7 +8,7 @@ const construccionesController = require('../controllers/construcciones.controll
 // Aquí el orden importa, va de middleware en middleware
 router.get('/construir', construccionesController.get_construir); // Nuevo controlador con get construir
 
-router.get('/construir', construccionesController.post_construir); // Nuevo controlador con post construir
+router.post('/construir', construccionesController.post_construir); // Nuevo controlador con post construir
 
 router.get('/', construccionesController.get_root); // Nuevo controlador con get raiz
 
