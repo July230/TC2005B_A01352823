@@ -580,13 +580,45 @@
             <li>Establecer ajustes de aplicaciones web como qué puerto usar para conectar, y la localización de las plantillas que se utilizan para renderizar la respuesta.</li>
             <li>Añadir procesamiento de peticiones "middleware" adicional en cualquier punto dentro de la tubería de manejo de la petición.</li>
         </ul>
-
-        <h3>Introducción a EJS</h3>
         <p>
+            A pesar de que Express es en sí mismo bastante minimalista, los desarrolladores han creado paquetes de middleware compatibles para abordar casi cualquier problema de desarrollo web. 
+            Hay librerías para trabajar con cookies, sesiones, inicios de sesión de usuario, parámetros URL, datos POST, cabeceras de seguridad y muchos más. 
+        </p>
 
+        <h3>Introducción a EJS (Embedded JavaScript Templating)</h3>
+        <p>
+            <strong>Motor de plantillas</strong>: Son herramientas que ayudan a dividir el código html en partes más pequeñas, donde se puede reutilizar en otros archivos html y además tienen la capacidad de utilizar variables, 
+            con la finalidad de simplificar código. Algunas de sus ventajas son:
+        </p>
+        <ul>
+            <li>Mejora la productividad del desarrollador, el mantenimiento y legibilidad del código.</li>
+            <li>Rendimiento más rápido y mejora de procesamiento del lado del cliente.</li>
+            <li>Plantilla única para múltiples páginas.</li>
+        </ul>
+        <p>
+            Hay varios template engines populares disponibles para utilizar con Express. Algunos de los más conocidos son Pug (anteriormente conocido como Jade), EJS (Embedded JavaScript), Handlebars y Mustache, entre otros. 
+            Cada uno tiene su propia sintaxis y características, pero todos cumplen con el propósito fundamental de generar HTML dinámico.
+        </p>
+        <h5>EJS</h5>
+        <p>
+            EJS es un lenguaje de plantillas simple que le permite generar marcado HTML con JavaScript simple. En el laboratorio 12 se hace uso de este motor de templates.
         </p>
         <h3>Arquitectura MVC (Modelo-Vista-Controlador)</h3>
-        
+        <p>
+            Es un patrón en el diseño de software comúnmente utilizado para implementar interfaces de usuario, datos y lógica de control. 
+            Enfatiza una separación entre la lógica de negocios y su visualización. Esta "separación de preocupaciones" o "responsabilidades" proporciona una mejor división del trabajo y una mejora de mantenimiento.
+            Algunos otros patrones de diseño se basan en MVC, como MVVM (Modelo-Vista-modelo de vista), MVP (Modelo-Vista-Presentador) y MVW (Modelo-Vista-Whatever).
+            Las tres partes del patrón de diseño del software MVC se pueden describir de la siguiente manera:
+        </p>
+        <ul>
+            <li>Modelo: Maneja datos y lógica de negocios.</li>
+            <li>Vista: Se encarga del diseño y presentación.</li>
+            <li>Controlador: Enruta comandos a los modelos y vistas.</li>
+        </ul>
+        <img src="IMAGENES/model-view-controller-light-blue.png" width="500">
+        <h5>Beneficios del estilo MVC</h5>
+
+        <h5>Desvetajas del modelo MVC</h5>
         <div class="fuentes">
             <h3>Fuentes bibliográficas</h3>
             <ol>
@@ -604,10 +636,13 @@
                 <li>Equipo editorial, Etecé. (2023c, noviembre 19). ¿Qué es la World Wide Web? - Concepto, importancia y más. Concepto. https://concepto.de/www/</li>
                 <li>Equipo editorial, Etecé. (2023d, noviembre 19). URL - Concepto, usos, partes y características. Concepto. https://concepto.de/url/</li>
                 <li>freeCodeCamp.org. (2018, 22 octubre). What's the Document Object Model, and why you should know how to use it. https://www.freecodecamp.org/news/whats-the-document-object-model-and-why-you-should-know-how-to-use-it-1a2d0bc5429d/</li>
+                <li>Garcia, M. (2022, 15 junio). Express (Parte VI) — Motor de plantillas con pug y EJS. Medium. https://mauriciogc.medium.com/express-parte-vi-motor-de-plantillas-con-pug-y-ejs-6837cd3a390d#:~:text=EJS%20es%20un%20lenguaje%20de,carpeta%20nueva%20llamada%20ejs%2Dlayout</li>
                 <li>González, E. (s. f.). ¿Cuáles son las versiones de HTML? Diferencias entre HTML 4 y HTML 5. Significado de strict. . . (CU00706B). aprenderaprogramar.com. https://www.aprenderaprogramar.com/index.php?option=com_content&view=article&id=444:icuales-son-las-versiones-de-html-diferencias-entre-html-4-y-html-5-significado-de-strict-cu00706b&catid=69&Itemid=192</li>
                 <li>Hernandez, M. (2021, 8 febrero). ¿Qué es NPM? freeCodeCamp.org. https://www.freecodecamp.org/espanol/news/que-es-npm/</li>
                 <li>Héctor Patricio. (2021, 4 diciembre). Versiona mejor tu código: versionamiento semántico y commits convencionales. The Dojo MX Blog. https://blog.thedojo.mx/2021/12/04/versiona-mejor-tu-codigo-versionamiento-semantico-y-commits-convencionales.html#:~:text=El%20versionamiento%20sem%C3%A1ntico%20(Semantic%20Versioning,introducidos%20en%20las%20nuevas%20versiones.</li>
+                <li>Introducción a Express/Node - Aprende desarrollo web | MDN. (2023, 17 octubre). MDN Web Docs. https://developer.mozilla.org/es/docs/Learn/Server-side/Express_Nodejs/Introduction</li>
                 <li>KeepCoding, R. (2022, 5 abril). ¿Qué es el material design? | KeepCoding Bootcamps. KeepCoding Bootcamps. https://keepcoding.io/blog/que-es-material-design/</li>
+                <li>KeepCoding, R. (2023, 10 agosto). ¿Qué son los template engines? | KeepCoding Bootcamps. KeepCoding Bootcamps. https://keepcoding.io/blog/que-son-los-template-engines/</li>
                 <li>Métodos de petición HTTP - HTTP | MDN. (2023, 24 julio). MDN Web Docs. https://developer.mozilla.org/es/docs/Web/HTTP/Methods</li>
                 <li>Pol, T. (2023, 29 septiembre). ¿Qué es una URL? significado, estructura y consejos de optimización. Semrush Blog. https://es.semrush.com/blog/que-es-una-url/</li>
                 <li>¿Qué es JavaScript? - Explicación de JavaScript (JS) - AWS. (s.f.). Amazon Web Services, Inc. https://aws.amazon.com/es/what-is/javascript/#:~:text=JavaScript%20es%20un%20lenguaje%20de,usuario%20de%20un%20sitio%20web.</li>
