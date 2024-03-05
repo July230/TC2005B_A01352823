@@ -1,8 +1,8 @@
 <!--Nueva plantilla de login-->
-<%- include('includes/head.ejs') %>
+<%- include('includes/head.ejs', {username: username}) %>
 
 <h1 class="title">Bienvenido</h1>
-<form action="/construir" method="POST">
+<form action="/users/login" method="POST">
     <label class="label" for="username">Nombre de usuario</label>
     <input name="username" id="username" type="text" class="input"><br>
     <label class="label" for="password">Contraseña</label>

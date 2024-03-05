@@ -4,7 +4,9 @@ const Construccion = require("../models/construccion.model");
 
 // El orden en controladores ya no importa porque sólo es lógica
 exports.get_construir = (request, response, next) => { // Para ruta get de construir
-    response.render('construir'); // Hace render a la pagina construir
+    response.render('construir', {
+        username: request.session.username || '',
+    }); // Hace render a la pagina construir
 };
 
 exports.post_construir = (request, response, next) => { // Para la ruta post
@@ -34,5 +36,6 @@ exports.get_root = (request, response, next) => { // Para la ruta raiz
     response.render('construcciones', {
         construcciones: Construccion.fetchAll(), // Ahora en lugar del arreglo, es la instancia de la clase Construccion
         ultima_construccion: ultima_construccion, 
+        username: request.session.username || '', // De nuevo, si no existe, truena, asi que hacer un OR
     });
 }
