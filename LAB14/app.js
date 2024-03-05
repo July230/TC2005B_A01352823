@@ -9,6 +9,15 @@ const app = express();
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
+// Para preparar el entorno para trabajar con sesiones, agregamos como middleware el manejo de sesiones:
+const session = require('express-session'); // Con el modulo express-session
+
+app.use(session({
+  secret: 'mi string secreto que debe ser un string aleatorio muy largo, no como éste', 
+  resave: false, //La sesión no se guardará en cada petición, sino sólo se guardará si algo cambió 
+  saveUninitialized: false, //Asegura que no se guarde una sesión para una petición que no lo necesita
+}));
+
 const path = require('path');
 app.use(express.static(path.join(__dirname, 'public'))); // directorio estatico public
 
@@ -23,6 +32,9 @@ app.use((request, response, next) => {
 });
 
 //Registrar el middleware con el módulo construcciones
+const rutasUsuarios = require('./routes/usuarios.routes'); // Nuevo modulo de rutas usuarios
+app.use('/users', rutasUsuarios);
+
 const rutasConstrucciones = require('./routes/construcciones.routes');
 
 app.use('/', rutasConstrucciones);
