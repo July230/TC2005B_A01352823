@@ -565,8 +565,11 @@
         </ul>
         <p>El archivo Package.json puede contener algunos de los siguientes campos:</p>
         <ul>
-            <li>npm scripts: </li>
+            <li>npm scripts: Esta sección define un listado de propiedades que permiten ejecutar comandos dentro del contexto de tu proyecto incluyendo: comandos de otros paquetes listados como dependencias, scripts personalizados, scripts bash, etc.</li>
+            <li>Dependencias y dependencias de desarrollo: Estas secciones, definen que paquetes disponibles en el repositorio de npm son requeridos por tu proyecto indicando también la versión necesaria. La versión mostrada aquí está en formato semver y corresponde al campo version mencionado anteriormente.</li>
+            <li>package-lock.json: Es autogenerado por <strong>npm install</strong> y es una lista descriptiva y exacta de las versiones instaladas durante el proceso. No esta destinado a ser leído ni manipulado por los desarrolladores, si no, para ser un insumo del proceso de manejo de dependencias.</li>
         </ul>
+        <p><strong>Semver - Versionamiento semántico</strong>: Es una forma de comunicar a nuestros usurioa finales los tipos de cambios introducidos en las nuevas versiones.</p>
         <h3>Introducción a express</h3>
         <p>
             
@@ -597,6 +600,7 @@
                 <li>freeCodeCamp.org. (2018, 22 octubre). What's the Document Object Model, and why you should know how to use it. https://www.freecodecamp.org/news/whats-the-document-object-model-and-why-you-should-know-how-to-use-it-1a2d0bc5429d/</li>
                 <li>González, E. (s. f.). ¿Cuáles son las versiones de HTML? Diferencias entre HTML 4 y HTML 5. Significado de strict. . . (CU00706B). aprenderaprogramar.com. https://www.aprenderaprogramar.com/index.php?option=com_content&view=article&id=444:icuales-son-las-versiones-de-html-diferencias-entre-html-4-y-html-5-significado-de-strict-cu00706b&catid=69&Itemid=192</li>
                 <li>Hernandez, M. (2021, 8 febrero). ¿Qué es NPM? freeCodeCamp.org. https://www.freecodecamp.org/espanol/news/que-es-npm/</li>
+                <li>Héctor Patricio. (2021, 4 diciembre). Versiona mejor tu código: versionamiento semántico y commits convencionales. The Dojo MX Blog. https://blog.thedojo.mx/2021/12/04/versiona-mejor-tu-codigo-versionamiento-semantico-y-commits-convencionales.html#:~:text=El%20versionamiento%20sem%C3%A1ntico%20(Semantic%20Versioning,introducidos%20en%20las%20nuevas%20versiones.</li>
                 <li>KeepCoding, R. (2022, 5 abril). ¿Qué es el material design? | KeepCoding Bootcamps. KeepCoding Bootcamps. https://keepcoding.io/blog/que-es-material-design/</li>
                 <li>Métodos de petición HTTP - HTTP | MDN. (2023, 24 julio). MDN Web Docs. https://developer.mozilla.org/es/docs/Web/HTTP/Methods</li>
                 <li>Pol, T. (2023, 29 septiembre). ¿Qué es una URL? significado, estructura y consejos de optimización. Semrush Blog. https://es.semrush.com/blog/que-es-una-url/</li>
