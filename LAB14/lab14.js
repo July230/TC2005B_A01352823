@@ -32,7 +32,7 @@ app.use((request, response, next) => {
 });
 
 //Registrar el middleware con el módulo construcciones
-const rutasUsuarios = require('./routes/usuarios.routes'); // Nuevo modulo de rutas usuarios
+const rutasUsuarios = require('./routes/usuarios2.routes'); // Nuevo modulo de rutas usuarios
 app.use('/users', rutasUsuarios);
 
 //Registrar el middleware con el módulo planetas
