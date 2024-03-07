@@ -1,12 +1,6 @@
 /* Archivo de un modelo, el de contruccion */
 
-
-const construcciones = [
-    {
-        nombre: "casa", 
-        imagen: "https://i.blogs.es/7cfcd0/casas-en-minecraft/1366_2000.jpeg",
-    }
-];
+const db = require('../util/database'); // Ryta a la base de datos
 
 // Crear una clase
 module.exports =  class Construccion {
@@ -17,15 +11,14 @@ module.exports =  class Construccion {
     }
     // Este metodo servira para guardar de manera persistente el nuevo objeto
     save(){
-        construcciones.push({
-            nombre: this.nombre,
-            imagen: this.imagen,
-        }); // es lo mismo que construcciones.push(this)
+        return db.execute(
+            'INSERT INTO Construccion (nombre, imagen, username) VALUES (?, ?, "rommel49")', // Se dejan los espacios, el uno es para que le ponga al usuario 1
+            [this.nombre, this.imagen] // Para evitar sql inyection
+        );
     }
 
-    // Los estaticos permanecen en memoria, se ejecuta sobre la clase, no sobre un objeto de la clase construccion
-    // Este metodo servira para devolver los objetos del almacenamiento persistente
+    // Ahora tiene para extraer de una tabla
     static fetchAll(){
-        return construcciones;
+        return db.execute('SELECT * FROM Construccion')
     }
 }

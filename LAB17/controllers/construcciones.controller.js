@@ -14,13 +14,15 @@ exports.post_construir = (request, response, next) => { // Para la ruta post
     // Antes se hacia push, pero ahora eso esta en modelo
     // Request.body es una forma de request que guarda la petición que se hizo
     const construccion = new Construccion(request.body.nombre, request.body.imagen); // Crear una instancia de la clase
-    construccion.save(); // Se guarda en el arreglo 
+    construccion.save()
+        .then(([rows, fieldData]) => {
+            // Ahora la cookie va adentro del then
+            // Para que la cookie no pueda ser leída por el código js del navegador, se le puede agregar la propiedad HttpOnly
+            response.setHeader('Set-Cookie', 'ultima_construccion=', request.body.name + '; HttpOnly'); 
+            response.redirect('/');
 
-    // Definir una cookie
-    // Para que la cookie no pueda ser leída por el código js del navegador, se le puede agregar la propiedad HttpOnly
-    response.setHeader('Set-Cookie', 'ultima_construccion=', request.body.name + '; HttpOnly'); 
-    response.redirect('/');
-};
+        }).catch(error => {console.log(error)});
+    }
 
 exports.get_root = (request, response, next) => { // Para la ruta raiz
     console.log('Ruta /');
@@ -33,9 +35,25 @@ exports.get_root = (request, response, next) => { // Para la ruta raiz
         ultima_construccion = '';
     }
     console.log(ultima_construccion);
-    response.render('construcciones', {
-        construcciones: Construccion.fetchAll(), // Ahora en lugar del arreglo, es la instancia de la clase Construccion
-        ultima_construccion: ultima_construccion, 
-        username: request.session.username || '', // De nuevo, si no existe, truena, asi que hacer un OR
+    Construccion.fetchAll().then(([rows, fieldData]) => { // Lee las filas de la tabla contruccion
+        console.log(rows); // devuelve las filas
+        response.render('construcciones', { // hace render a los registros de construccion
+            construcciones: rows, // Las filas de la tabla construccion
+            ultima_construccion: ultima_construccion, // La cookie ultima construccion
+            username: request.session.username || '', // En caso de que no exista, string vacío
+        });
+    })
+    .catch((error) => {
+        console.log(error);
     });
+}
+
+exports.getConstrucciones = (request, response, next) => {
+    Construccion.fetchAll() // El modelo
+        .then(([rows, fieldData]) => { // then es si se cumple la promesa
+            response.render('vista', {
+                Construccion: rows 
+            })
+        })
+        .catch(err => console.log(err)); // catch es en caso de que no, por lo que el error se muestra en consola
 }

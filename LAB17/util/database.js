@@ -5,7 +5,9 @@ const pool = mysql.createPool({
     host: 'localhost', // host de la base de la base de datos, en este caso 127.0.0.1 alias localhost
     user: 'root', // 
     database: 'minecraft', // nombre de la base de datos
-    password: '' // lo ideal es que tenga contraseña
+    password: 'JulianSQL' // lo ideal es que tenga contraseña
 });
 
 module.exports = pool.promise(); 
+// Las promesas son cuando el gestor hizo o no la consulta, permiten manejar fácilmente código que se ejecuta de manera asíncrona
+
