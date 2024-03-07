@@ -5,7 +5,7 @@ const pool = mysql.createPool({
     host: 'localhost', // host de la base de la base de datos, en este caso 127.0.0.1 alias localhost
     user: 'root', // 
     database: 'minecraft', // nombre de la base de datos
-    password: 'JulianSQL' // lo ideal es que tenga contraseña
+    password: 'JulianSQL' // La contraseña, en caso de que haya
 });
 
 module.exports = pool.promise(); 
