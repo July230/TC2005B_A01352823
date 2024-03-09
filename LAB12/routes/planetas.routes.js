@@ -2,6 +2,9 @@
 Refactorizar el código usando path y ejs
 */
 
+// Módulo fs
+const filesystem = require('fs');
+
 const express = require('express');
 const router = express.Router();
 
@@ -22,7 +25,19 @@ router.get('/enviar', (request, response, next) => { // El primer parametro es l
 router.post('/enviar', (request, response, next) => {
     console.log(request.body); // Hará la petición del cuerpo 
     planetas.push(request.body); // Agregará la respuesta en el arreglo planetas definido aqui mismo
-    response.redirect('planetas');
+    
+    // Convertir los datos en formato de texto
+    const data = JSON.stringify(planetas);
+
+    // Escribir los datos en un archivo de text con filesystem
+    filesystem.writeFile('planetas.txt', data, (err) => { // writeFile es asincrono
+      if(err){
+        console.error('Error al guardar los datos', err); // Si hay algun error, mostrar el error
+      }
+      console.log('Datos guardados en planetas'); // la escritura y redireccion deben estar dentro para evitar errores
+      console.log(planetas);
+      response.redirect('/planetas');
+    });
 });
 
 router.get('/planetas', (request, response, next) => { // En este caso hay un enlace que lleva a planetas
