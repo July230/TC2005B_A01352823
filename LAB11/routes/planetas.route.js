@@ -1,5 +1,8 @@
 /* Rutas del laboratorio 11 */
 
+// Módulo fs
+const filesystem = require('fs');
+
 const express = require('express');
 const router = express.Router();
 
@@ -298,7 +301,19 @@ router.get('/enviar', (request, response, next) => {
 router.post('/enviar', (request, response, next) => {
     console.log(request.body); // Los datos de enviar son capturados por el servidor y se almacenan en el arreglo planetas
     planetas.push(request.body); // Con request body se accede al cuerpo de la solicitud http que se está enviando al servidor
-    response.redirect('/planetas');
+
+    // Convertir los datos en formato de texto
+    const data = JSON.stringify(planetas);
+
+    // Escribir los datos en un archivo de text con filesystem
+    filesystem.writeFile('planetas.txt', data, (err) => { // writeFile es asincrono
+      if(err){
+        console.error('Error al guardar los datos', err); // Si hay algun error, mostrar el error
+      }
+      console.log('Datos guardados en planetas'); // la escritura y redireccion deben estar dentro para evitar errores
+      console.log(planetas);
+      response.redirect('/planetas');
+    });
 });
 
 router.use('/humano', (request, response, next) => {
