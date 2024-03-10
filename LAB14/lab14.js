@@ -1,4 +1,4 @@
-/* Archivo app para laboratorio 13 */
+/* Archivo para laboratorio 14 */
 
 // Es necesario haer iniciado el proyecto con npm init
 // Es necesario instalar body parser
@@ -13,7 +13,7 @@ app.set('views', 'views'); // Views en el directorio views
 const session = require('express-session'); // Con el modulo express-session
 
 app.use(session({
-  secret: 'mi string secreto que debe ser un string aleatorio muy largo, no como éste', 
+  secret: 'Aqui va un string secreto que debe ser un string aleatorio muy largo, no como éste', 
   resave: false, //La sesión no se guardará en cada petición, sino sólo se guardará si algo cambió 
   saveUninitialized: false, //Asegura que no se guarde una sesión para una petición que no lo necesita
 }));
@@ -31,7 +31,7 @@ app.use((request, response, next) => {
   next(); //Le permite a la petición avanzar hacia el siguiente middleware
 });
 
-//Registrar el middleware con el módulo construcciones
+// Egistrar middleware de usuarios con el modulo de usuarios2
 const rutasUsuarios = require('./routes/usuarios2.routes'); // Nuevo modulo de rutas usuarios
 app.use('/users', rutasUsuarios);
 

@@ -23,7 +23,7 @@ module.exports = class Planeta {
             nombre: this.nombre,
             imagen: this.imagen,
             descripcion: this.descripcion,
-        }); // es lo mismo que construcciones.push(this)
+        }); // es lo mismo que planetas.push(this)
     }
 
     // Los estaticos permanecen en memoria, se ejecuta sobre la clase, no sobre un objeto de la clase construccion

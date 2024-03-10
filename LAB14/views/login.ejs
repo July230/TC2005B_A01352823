@@ -1,5 +1,5 @@
 <!--Nueva plantilla de login-->
-<%- include('includes/head.ejs', {username: username}) %>
+<%- include('includes/header.ejs', {username: username}) %> <!--Al tener un usuario, hay que definirlo en el template, esto se hace en todos los templates-->
 
 <h1 class="title">Bienvenido</h1>
 <form action="/users/login" method="POST">

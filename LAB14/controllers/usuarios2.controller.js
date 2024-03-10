@@ -2,7 +2,7 @@
 
 exports.get_login = (request, response, next) => {
     response.render('login', {
-        username: request.session.username || '',
+        username: request.session.username || '', // En caso de que no exista el usuario, string vacio
     }); // Render de la plantilla login
 };
 

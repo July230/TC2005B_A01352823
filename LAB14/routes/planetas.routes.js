@@ -1,5 +1,4 @@
-/* Laboratorio 13
-Usar la arquitectura MVC
+/* Laboratorio 14
 */
 
 const express = require('express');
