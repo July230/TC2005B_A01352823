@@ -22,8 +22,7 @@ module.exports = class Planeta {
         );
     }
 
-    // Los estaticos permanecen en memoria, se ejecuta sobre la clase, no sobre un objeto de la clase construccion
-    // Este metodo servira para devolver los objetos del almacenamiento persistente
+    // Ahora en lugar del arreglo, se hace el script select de SQL
     static fetchAll(){
         return db.execute('SELECTC * FROM Planeta');
     }

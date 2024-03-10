@@ -14,11 +14,14 @@ exports.post_registrar = (request, response, next) => { // Para la ruta post
     console.log(request.body); // Imprime la peticion
     // Antes se hacia push, pero ahora eso esta en modelo
     const planeta = new Planeta(request.body.nombre, request.body.imagen, request.body.descripcion); // Crear una instancia de la clase
-    planeta.save(); // Se guarda en el arreglo 
-    // Definir una cookie
-    // Para que la cookie no pueda ser leída por el código js del navegador, se le puede agregar la propiedad HttpOnly
-    response.setHeader('Set-Cookie', 'ultimo_planeta=', request.body.name + '; HttpOnly');
-    response.redirect('/planetas');
+    planeta.save()
+        .then(([rows, fieldData]) => {
+        // La cookie se define dentro para que el codigo se ejecute antes de renderizar la pagina
+        // Para que la cookie no pueda ser leída por el código js del navegador, se le puede agregar la propiedad HttpOnly
+        response.setHeader('Set-Cookie', 'ultimo_planeta=', request.body.name + '; HttpOnly');
+        response.redirect('/planetas');
+
+        }).catch((error) => {console.log(error)}); // Se hace catch error y se muestra el error en consola
 };
 
 
@@ -33,11 +36,14 @@ exports.get_planetas = (request, response, next) => { // Para la ruta que tiene 
         ultimo_planeta = '';
     }
     console.log(ultimo_planeta);
-    response.render('planetas', {
-        planetas: Planeta.fetchAll(), // Ahora en lugar del arreglo, es la instancia de la clase Construccion
-        ultimo_planeta: ultimo_planeta, 
-        username: request.session.username || '',
-    });
+    Planeta.fetchAll().then(([rows, fieldData]) => { // En el modelo, fetchAll es un script para leer la tabla
+        console.log(rows);
+        response.render('planetas', { // Se hace render con la lectura de la tabla planetas en SQL
+            planetas: Planeta.fetchAll(), // Las filas de la tabla Planeta
+            ultimo_planeta: ultimo_planeta, // La cookie de ultimo planeta
+            username: request.session.username || '', // Usuario, en caso de que no exista, string vacio
+        });
+    }). catch((error) => {console.log(error)}); 
 }
 
 exports.get_root = (request, response, next) => { // Para ruta raiz
