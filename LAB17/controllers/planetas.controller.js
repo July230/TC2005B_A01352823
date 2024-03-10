@@ -39,11 +39,21 @@ exports.get_planetas = (request, response, next) => { // Para la ruta que tiene 
     Planeta.fetchAll().then(([rows, fieldData]) => { // En el modelo, fetchAll es un script para leer la tabla
         console.log(rows);
         response.render('planetas', { // Se hace render con la lectura de la tabla planetas en SQL
-            planetas: Planeta.fetchAll(), // Las filas de la tabla Planeta
-            ultimo_planeta: ultimo_planeta, // La cookie de ultimo planeta
+            planetas: rows, // Las filas de la tabla Planeta
+            ultimo_planeta: ultimo_planeta, // La cookie del ultimo planeta registrado
             username: request.session.username || '', // Usuario, en caso de que no exista, string vacio
         });
     }). catch((error) => {console.log(error)}); 
+}
+
+exports.getPlanetas = (request, response, next) => {
+    Planeta.fetchAll() // Metodo del modelo
+        .then(([rows, fieldData]) => { // Si se cumple la promesa
+            response.render('vista', {
+                Planeta: rows
+            })
+        })
+        .catch(err => console.log(err)); // catch es en caso de que no, por lo que el error se muestra en consola
 }
 
 exports.get_root = (request, response, next) => { // Para ruta raiz

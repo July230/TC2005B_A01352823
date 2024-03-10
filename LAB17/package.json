@@ -1,10 +1,10 @@
 {
   "name": "lab13",
   "version": "1.0.0",
-  "description": "Laboratorio 13",
+  "description": "Laboratorio 17",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "nodemon lab17.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

@@ -14,7 +14,7 @@ module.exports = class Planeta {
         this.imagen = mi_imagen;
         this.descripcion = mi_descripcion;
     }
-    // Este metodo servira para guardar de manera persistente el nuevo objeto
+    // Este metodo servira para guardar el objeto en la base de datos
     save(){
         return db.execute(
             'INSERT INTO Planeta (nombre, imagen, descripcion, username) VALUES (?, ?, ?, "julian23")',  // Se dejan los espacios, el uno es para que le ponga al usuario 1
@@ -24,6 +24,6 @@ module.exports = class Planeta {
 
     // Ahora en lugar del arreglo, se hace el script select de SQL
     static fetchAll(){
-        return db.execute('SELECTC * FROM Planeta');
+        return db.execute('SELECT * FROM Planeta');
     }
 }
