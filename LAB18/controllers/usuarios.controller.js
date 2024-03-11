@@ -18,7 +18,7 @@ exports.post_login = (request, response, next) => {
                 //users[0] contiene el objeto de la respuesta de la consulta
                 const user = users[0];
                 bcrypt.compare(request.body.password, user.password) // Comparar contraseña cifrada con contraseña del usuario
-                    .then(doMatch => {
+                    .then(doMatch => { // Hace una comparacion de contraseña cifrada con base a que la cifrada pudo hacer sido consecuencia de la del usuario
                         if (doMatch) {
                             request.session.isLoggedIn = true; // Variable de sesion isLoggedIn para indicar que esta autentificado
                             request.session.username = user.username; // Comparar variable tipo session con nombre de usuaario
@@ -26,7 +26,7 @@ exports.post_login = (request, response, next) => {
                                 response.redirect('/construcciones');
                             });
                         } else {
-                            return response.redirect('/users/login');
+                            return response.redirect('/users/login'); // Si no esta autenticado, devuelve a la pagina de login
                         }
                     }).catch(err => {
                         response.redirect('/users/login');
