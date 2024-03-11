@@ -25,7 +25,7 @@ module.exports =  class Construccion {
     }
 
     static fetchOne(id){
-        return db.execute('SELECT * FROM Construccio WHERE id=?', [id]);
+        return db.execute('SELECT * FROM Construccion WHERE id=?', [id]);
     }
 
     static fetch(id){

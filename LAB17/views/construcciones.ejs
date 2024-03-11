@@ -4,6 +4,13 @@
 
 <div class="columns">
 
+    <% if (construcciones.lenght < 1) { %>
+        <div class="notification is-info">
+            <button class="delete"></button>
+            No existe la construccion
+        </div>
+    <% } %>
+
     <% for (let construccion of construcciones) { %> <!--Por cada vódigo de JavaScript, poner los operadores <%%>-->
 
         <div class="column">
