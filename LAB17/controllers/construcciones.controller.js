@@ -35,8 +35,8 @@ exports.get_root = (request, response, next) => { // Para la ruta raiz
         ultima_construccion = '';
     }
     console.log(ultima_construccion);
-    Construccion.fetchAll().then(([rows, fieldData]) => { // Lee las filas de la tabla contruccion
-        console.log(rows); // devuelve las filas
+    Construccion.fetch(request.params.constuccion_id).then(([rows, fieldData]) => { // Se cambia fetchAll for fetch con los parametros definidos en el modelo
+        console.log(rows); // devuelve las filas con su respectivo contenido
         response.render('construcciones', { // hace render a los registros de construccion
             construcciones: rows, // Las filas de la tabla construccion
             ultima_construccion: ultima_construccion, // La cookie ultima construccion
