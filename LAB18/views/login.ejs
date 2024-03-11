@@ -1,13 +1,13 @@
 <!--Nueva plantilla de login-->
 <%- include('includes/header.ejs', {username: username}) %> 
 
-<h1 class="title">Bienvenido</h1>
-<form action="/users/login" method="POST">
+<h1 class="title"><% if(registrar) {%> Regístrate <%} else {%> Hola de nuevo <% } %></h1>
+<form action="/users/<% if(registrar) {%> signup <%} else {%> login <% } %>" method="POST">
     <label class="label" for="username">Nombre de usuario</label>
     <input name="username" id="username" type="text" class="input"><br>
     <label class="label" for="password">Contraseña</label>
     <input name="password" id="password" type="text" class="input"><br><br>
-    <input class="button is-success" type="submit" value="Entrar">
+    <input class="button is-success" type="submit" value="<% if(registrar) {%> Registrarse <%} else {%> Entrar <% } %>">
 </form>
 
 <%- include('includes/foot.ejs') %>
