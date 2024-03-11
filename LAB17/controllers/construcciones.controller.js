@@ -19,7 +19,7 @@ exports.post_construir = (request, response, next) => { // Para la ruta post
             // Ahora la cookie va adentro del then
             // Para que la cookie no pueda ser leída por el código js del navegador, se le puede agregar la propiedad HttpOnly
             response.setHeader('Set-Cookie', 'ultima_construccion=', request.body.name + '; HttpOnly'); 
-            response.redirect('/');
+            response.redirect('/construcciones');
 
         }).catch(error => {console.log(error)});
     }

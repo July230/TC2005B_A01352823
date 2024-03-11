@@ -2,7 +2,7 @@
 <%- include('includes/head.ejs', {username: username}) %>
 
 <h1 class="title">Agregar una construcción</h1>
-<form action="/construir" method="POST">
+<form action="/construcciones/construir" method="POST">
     <label class="label" for="nombre">Nombre</label>
     <input name="nombre" id="nombre" type="text" class="input"><br>
     <label class="label" for="imagen">Imagen</label>
