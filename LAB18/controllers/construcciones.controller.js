@@ -6,6 +6,7 @@ const Construccion = require("../models/construccion.model");
 exports.get_construir = (request, response, next) => { // Para ruta get de construir
     response.render('construir', {
         username: request.session.username || '',
+        csrfToken: request.csrfToken(),
     }); // Hace render a la pagina construir
 };
 

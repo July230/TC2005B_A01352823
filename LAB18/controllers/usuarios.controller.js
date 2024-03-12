@@ -11,6 +11,7 @@ exports.get_login = (request, response, next) => {
         username: request.session.username || '',
         registrar: false, // Variable que se le pasa al ejs para determinar su accion
         error: error,
+        csrfToken: request.csrfToken(),
     }); 
 };
 
@@ -56,6 +57,7 @@ exports.get_signup = (request, response, next) => {
         username: request.session.username || '',
         registrar: true, // Variable que se le pasa al ejs para determinar su accion
         error: error,
+        csrfToken: request.csrfToken(),
     });
 };
 
