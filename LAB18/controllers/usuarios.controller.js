@@ -5,10 +5,13 @@ const bcrypt = require('bcryptjs');
 
 
 exports.get_login = (request, response, next) => {
-    response.render('login', {
+    const error = request.session.error || ''; // Declarar una constante error del tipo sesion
+    request.session.error = ''; // Para que no este para siempre, el usuario puede equivocarse
+    response.render('login', { // Render de la plantilla login
         username: request.session.username || '',
         registrar: false, // Variable que se le pasa al ejs para determinar su accion
-    }); // Render de la plantilla login
+        error: error,
+    }); 
 };
 
 exports.post_login = (request, response, next) => {
@@ -26,15 +29,17 @@ exports.post_login = (request, response, next) => {
                                 response.redirect('/construcciones');
                             });
                         } else {
+                            request.session.error = 'El usuario y/o constraseña son incorrectos';
                             return response.redirect('/users/login'); // Si no esta autenticado, devuelve a la pagina de login
                         }
                     }).catch(err => {
                         response.redirect('/users/login');
                     });
             } else {
+                request.session.error = 'El usuario y/o constraseña son incorrectos';
                 response.redirect('/users/login');
             }
-        }).catch((error) => {console.log(error)});
+        }).catch((error) => {console.log(error)}); // Si ocurrio un error del servidor
 }
 
 exports.get_logout = (request, response, next) => {
@@ -45,9 +50,12 @@ exports.get_logout = (request, response, next) => {
 
 // Controlador para llevar a la forma de autenticarse
 exports.get_signup = (request, response, next) => {
+    const error = request.session.error || ''; // Declarar una constante error del tipo sesion
+    request.session.error = ''; // Para que no este para siempre, el usuario puede equivocarse
     response.render('login', { // Se reutiliza la vista login
         username: request.session.username || '',
         registrar: true, // Variable que se le pasa al ejs para determinar su accion
+        error: error,
     });
 };
 
@@ -57,5 +65,9 @@ exports.post_signup = (request, response, next) => {
         .then(([rows, fieldData])=>{
             response.redirect('/users/login');
         })
-        .catch((error)=>{console.log(error);});
+        .catch((error)=> 
+            {console.log(error);
+            request.session.error = 'Nombre de invalido';
+            response.redirect('/users/signup')
+        });
 };
