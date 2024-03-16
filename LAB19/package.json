@@ -1,7 +1,7 @@
 {
   "name": "lab13",
   "version": "1.0.0",
-  "description": "Laboratorio 17",
+  "description": "Laboratorio 19",
   "main": "app.js",
   "scripts": {
     "start": "nodemon app.js",
