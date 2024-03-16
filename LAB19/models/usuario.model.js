@@ -37,11 +37,11 @@ module.exports =  class Usuario {
     static getPermisos(username){
         return db.execute(
             // Username tiene ? para evita SQL inyection
-            `SELECT funcion
-            FROM usuario u, asigna a, ror r, posee p, permiso pero
-            WHERE u.username = ? AND u.username = a.username 
-            AND a.idrol = r.id AND r.id = p.rol
-            AND p.idpermiso = per.id
-        `, [username])
+            `SELECT funcion 
+            FROM Usuario u, asigna a, rol r, posee p, permiso per
+            WHERE u.username = ? AND u.username = a.username
+            AND a.idrol = r.id AND r.id = p.idrol 
+            AND p.idpermiso = per.id`, 
+            [username])
     }
 }
