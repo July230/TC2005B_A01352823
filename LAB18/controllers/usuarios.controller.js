@@ -6,7 +6,7 @@ const bcrypt = require('bcryptjs');
 
 exports.get_login = (request, response, next) => {
     const error = request.session.error || ''; // Declarar una constante error del tipo sesion
-    request.session.error = ''; // Para que no este para siempre, el usuario puede equivocarse
+    request.session.error = ''; // Esto es para que no este para siempre, el usuario puede equivocarse
     response.render('login', { // Render de la plantilla login
         username: request.session.username || '',
         registrar: false, // Variable que se le pasa al ejs para determinar su accion
