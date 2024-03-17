@@ -2,7 +2,7 @@
 
 // Ahora se hara interaccion con la base de datos con MySQLWorkbench
 
-const db = require('../util/database'); // Ruta a la base de datos
+const db = require('../util/database_starbound'); // Ruta a la base de datos
 
 // Ya no es necesario usar un arreglo pues los datos estan en la base de datos
 

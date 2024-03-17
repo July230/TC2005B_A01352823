@@ -1,4 +1,4 @@
-/* Archivo app para laboratorio 13 */
+/* Archivo principal para laboratorio 19 */
 
 // Es necesario haer iniciado el proyecto con npm init
 // Es necesario instalar body parser
