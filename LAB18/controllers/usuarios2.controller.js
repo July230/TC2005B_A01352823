@@ -1,4 +1,4 @@
-/* Nuevo módulo de controladores para usuarios.routes */
+/* Nuevo módulo de controladores para usuarios2.routes */
 
 const Usuario = require('../models/usuario2.model');
 const bcrypt = require('bcryptjs');
