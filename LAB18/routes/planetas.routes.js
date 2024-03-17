@@ -16,7 +16,7 @@ const planetasController = require('../controllers/planetas.controller'); // De 
 router.get('/enviar', isAuth, planetasController.get_registrar);  // Nuevo controlador con get registrar planeta
 router.post('/enviar', isAuth, planetasController.post_registrar);  // Nuevo controlador con post registrar planeta
 router.get('/planetas', isAuth, planetasController.get_planetas); // Nuevo controlador con get planetas 
-router.get('/', isAuth, planetasController.get_root); // Nuevo controlador con get raiz
+router.get('/', planetasController.get_root); // Nuevo controlador con get raiz
 
 // Controladores por cada raza de Starbound
 router.get('/humano', isAuth, planetasController.get_humano);

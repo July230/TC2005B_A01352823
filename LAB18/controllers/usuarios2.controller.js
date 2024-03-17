@@ -17,13 +17,13 @@ exports.get_login = (request, response, next) => {
 
 exports.post_login = (request, response, next) => {
     Usuario.fetchOne(request.body.username)
-        .then((users, fieldData) => { // Obtener la columna de usuario
+        .then(([users, fieldData]) => { // Obtener la columna de usuario
             if(users.length == 1) { // Si hay un sólo registro
                 // users[0] contiene el objeto de la respuesta de la consulta
                 const user = users[0];
-                bcrypt.compare(request.session.password, user.password) // Comparar contraseña cifrada con contraseña del usuario
-                    .then(DoMatch => { // Hace una comparacion de contraseña cifrada con base a que la cifrada pudo hacer sido consecuencia de la del usuario
-                        if(DoMatch) {
+                bcrypt.compare(request.body.password, user.password) // Comparar contraseña cifrada con contraseña del usuario
+                    .then(doMatch => { // Hace una comparacion de contraseña cifrada con base a que la cifrada pudo hacer sido consecuencia de la del usuario
+                        if (doMatch) {
                             request.session.isLoggedIn = true;  // Variable de sesion isLoggedIn para indicar que esta autentificado
                             request.session.username = user.username; // Comparar variable tipo session con nombre de usuaario
                             return request.session.save(err => { // Se guarda la variable sesion
@@ -33,12 +33,16 @@ exports.post_login = (request, response, next) => {
                             request.session.error = 'El usuario y/o constraseña son incorrectos';
                             return response.redirect('/users/login'); // Si no esta autenticado, devuelve a la pagina de login
                         }
-                    }).catch((err) => {response.redirect('/users/login')});
+                    }).catch((err) => {
+                        console.log(err)
+                        response.redirect('/users/login')
+                    });
             } else {
                 request.session.error = 'El usuario y/o contraseña son incorrectos';
                 return response.redirect('/users/login');
             }
-        }).catch((error) => {console.log(error)})
+        })
+        .catch((error) => {console.log(error)});
 };
 
 exports.get_logout = (request, response, next) => {
@@ -66,8 +70,8 @@ exports.post_signup = (request, response, next) => {
         .then(([rows, fieldData])=>{ // Obtiene los registros de la tabla
             response.redirect('/users/login');
         })
-        .catch((error)=> 
-            {console.log(error);
+        .catch((error)=> {
+            console.log(error);
             request.session.error = 'Nombre de invalido';
             response.redirect('/users/signup')
         });

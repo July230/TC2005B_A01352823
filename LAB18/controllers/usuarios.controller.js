@@ -19,7 +19,7 @@ exports.post_login = (request, response, next) => {
     Usuario.fetchOne(request.body.username)
         .then(([users, fieldData]) => { // Obtiene la columna usuario
             if(users.length == 1) { // Si hay un sólo registro
-                //users[0] contiene el objeto de la respuesta de la consulta
+                // users[0] contiene el objeto de la respuesta de la consulta
                 const user = users[0];
                 bcrypt.compare(request.body.password, user.password) // Comparar contraseña cifrada con contraseña del usuario
                     .then(doMatch => { // Hace una comparacion de contraseña cifrada con base a que la cifrada pudo hacer sido consecuencia de la del usuario
