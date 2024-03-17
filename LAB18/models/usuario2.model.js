@@ -1,6 +1,6 @@
 /* Archivo de un modelo, el de Usuario */
 
-const db = require('../util/database'); // Ryta a la base de datos
+const db = require('../util/database_starbound'); // Ryta a la base de datos
 const bcrypt = require('bcryptjs'); // Modulo para cifrar contraseña
 
 
