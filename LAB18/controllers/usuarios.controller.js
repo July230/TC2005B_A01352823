@@ -11,7 +11,7 @@ exports.get_login = (request, response, next) => {
         username: request.session.username || '',
         registrar: false, // Variable que se le pasa al ejs para determinar su accion
         error: error,
-        csrfToken: request.csrfToken(),
+        csrfToken: request.csrfToken(), // Enviar el token a las vistas con formularios
     }); 
 };
 

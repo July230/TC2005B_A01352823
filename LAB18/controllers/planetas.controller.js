@@ -7,6 +7,7 @@ const Planeta = require("../models/planeta.model"); // El modelo que saca
 exports.get_registrar = (request, response, next) => { // Para ruta get de registrar planeta
     response.render('enviar',{  // Hace render a la pagina construir
         username: request.session.username || '', // Como la cookie se usara en multiples rutas, solicitarla
+        csrfToken: request.csrfToken(), // Importante enviar el token a las vistas del controlador con formularios
     }); 
 };
 
