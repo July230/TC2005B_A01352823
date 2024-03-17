@@ -1,7 +1,6 @@
 // Un archivo de controlador, la lógica de como va a interactuar
 // Por controlador hay un modelo
 
-const { response } = require("express");
 const Planeta = require("../models/planeta.model"); // El modelo que saca
 
 // El orden en controladores ya no importa porque sólo es lógica
