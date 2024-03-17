@@ -1,4 +1,4 @@
-/* Archivo app para laboratorio 13 */
+/* Archivo para laboratorio 18 */
 
 // Es necesario haer iniciado el proyecto con npm init
 // Es necesario instalar body parser
@@ -25,13 +25,20 @@ const bodyParser = require('body-parser'); // Para manipular facilmente los deto
 
 app.use(bodyParser.urlencoded({extended: false}));
 
+// Un ataque común es el Cross-Site Request Forgery (CSRF), el cual implica aprovecharse de una sesión de otro usuario, comúnmente perpretado desde una página que parece la oficial pero que en realidad no lo es.
+// Para evitar ataques de CSRF, tenemos que asegurar que nuestros usuarios estén trabajando sobre las vistas que nosotros proveemos. Esto lo podemos lograr por medio de un Token CSRF en nuestras formas y con ayuda de la instalación del paquete csurf.
+const csrf = require('csurf');
+const csrfProtection = csrf();
+app.use(csrfProtection); //...Y después del código para inicializar la sesión... 
+
+
 //Middleware
 app.use((request, response, next) => {
   console.log('Middleware!');
   next(); //Le permite a la petición avanzar hacia el siguiente middleware
 });
 
-//Registrar el middleware con el módulo construcciones
+//Registrar el middleware con el módulo usuarios
 const rutasUsuarios = require('./routes/usuarios2.routes'); // Nuevo modulo de rutas usuarios
 app.use('/users', rutasUsuarios);
 

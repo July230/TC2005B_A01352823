@@ -6,11 +6,9 @@
 const express = require('express');
 const app = express();
 
-// 
+
 app.set('view engine', 'ejs');
 app.set('views', 'views');
-
-
 
 // Para preparar el entorno para trabajar con sesiones, agregamos como middleware el manejo de sesiones:
 const session = require('express-session'); // Con el modulo express-session
