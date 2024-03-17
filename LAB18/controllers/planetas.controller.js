@@ -1,6 +1,7 @@
 // Un archivo de controlador, la lógica de como va a interactuar
 // Por controlador hay un modelo
 
+const { response } = require("express");
 const Planeta = require("../models/planeta.model"); // El modelo que saca
 
 // El orden en controladores ya no importa porque sólo es lógica
@@ -60,9 +61,16 @@ exports.getPlanetas = (request, response, next) => {
 exports.get_root = (request, response, next) => { // Para ruta raiz
     console.log('Ruta /');
     response.render('starbound', { // Hace render a la pagina raiz
-        username: request.session.username || '', // De nuevo, si no existe, truena, asi que hacer un
+        username: request.session.username || '', // De nuevo, si no existe, truena, asi que declarar la variable username de tipo session
     }); 
 };
+
+exports.get_razas = (request, response, next) => {
+    console.log("Ruta razas /razas");
+    response.render('razas',{ // Hace render a la pagina de las razas
+        username: request.session.username || '',
+    });
+}
 
 exports.get_humano = (request, response, next) => { // Para ruta get de humano
     console.log('Ruta /humano');

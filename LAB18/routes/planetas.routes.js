@@ -19,12 +19,13 @@ router.get('/planetas', isAuth, planetasController.get_planetas); // Nuevo contr
 router.get('/', planetasController.get_root); // Nuevo controlador con get raiz
 
 // Controladores por cada raza de Starbound
-router.get('/humano', isAuth, planetasController.get_humano);
-router.get('/hylotl', isAuth, planetasController.get_hylotl);
-router.get('/avian', isAuth, planetasController.get_avian);
-router.get('/floran', isAuth, planetasController.get_floran);
-router.get('/apex', isAuth, planetasController.get_apex);
-router.get('/glitch', isAuth, planetasController.get_glitch);
-router.get('/novakid', isAuth, planetasController.get_novakid);
+router.get('/razas', planetasController.get_razas);
+router.get('/humano', planetasController.get_humano);
+router.get('/hylotl', planetasController.get_hylotl);
+router.get('/avian', planetasController.get_avian);
+router.get('/floran', planetasController.get_floran);
+router.get('/apex', planetasController.get_apex);
+router.get('/glitch', planetasController.get_glitch);
+router.get('/novakid', planetasController.get_novakid);
 
 module.exports = router;
