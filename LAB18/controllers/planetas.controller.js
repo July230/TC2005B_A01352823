@@ -65,52 +65,9 @@ exports.get_root = (request, response, next) => { // Para ruta raiz
     }); 
 };
 
-exports.get_razas = (request, response, next) => {
+exports.get_razas = (request, response, next) => { // Para la ruta de get razas
     console.log("Ruta razas /razas");
     response.render('razas',{ // Hace render a la pagina de las razas
         username: request.session.username || '',
     });
 }
-
-exports.get_humano = (request, response, next) => { // Para ruta get de humano
-    console.log('Ruta /humano');
-    response.render('humano', { // Hace render a la pagina humano
-        username: request.session.username || '',
-    });
-}
-
-exports.get_hylotl = (request, response, next) => { 
-    response.render('hylotl', {
-        username: request.session.username || '',
-    }); 
-};
-
-exports.get_avian = (request, response, next) => { 
-    response.render('avian', {
-        username: request.session.username || '',
-    }); 
-};
-
-exports.get_floran = (request, response, next) => { 
-    response.render('floran', {
-        username: request.session.username || '',
-    }); 
-};
-
-exports.get_apex = (request, response, next) => { 
-    response.render('apex', {
-        username: request.session.username || '',
-    }); 
-};
-
-exports.get_glitch = (request, response, next) => { 
-    response.render('glitch', {
-        username: request.session.username || '',
-    }); 
-};
-
-exports.get_novakid = (request, response, next) => { 
-    response.render('novakid', {
-        username: request.session.username || '',
-    }); 
-};
