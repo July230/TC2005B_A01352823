@@ -17,13 +17,26 @@ module.exports = class Planeta {
     // Este metodo servira para guardar el objeto en la base de datos
     save(){
         return db.execute(
-            'INSERT INTO Planeta (nombre, imagen, descripcion, username) VALUES (?, ?, ?, "julian23")',  // Se dejan los espacios, el uno es para que le ponga al usuario 1
+            'INSERT INTO Planeta (nombre, imagen, descripcion, username) VALUES (?, ?, ?, "julian23")',  // Se dejan los espacios, evitamos SQL con los ?
             [this.nombre, this.imagen, this.descripcion] // Evitar SQL inyection
         );
     }
 
+     // Los métodos estáticos pertenecen a una clase en lugar de una instancia individual de la clase
     // Ahora en lugar del arreglo, se hace el script select de SQL
     static fetchAll(){
         return db.execute('SELECT * FROM Planeta');
+    }
+
+    static fetchOne(id){
+        return db.execute('SELECT FROM Planeta WHERE idplaneta=?', [id]); // Si en la ruta planetas escribe el id, devuelve el planeta
+    }
+
+    static fetch(id){ // Con esto hacemos que si el usuario escriba el id y devuelve unicamente el planeta
+        if(id){
+            return this.fetchOne(id);
+        } else {
+            return this.fetchAll(id);
+        }
     }
 }
