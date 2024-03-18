@@ -1,5 +1,7 @@
 <!--Html que corresponde a enviar un planeta-->
-<%- include('includes/header.ejs', {username: username}) %> 
+<%- include('includes/header.ejs', {
+    username: username, 
+    permisos: permisos}) %> 
 
 <h1 class="title">Registrar un planeta</h1>
 <form action="/enviar" method="POST">

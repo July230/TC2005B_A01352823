@@ -12,6 +12,7 @@ exports.get_login = (request, response, next) => {
         registrar: false, // Variable que se le pasa al ejs para determinar su accion
         error: error,
         csrfToken: request.csrfToken(),
+        permisos: request.session.permisos || [], // Por defecto, un arreglo vacio
     }); // Render de la plantilla login1
 };
 
@@ -24,11 +25,15 @@ exports.post_login = (request, response, next) => {
                 bcrypt.compare(request.body.password, user.password) // Comparar contraseña cifrada con contraseña del usuario
                     .then(doMatch => { // Hace una comparacion de contraseña cifrada con base a que la cifrada pudo hacer sido consecuencia de la del usuario
                         if (doMatch) {
-                            request.session.isLoggedIn = true;  // Variable de sesion isLoggedIn para indicar que esta autentificado
-                            request.session.username = user.username; // Comparar variable tipo session con nombre de usuaario
-                            return request.session.save(err => { // Se guarda la variable sesion
-                                response.redirect('/');
-                            });
+                            Usuario.getPermisos(user.username).then(([permisos, fieldData]) => { // Obtener los permisos del ususario al momento de autentificarse
+                                request.session.isLoggedIn = true;  // Variable de sesion isLoggedIn para indicar que esta autentificado
+                                request.session.permisos = permisos; // Comparar variable tipo session con permisos
+                                request.session.username = user.username; // Comparar variable tipo session con nombre de usuario
+                                console.log(request.session.permisos);
+                                return request.session.save(err => { // Se guarda la variable sesion
+                                    response.redirect('/');
+                                });
+                            }).catch((error) => console.log(error));
                         } else {
                             request.session.error = 'El usuario y/o constraseña son incorrectos';
                             return response.redirect('/users/login'); // Si no esta autenticado, devuelve a la pagina de login
@@ -42,7 +47,7 @@ exports.post_login = (request, response, next) => {
                 return response.redirect('/users/login');
             }
         })
-        .catch((error) => {console.log(error)});
+        .catch((error) => {console.log(error)}); // Si ocurrió un error del servidor
 };
 
 exports.get_logout = (request, response, next) => {
@@ -60,6 +65,7 @@ exports.get_signup = (request, response, next) => {
         registrar: true, // Variable que se le pasa al ejs para determinar su accion
         error: error,
         csrfToken: request.csrfToken(),
+        permisos: request.session.permisos || [], 
     });
 };
 

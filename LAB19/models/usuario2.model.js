@@ -33,4 +33,16 @@ module.exports =  class Usuario {
         return db.execute('SELECT * FROM Usuario WHERE username=?', // El controlador se encarga de la comparacion de contraseñas
         [username]);
     }
+
+    static getPermisos(username){
+        return db.execute(
+            // Username tiene ? para evita SQL inyection
+            `SELECT funcion
+            FROM Usuario u, asigna a, rol r, posee p, permiso per
+            WHERE u.username = ? AND u.username = a.username
+            AND a.idrol = r.id AND r.id = p.idrol
+            AND p.idpermido = per.id,
+            `,
+            [username])
+    }
 }

@@ -37,7 +37,7 @@ exports.get_root = (request, response, next) => { // Para la ruta raiz
         ultima_construccion = '';
     }
     console.log(ultima_construccion);
-    Construccion.fetch(request.params.construccion_id).then(([rows, fieldData]) => { // Se cambia fetchAll for fetch con los parametros definidos en el modelo
+    Construccion.fetch(request.params.construccion_id).then(([rows, fieldData]) => { // Se cambia fetchAll por fetch con los parametros definidos en el modelo
         console.log(rows); // devuelve las filas con su respectivo contenido
         response.render('construcciones', { // hace render a los registros de construccion
             construcciones: rows, // Las filas de la tabla construccion
