@@ -630,6 +630,112 @@
             <li>Archivos: La cantidad de archivos a mantener y desarrollar se incremente considerablemente.</li>
             <li>Duplicación de lógica: De no implementarse correctamente, puede haber casos en los que la lógica de negocio (vistas) se duplique en el modelo y controlador, lo que lleva a problemas de mantenimiento y coherencia.</li>
         </ul>
+        <hr class="barra">
+        <h3>Interacción con bases de datos: MariaDB y MySQL</h3>
+        <h5>MySQL</h5>
+        <p>
+            Lanzado originalmente en 1995, MySQL ha pasado por varios cambios de propiedad/administración, antes de terminar en la Oracle Corporation en 2010. 
+            A pesar de que Oracle está a cargo ahora, MySQL sigue siendo un software de código abierto. (Kinsta, 2022) <br>
+            MySQL almacena, gestiona y muestra datos en tablas. Funciona como un sistema cliente-servidor. Mientras que la base de datos actúa como un servidor en el que se almacena toda la información relevante, el software puede verse como un cliente. 
+            Con la ayuda del software, los usuarios de la base de datos relacional pueden formular diversas consultas, denominadas “queries”, en el lenguaje de consulta SQL y enviarlas al sistema de base de datos. 
+            Estos son procesados por MySQL, por lo que el acceso a los datos es también una parte importante de MySQL.(Equipo editorial de IONOS, 2023) <br>
+            SQL se compone de varios tipos de comandos, incluyendo:
+            <ul>
+                <li><strong>DDL (Data Definition Language):</strong> Utilizado para definir y modificar la estructura de la base de datos, como crear tablas, modificar su estructura, eliminar tablas, etc.</li>
+                <li><strong>DML (Data Manipulation Language):</strong> Utilizado para manipular datos en la base de datos, como insertar, actualizar y eliminar registros en las tablas.</li>
+                <li><strong>DQL (Data Query Language): </strong> Utilizado para realizar consultas que recuperan datos de la base de datos.</li>
+                <li><strong>DCL (Data Control Language):</strong> Utilizado para establecer permisos y roles de usuario en la base de datos, como otorgar o revocar privilegios de acceso.</li>
+                <li><strong>TCL (Transaction Control Language):</strong> Utilizado para administrar transacciones en la base de datos, como confirmar o deshacer transacciones.
+                </li>
+            </ul>
+            
+        </p>
+        <h5>MariaDB</h5>
+        <p>
+            MariaDB es un sistema de gestión de bases de datos relacionales (RDBMS) gratuito y de código abierto. 
+            Fue creado por los desarrolladores originales de MySQL por la preocupación de que MySQL pasara a ser comercializado después de que Oracle lo adquiriera en 2009.
+            MariaDB ofrece las mismas características que MySQL y se puede usar como sustituto directo del servidor de base de datos MySQL. (Content Studio, 2022) <br>
+        </p>
+        <h5>libreria mysql2</h5>
+        <p>
+            Para interactuar con una base de datos, es necesario crear una base de datos. En este casó usaremos MySQL, sin embargo, la lógica es muy similar si decides trabajar con cualquier otro motor de bases de datos. 
+            El paquete mysql2 es un paquete npm que proporciona una implementación de cliente MySQL escrita en JavaScript para Node.js. Permite a las aplicaciones Node.js conectarse a una base de datos MySQL y realizar consultas y otras operaciones en la base de datos de manera eficiente. <br>
+            Algunas características incluyen:
+            <ul>
+                <li><strong>Compatibilidad con Promesas:</strong> Ofrece soporte nativo para promesas, lo que permite a los desarrolladores realizar consultas asincrónicas de forma más sencilla y legible.</li>
+                <li><strong>Mayor rendimiento: </strong> Está optimizado para un rendimiento mejorado en comparación con otros clientes MySQL para Node.js, lo que lo hace más rápido y eficiente en el manejo de conexiones y consultas.</li>
+                <li><strong>Preparación de consultas: </strong> Admite la preparación de consultas, lo que permite reutilizar consultas con diferentes parámetros, lo que puede mejorar el rendimiento y la seguridad.</li>
+            </ul>
+        </p>
+        <h5>¿Qué ventajas tiene escribir el código SQL únicamente en la capa del modelo?</h5>
+        <p>
+            Debido a que se usa la arquitectura MVC, la interacción de la base de datos con javascript se hace a través del modelo, esto tiene varias ventajas:
+            <ul>
+                <li><strong>Separación de preocupaciones:</strong> Al mantener el código SQL en la capa del modelo, se mantiene la separación de preocupaciones entre las diferentes partes de la aplicación. El modelo se encarga específicamente de interactuar con la base de datos, mientras que otras partes de la aplicación, como las vistas y los controladores, pueden centrarse en su lógica específica.</li>
+                <li><strong>Reutilización del código:</strong> Al colocar el código SQL en el modelo, se puede reutilizar fácilmente en diferentes partes de la aplicación. Esto significa que al realizar la misma consulta en múltiples controladores o vistas, se puede llamar al método correspondiente en el modelo en lugar de tener que repetir el código SQL en varios lugares.</li>
+                <li><strong>Mantenimiento más sencillo:</strong> Al centralizar el código SQL en el modelo, se vuelve más fácil realizar cambios y mantenimiento en las consultas. Al o modificar una consulta, sólo es necesario hacerlo en un solo lugar en el modelo en lugar de buscar y actualizar múltiples instancias en diferentes partes de la aplicación.</li>
+                <li><strong>Seguridad:</strong> Al escribir el código SQL en el modelo y usar parámetros correctamente, se puede proteger tu aplicación contra ataques de <strong>Inyección SQL</strong>. Los modelos pueden proporcionar métodos seguros para interactuar con la base de datos, validando y escapando los datos correctamente antes de enviar consultas SQL a la base de datos.</li>
+            </ul>
+        </p>
+        <h5>Inyección SQL</h5>
+        <p>
+            Una inyección de SQL, a veces abreviada como SQLi, es un tipo de vulnerabilidad en la que un atacante usa un trozo de código SQL (lenguaje de consulta estructurado) para manipular una base de datos y acceder a información potencialmente valiosa. (¿Qué Es la Inyección de SQL? Definición y Explicación, 2023)
+            Es uno de los tipos de ataques más frecuentes y amenazadores, ya que puede atacar prácticamente cualquier sitio o aplicación web que use una base de datos basada en SQL (la mayoría). Es posible que un ataque de inyección de SQL exitoso no muestre ningún signo.
+            Sin embargo, a veces hay algunas señales externas, como las siguientes:
+             <ul>
+                <li>Recepción de una cantidad excesiva de solicitudes en un plazo breve. Por ejemplo, ver muchos correos electrónicos del formulario de contacto de la página web.</li>
+                <li>Anuncios que redirigen a sitios web sospechosos.</li>
+                <li>Ventanas emergentes desconocidas y mensajes de error. </li>
+             </ul>
+             Hay varios tipos de ataques por inyección SQL:
+             <ul>
+                <li><strong>SQLi basado en errores:</strong> La base de datos genera un mensaje de error por las acciones del atacante. El atacante obtiene información sobre la infraestructura de la base de datos en función de los datos que generaron estos mensajes de error.</li>
+                <li><strong>SQLi basado en unión:</strong> El atacante usa el operador UNION SQL para obtener los datos deseados mediante la fusión de varias declaraciones Select en una única respuesta HTTP.</li>
+                <li><strong>SQLi basado en el tiempo:</strong> Los atacantes envían una consulta de SQL a la base de datos, esto hace que la base de datos espere unos segundos antes de responder si la consulta es verdadera o falsa.</li>
+                <li><strong>SQLi booleana:</strong> Los atacantes envían una consulta de SQL a la base de datos, así permiten que la aplicación responda mediante la generación de un resultado verdadero o falso.</li>
+             </ul>
+        </p>
+        <h5>¿Cómo puedo prevenir un ataque por inyección SQL</h5>
+        <p>
+            La prevención de la inyección SQL implica implementar prácticas de seguridad en el desarrollo de aplicaciones web y en la configuración de bases de datos. Algunas medidas clave para prevenir la inyección SQL son:
+            <ul>
+                <li><strong>Validación de entrada de usuario: </strong> Verificar y validar cuidadosamente todos los datos ingresados por el usuario antes de utilizarlos en consultas SQL. Esto puede incluir el uso de expresiones regulares, validación de tipos de datos y restricciones de longitud.</li>
+                <li><strong>Escape de caracteres especiales: </strong> Siempre escapar los caracteres especiales en los datos ingresados por el usuario antes de utilizarlos en consultas SQL. Esto implica transformar los caracteres especiales (como comillas, guiones, etc.) en su equivalente seguro en SQL.</li>
+                <li><strong>Utilizar las versiones más recientes:</strong> Es importante usar la versión más reciente del entorno de desarrollo para maximizar la protección, ya que es posible que a las versiones anteriores les falten funciones de seguridad. </li>
+                <li><strong>Auditoría y monitoreo: </strong> Implementar registros de auditoría y monitoreo para registrar y supervisar las consultas SQL ejecutadas por la aplicación. Esto puede ayudar a detectar posibles intentos de inyección SQL y tomar medidas preventivas.</li>
+                <li><strong>Consultas parametrizadas:</strong> Utilizar consultas parametrizadas o consultas preparadas que separan claramente los datos de los comandos SQL. Esto permite que los datos ingresados por el usuario se envíen de forma segura como parámetros, en lugar de concatenarse directamente en la consulta SQL.</li>
+            </ul>
+        </p>
+        <h3>Autentificación</h3>
+        <p>
+            La autenticación es el proceso que usan las empresas para confirmar que solo las personas, servicios y aplicaciones adecuados con los permisos correctos pueden acceder a recursos de la organización. 
+            Es una parte importante de la ciberseguridad porque la mayor prioridad de un infiltrado es obtener acceso no autorizado a los sistemas. (¿Qué Es la Autenticación? Definición y Métodos | Seguridad de Microsoft, s.f.)
+            Para llevar esto a cabo, roban el nombre de usuario y las contraseñas de los usuarios que sí tienen acceso. El proceso de autenticación incluye tres pasos principales:
+            <ul>
+                <li><strong>Identificación:</strong> Los usuarios establecen quiénes son a través de un nombre de usuario, normalmente.</li>
+                <li><strong>Autenticación: :</strong> Normalmente, los usuarios prueban que son quienes dicen ser al escribir una contraseña, sin embargo, para fortalecer la seguridad, muchas organizaciones también solicitan que prueben su identidad mediante algo que poseen (un teléfono o dispositivo de tokens) o algo que son (una huella dactilar o escáner facial).</li>
+                <li><strong>Autorización:</strong> El sistema comprueba que los usuarios tengan permisos para el sistema al que intentan acceder.</li>
+            </ul>
+            Existen varias formas de autenticación, entre las cuales se destacan:
+            <ul>
+                <li><strong>Autenticación basada en contraseñas:</strong> La forma más común de autenticación, donde los usuarios ingresan un nombre de usuario y una contraseña que deben coincidir con los datos almacenados en el sistema.</li>
+                <li><strong>Autenticación basada en tokens: </strong> Se emite un token al usuario después de que se autentica correctamente. Este token se utiliza para realizar solicitudes subsiguientes al servidor, en lugar de enviar credenciales con cada solicitud. </li>
+                <li><strong>Autenticación de dos factores (2FA): </strong> Agrega una capa adicional de seguridad al requerir no solo un nombre de usuario y contraseña, sino también otro factor de autenticación, como un código generado por una aplicación móvil o enviado por mensaje de texto.</li>
+                <li><strong>Autenticación basada en certificados:</strong> Se utilizan certificados digitales para autenticar a los usuarios. Cada usuario tiene un certificado único que se utiliza para verificar su identidad.</li>
+                <li><strong>Biometría:</strong> La autenticación biométrica utiliza características físicas únicas de los usuarios, como huellas dactilares, escaneo de retina o reconocimiento facial, para verificar su identidad.</li>
+            </ul>
+        </p>
+        <h3>Control de acceso basado en roles</h3>
+        <p>
+            El control de acceso basado en roles (Rol-Based Control Acces) es un modelo de control de acceso que define y gestiona los permisos de los usuarios en función de sus roles dentro del sistema. 
+            Los roles se definen en función de características como la ubicación, el departamento, la antigüedad o las funciones de un usuario. Los permisos se asignan según el acceso (lo que el usuario puede ver), las operaciones (lo que el usuario puede hacer) y las sesiones (cuánto tiempo puede hacerlo el usuario). (¿Qué Es el Control de Acceso Basado En Roles? | Entrust, s.f.)
+            RBAC tiene tres reglas principales:
+            <ul>
+                <li><strong>Asignación de roles: </strong>Un usuario puede ejercer privilegios si se le ha asignado un rol.</li>
+                <li><strong>Autorización basada en roles:</strong> El rol de un usuario debe estar autorizado, lo que garantiza que los usuarios solo puedan asumir roles para los que están autorizados.</li>
+                <li><strong>Autorización de privilegios:</strong> Un usuario puede ejercer ciertos privilegios si está autorizado para hacerlo, según su autorización y asignación de roles.</li>
+            </ul>
+        </p>
         <div class="fuentes">
             <h3>Fuentes bibliográficas</h3>
             <ol>
@@ -643,9 +749,11 @@
                 <li>Collado, V. (2022, 23 febrero). ¿Qué es una dirección web o url? Cloud Computing | Adaptix Networks | Cómputo en la Nube. https://www.adaptixnetworks.com/que-es-una-direccion-web-o-url/</li>
                 <li>Cómo estructurar un formulario HTML - Aprende desarrollo web | MDN. (s. f.). MDN Web Docs. https://developer.mozilla.org/es/docs/Learn/Forms/How_to_structure_a_web_form</li>
                 <li>Conceptos básicos de las tablas HTML - Aprende desarrollo web | MDN. (s. f.). MDN Web Docs. https://developer.mozilla.org/es/docs/Learn/HTML/Tables/Basics</li>
+                <li>Content Studio. (2022, 18 junio). ¿Qué es MariaDB? https://www.purestorage.com/es/knowledge/what-is-mariadb.html#:~:text=MariaDB%20es%20un%20sistema%20de,Oracle%20lo%20adquiriera%20en%202009.</li>
                 <li>Controles de formulario originales - Aprende desarrollo web | MDN. (s. f.). MDN Web Docs. https://developer.mozilla.org/es/docs/Learn/Forms/Basic_native_form_controls</li>
                 <li>Equipo editorial, Etecé. (2023c, noviembre 19). ¿Qué es la World Wide Web? - Concepto, importancia y más. Concepto. https://concepto.de/www/</li>
                 <li>Equipo editorial, Etecé. (2023d, noviembre 19). URL - Concepto, usos, partes y características. Concepto. https://concepto.de/url/</li>
+                <li>Equipo editorial de IONOS. (2023, 18 enero). ¿Qué es MySQL? IONOS Digital Guide. https://www.ionos.es/digitalguide/servidores/know-how/que-es-mysql/</li>
                 <li>freeCodeCamp.org. (2018, 22 octubre). What's the Document Object Model, and why you should know how to use it. https://www.freecodecamp.org/news/whats-the-document-object-model-and-why-you-should-know-how-to-use-it-1a2d0bc5429d/</li>
                 <li>Garcia, M. (2022, 15 junio). Express (Parte VI) — Motor de plantillas con pug y EJS. Medium. https://mauriciogc.medium.com/express-parte-vi-motor-de-plantillas-con-pug-y-ejs-6837cd3a390d#:~:text=EJS%20es%20un%20lenguaje%20de,carpeta%20nueva%20llamada%20ejs%2Dlayout</li>
                 <li>González, E. (s. f.). ¿Cuáles son las versiones de HTML? Diferencias entre HTML 4 y HTML 5. Significado de strict. . . (CU00706B). aprenderaprogramar.com. https://www.aprenderaprogramar.com/index.php?option=com_content&view=article&id=444:icuales-son-las-versiones-de-html-diferencias-entre-html-4-y-html-5-significado-de-strict-cu00706b&catid=69&Itemid=192</li>
@@ -654,9 +762,13 @@
                 <li>Introducción a Express/Node - Aprende desarrollo web | MDN. (2023, 17 octubre). MDN Web Docs. https://developer.mozilla.org/es/docs/Learn/Server-side/Express_Nodejs/Introduction</li>
                 <li>KeepCoding, R. (2022, 5 abril). ¿Qué es el material design? | KeepCoding Bootcamps. KeepCoding Bootcamps. https://keepcoding.io/blog/que-es-material-design/</li>
                 <li>KeepCoding, R. (2023, 10 agosto). ¿Qué son los template engines? | KeepCoding Bootcamps. KeepCoding Bootcamps. https://keepcoding.io/blog/que-son-los-template-engines/</li>
+                <li>Kinsta. (2022, 26 abril). ¿Qué es MySQL? Una Explicación para Principiantes. Kinsta®. https://kinsta.com/es/base-de-conocimiento/que-es-mysql/</li>
                 <li>Métodos de petición HTTP - HTTP | MDN. (2023, 24 julio). MDN Web Docs. https://developer.mozilla.org/es/docs/Web/HTTP/Methods</li>
                 <li>Pol, T. (2023, 29 septiembre). ¿Qué es una URL? significado, estructura y consejos de optimización. Semrush Blog. https://es.semrush.com/blog/que-es-una-url/</li>
                 <li>¿Qué es JavaScript? - Explicación de JavaScript (JS) - AWS. (s.f.). Amazon Web Services, Inc. https://aws.amazon.com/es/what-is/javascript/#:~:text=JavaScript%20es%20un%20lenguaje%20de,usuario%20de%20un%20sitio%20web.</li>
+                <li>¿Qué es el control de acceso basado en roles? | Entrust. (s. f.). https://www.entrust.com/es/resources/learn/what-is-role-based-access-control</li>
+                <li>¿Qué es la autenticación? Definición y métodos | Seguridad de Microsoft. (s. f.). https://www.microsoft.com/es-es/security/business/security-101/what-is-authentication</li>
+                <li>¿Qué es la inyección de SQL? Definición y explicación. (2023, 19 abril). latam.kaspersky.com. https://latam.kaspersky.com/resource-center/definitions/sql-injection</li>
                 <li>Referencia de Atributos HTML - HTML: Lenguaje de etiquetas de hipertexto | MDN. (2023, 28 noviembre). MDN Web Docs. https://developer.mozilla.org/es/docs/Web/HTML/Attributes</li>
                 <li>Varangouli, E. (2023, 20 enero). Lista de tags HTML: hoja de trucos HTML. ¿Qué son y para qué sirven? Semrush Blog. https://es.semrush.com/blog/lista-de-html-tags/</li>
             </ol>
