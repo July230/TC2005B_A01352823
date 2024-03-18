@@ -23,14 +23,20 @@
 
             <div id="navbarBasicExample" class="navbar-menu">
                 <div class="navbar-start">
-            
-                <a class="navbar-item" href="/planetas"> <!--Importante saber los nombres de los enlace para las rutas-->
-                    Planetas
-                </a>
+                
+                <% for (let funcion in permisos) { %><!--Ahora que el usuario se ha autenticado, se determinara lo que puede ver dependiendo de su rol-->
+                    <% if(funcion.funcion == 'ver') { %>
+                        <a class="navbar-item" href="/planetas"> <!--Importante saber los nombres de los enlace para las rutas-->
+                            Planetas
+                        </a>
+                   <% } %>
+                   <% if(funcion.funcion == 'registrar') { %>
+                       <a class="navbar-item" href="/enviar">
+                           Registrar planeta
+                       </a>
+                    <% } %>
+                <% } %>
 
-                <a class="navbar-item" href="/enviar">
-                    Registrar planeta
-                </a>
 
                 <a class="navbar-item" href="/razas">
                     Razas

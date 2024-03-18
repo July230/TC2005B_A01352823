@@ -1,5 +1,8 @@
 <!--Nueva plantilla de login-->
-<%- include('includes/header.ejs', {username: username}) %> 
+<%- include('includes/header.ejs', {
+    username: username, 
+    permisos: permisos
+}) %> 
 
 <% if (error) { %> 
     <div class="notification is-danger">
