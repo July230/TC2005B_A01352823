@@ -41,7 +41,7 @@ module.exports =  class Usuario {
             FROM Usuario u, asigna a, rol r, posee p, permiso per
             WHERE u.username = ? AND u.username = a.username
             AND a.idrol = r.id AND r.id = p.idrol
-            AND p.idpermido = per.id,
+            AND p.idpermiso = per.id
             `,
             [username])
     }

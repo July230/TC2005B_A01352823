@@ -24,7 +24,7 @@
             <div id="navbarBasicExample" class="navbar-menu">
                 <div class="navbar-start">
                 
-                <% for (let funcion in permisos) { %><!--Ahora que el usuario se ha autenticado, se determinara lo que puede ver dependiendo de su rol-->
+                <% for (let funcion of permisos) { %><!--Ahora que el usuario se ha autenticado, se determinara lo que puede ver dependiendo de su rol-->
                     <% if(funcion.funcion == 'ver') { %>
                         <a class="navbar-item" href="/planetas"> <!--Importante saber los nombres de los enlace para las rutas-->
                             Planetas
