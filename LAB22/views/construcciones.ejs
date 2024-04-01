@@ -10,8 +10,9 @@
             No existe la construcción.            
         </div>
     <% } %>
-
+    <% let columns = 0; %>
     <% for (let construccion of construcciones) { %> <!--Por cada vódigo de JavaScript, poner los operadores <%%>-->
+        <% columns++ %>
 
         <div class="column">
             <div class="card">
@@ -44,6 +45,11 @@
             </div>
         </div>
         
+        <% if (columns % 4 == 0) { %>
+        </div>
+        <div class="columns">
+        <% } %>
+
     <% } %>
 
 </div>     
