@@ -44,10 +44,10 @@ const fileStorage = multer.diskStorage({
 
 //En el registro, pasamos la constante de configuración y usamos single porque es un sólo archivo el que vamos a subir, 
 //pero hay diferentes opciones si se quieren subir varios archivos. 'archivo' es el nombre del input tipo file de la forma
-app.use(multer({ storage: fileStorage }).single('imagen')); 
+//app.use(multer({ storage: fileStorage }).single('imagen')); 
 
 // Para limitar el tipo de archivos que se pueden subir, podemos crear una nueva constante de configuración y pasar la constante al registro:
-/*
+
 const fileFilter = (request, file, callback) => {
   if (file.mimetype == 'image/png' || 
       file.mimetype == 'image/jpg' ||
@@ -59,7 +59,7 @@ const fileFilter = (request, file, callback) => {
 }
 
 app.use(multer({ storage: fileStorage, fileFilter: fileFilter }).single('imagen')); 
-*/
+
 
 
 // Un ataque común es el Cross-Site Request Forgery (CSRF), el cual implica aprovecharse de una sesión de otro usuario, comúnmente perpretado desde una página que parece la oficial pero que en realidad no lo es.
