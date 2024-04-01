@@ -14,9 +14,10 @@ exports.get_registrar = (request, response, next) => { // Para ruta get de regis
 
 exports.post_registrar = (request, response, next) => { // Para la ruta post
     console.log(request.body); // Imprime la peticion
+    console.log(request.file) // Información del archivo que se sube 
     // Antes se hacia push, pero ahora eso esta en modelo
     // Request.body es una forma de request que guarda la petición que se hizo
-    const planeta = new Planeta(request.body.nombre, request.body.imagen, request.body.descripcion); // Crear una instancia de la clase
+    const planeta = new Planeta(request.body.nombre, request.file.filename, request.body.descripcion); // Crear una instancia de la clase
     planeta.save()
         .then(([rows, fieldData]) => {
             // La cookie se define dentro para que el codigo se ejecute antes de renderizar la pagina
