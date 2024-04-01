@@ -7,7 +7,9 @@
 <h1 class="title">Planetas registrados</h1>
 <div class="columns">
 <!--Funciones de javaScript dentro de los operadores <%%>-->
+    <% let columns = 0; %> 
     <% for (let planeta of planetas) { %>
+        <% columns++ %>
         <div class="column">
             <div class="card">
                 <div class="card-image">
@@ -38,6 +40,10 @@
                 </div>
             </div>
         </div>
+        <% if (columns % 4 == 0) { %>
+            </div>
+            <div class="columns">
+        <% } %>
     <% } %>
 </div>
 
