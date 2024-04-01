@@ -13,6 +13,7 @@ exports.get_construir = (request, response, next) => { // Para ruta get de const
 
 exports.post_construir = (request, response, next) => { // Para la ruta post
     console.log(request.body); // Imprime la peticion
+    console.log(request.file); // Información sobre el archivo
     // Antes se hacia push, pero ahora eso esta en modelo
     // Request.body es una forma de request que guarda la petición que se hizo
     const construccion = new Construccion(request.body.nombre, request.body.imagen); // Crear una instancia de la clase

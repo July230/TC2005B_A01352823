@@ -28,6 +28,27 @@ const bodyParser = require('body-parser'); // Para manipular facilmente los deto
 
 app.use(bodyParser.urlencoded({extended: false}));
 
+// Instalar paquete multer para manejar archivos desde node
+const multer = require('multer');
+
+// filestorage: Es nuestra constante de configuración para manejar el almacenamiento
+const fileStorage = multer.diskStorage({
+  destination: (request, file, callback) => {
+      //'uploads': Es el directorio del servidor donde se subirán los archivos 
+      callback(null, 'public/uploads');
+  },
+  filename: (request, file, callback) => {
+      //aquí configuramos el nombre que queremos que tenga el archivo en el servidor, 
+      //para que no haya problema si se suben 2 archivos con el mismo nombre concatenamos el timestamp
+      callback(null, file.originalname);
+  },
+});
+//Idealmente registramos multer después de bodyParser 
+
+//En el registro, pasamos la constante de configuración y usamos single porque es un sólo archivo el que vamos a subir, 
+//pero hay diferentes opciones si se quieren subir varios archivos. 'archivo' es el nombre del input tipo file de la forma
+app.use(multer({ storage: fileStorage }).single('archivo')); 
+
 // Un ataque común es el Cross-Site Request Forgery (CSRF), el cual implica aprovecharse de una sesión de otro usuario, comúnmente perpretado desde una página que parece la oficial pero que en realidad no lo es.
 // Para evitar ataques de CSRF, tenemos que asegurar que nuestros usuarios estén trabajando sobre las vistas que nosotros proveemos. Esto lo podemos lograr por medio de un Token CSRF en nuestras formas y con ayuda de la instalación del paquete csurf.
 const csrf = require('csurf');
@@ -40,21 +61,6 @@ app.use((request, response, next) => {
   next(); //Le permite a la petición avanzar hacia el siguiente middleware
 });
 
-// Instalar paquete multer para manejar archivos desde node
-const multer = require('multer');
-
-// filestorage: Es nuestra constante de configuración para manejar el almacenamiento
-const fileStorage = multer.diskStorage({
-  destination: (request, file, callback) => {
-      //'uploads': Es el directorio del servidor donde se subirán los archivos 
-      callback(null, 'uploads');
-  },
-  filename: (request, file, callback) => {
-      //aquí configuramos el nombre que queremos que tenga el archivo en el servidor, 
-      //para que no haya problema si se suben 2 archivos con el mismo nombre concatenamos el timestamp
-      callback(null, new Date().toISOString() + '-' + file.originalname);
-  },
-});
 
 //Registrar el middleware con el módulo construcciones
 const rutasUsuarios = require('./routes/usuarios.routes'); // Nuevo modulo de rutas usuarios
