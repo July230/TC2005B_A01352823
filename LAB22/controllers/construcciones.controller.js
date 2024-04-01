@@ -16,7 +16,7 @@ exports.post_construir = (request, response, next) => { // Para la ruta post
     console.log(request.file); // Información sobre el archivo
     // Antes se hacia push, pero ahora eso esta en modelo
     // Request.body es una forma de request que guarda la petición que se hizo
-    const construccion = new Construccion(request.body.nombre, request.body.imagen); // Crear una instancia de la clase
+    const construccion = new Construccion(request.body.nombre, request.file.filename); // Crear una instancia de la clase
     construccion.save()
         .then(([rows, fieldData]) => {
             // Ahora la cookie va adentro del then
