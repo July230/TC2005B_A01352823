@@ -16,6 +16,8 @@ router.get('/construir', isAuth, canBuild, construccionesController.get_construi
 router.post('/construir', isAuth, canBuild, construccionesController.post_construir); // Nuevo controlador con post construir
 
 router.get('/buscar/:valor_busqueda', isAuth, canView, construccionesController.get_buscar);
+router.get('/buscar', isAuth, canView, construccionesController.get_buscar);
+
 // En ocasiones es necesario recuperar un registro en particular de la base de datos
 // Para indicarle al ruteador de express que un valor en una ruta es una varibale, podemos hacerlo agregando como prefijo el símbolo :
 router.get('/:construccion_id', isAuth, canView, construccionesController.get_root);

@@ -64,7 +64,7 @@ exports.getConstrucciones = (request, response, next) => {
 }
 
 exports.get_buscar = (request, response, next) => {
-    Construccion.search(request.params.valor_busqueda)
+    Construccion.search(request.params.valor_busqueda || '')
         .then(([construcciones, fieldData]) => {
             // Para enviar las respuestas en formato JSON, en nuestro controlador tenemos que cambiar la respuesta por:
             return response.status(200).json({construcciones: construcciones});
