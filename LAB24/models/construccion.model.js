@@ -12,7 +12,7 @@ module.exports =  class Construccion {
     // Este metodo servira para guardar de manera persistente el nuevo objeto
     save(){
         return db.execute(
-            'INSERT INTO Construccion (nombre, imagen, username) VALUES (?, ?, "rommel49")', // Se dejan los espacios, el uno es para que le ponga al usuario 1
+            'CALL registrarConstruccion(?, ?, "rommel49")', // Se dejan los espacios, el uno es para que le ponga al usuario 1
             [this.nombre, this.imagen] // Para evitar sql inyection se pone el signo de interrogacion en la consulta
         );
     }
