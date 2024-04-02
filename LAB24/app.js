@@ -1,4 +1,4 @@
-/* Archivo app para laboratorio 13 */
+/* Archivo app para laboratorio 24 */
 
 // Es necesario haer iniciado el proyecto con npm init
 // Es necesario instalar body parser
@@ -27,6 +27,12 @@ app.use(express.static(path.join(__dirname, 'public'))); // directorio estatico 
 const bodyParser = require('body-parser'); // Para manipular facilmente los detos de las peticiones
 
 app.use(bodyParser.urlencoded({extended: false}));
+
+// Usando AJAX
+// Primero, debemos preparar al servidor para que en lugar de enviar una página HTML completa, envíe únicamente una parte de la página, texto, o datos
+// Para poder manipular fácilmente las peticiones que llegan en formato JSON, es necesario registrar el middleware para manejar JSON que incluye bodyParser
+app.use(bodyParser.json());
+
 
 // Instalar paquete multer para manejar archivos desde node
 const multer = require('multer');

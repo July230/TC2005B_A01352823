@@ -2,6 +2,7 @@
 
 <h1 class="title">Hola mundo de Minecraft!</h1>
 
+<input id="buscar" class="input is-info" type="text" placeholder="Buscar..."/><br><br>
 <div class="columns">
 
     <% if (construcciones.length < 1) { %>
@@ -57,5 +58,36 @@
 <% if(ultima_construccion != '') { %>
     <div>La última construcción fue <%= ultima_construccion %>.</div>
 <% } %>
+
+<!--
+    Para poder hacer una petición asíncrona desde el javascript de nuestro cliente, debemos identificar el evento que detonará la petición asíncrona.
+-->
+<script>
+const accion_asincrona = () => {
+    console.log('Buscando...');
+    const valor_busqueda = document.getElementById('buscar').value;
+
+    //función que manda la petición asíncrona
+    fetch('/construcciones/buscar/' + valor_busqueda, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    }).then((result) => {
+        console.log(result);
+        return result.json(); //Regresa otra promesa
+    }).then((data) => {
+        console.log(data);
+        //Modificamos el DOM de nuestra página de acuerdo a los datos de la segunda promesa
+        //...
+    }).catch((err) => {
+        console.log(err);
+    });
+};
+
+document.getElementById('buscar').onkeyup = accion_asincrona;
+
+    
+</script>
 
 <%- include('includes/foot.ejs') %>

@@ -1,5 +1,6 @@
 // Un archivo de controlador, la lógica de como va a interactuar
 
+const { request, response } = require("express");
 const Construccion = require("../models/construccion.model");
 
 // El orden en controladores ya no importa porque sólo es lógica
@@ -61,3 +62,12 @@ exports.getConstrucciones = (request, response, next) => {
         })
         .catch(err => console.log(err)); // catch es en caso de que no, por lo que el error se muestra en consola
 }
+
+exports.get_buscar = (request, response, next) => {
+    Construccion.search(request.params.valor_busqueda)
+        .then(([construcciones, fieldData]) => {
+            // Para enviar las respuestas en formato JSON, en nuestro controlador tenemos que cambiar la respuesta por:
+            return response.status(200).json({construcciones: construcciones});
+        })
+        .catch((error) => {console.log(error)});
+};

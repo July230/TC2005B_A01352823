@@ -35,4 +35,10 @@ module.exports =  class Construccion {
             return this.fetchAll();
         }
     }
+
+    // Nueva funcion para consultar las construcciones por nombre
+    static search(valor_busqueda){
+        return db.execute(`SELECT * FROM Construccion WHERE nombre LIKE ?`,
+        ['%' + valor_busqueda + '%']);
+    }
 }
