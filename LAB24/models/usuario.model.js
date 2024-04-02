@@ -15,7 +15,7 @@ module.exports =  class Usuario {
     save(){
         return bcrypt.hash(this.password, 12).then((password_cifrado) => { // Con el modulo bcrypt, se cifran los passwords
             return db.execute(
-                'INSERT INTO Usuario (username, password) VALUES (?, ?)', // Se dejan los espacios, el uno es para que le ponga al usuario 1
+                'CALL agregarUsuario(?, ?)', // Usamos un Stored Procedure que se guardó en la base de datos
                 [this.username, password_cifrado] // Para evitar sql inyection se pone el signo de interrogacion en la consulta
             );
         })
