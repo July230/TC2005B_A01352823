@@ -41,4 +41,8 @@ module.exports =  class Construccion {
         return db.execute(`SELECT * FROM Construccion WHERE nombre LIKE ?`,
         ['%' + valor_busqueda + '%']);
     }
+
+    static delete(id){
+        return db.execute('DELETE FROM Construccion WHERE id=?', [id]);
+    }
 }

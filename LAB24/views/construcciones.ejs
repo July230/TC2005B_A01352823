@@ -2,6 +2,7 @@
 
 <h1 class="title">Hola mundo de Minecraft!</h1>
 
+<input type="hidden" id="_csrf" name="_csrf" value="<%= csrfToken %>" >
 <input id="buscar" class="input is-info" type="text" placeholder="Buscar..."/><br><br>
 <div id="respuesta_ajax">
 
@@ -43,7 +44,8 @@
                         Phasellus nec iaculis mauris. <a>@bulmaio</a>.
                         <a href="#">#css</a> <a href="#">#responsive</a>
                         <br>
-                        <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                        <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time><br>
+                        <button class="button is-danger is-light" onclick="eliminar(<%= construccion.id %>)">Eliminar</button>
                     </div>
                     </div>
                 </div>
@@ -122,7 +124,8 @@ const accion_asincrona = () => {
                         Phasellus nec iaculis mauris. <a>@bulmaio</a>.
                         <a href="#">#css</a> <a href="#">#responsive</a>
                         <br>
-                        <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                        <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time><br>
+                        <button class="button is-danger is-light" onclick="eliminar(${construccion.id})">Eliminar</button>
                     </div>
                     </div>
                 </div>
@@ -142,6 +145,77 @@ const accion_asincrona = () => {
 
 document.getElementById('buscar').onkeyup = accion_asincrona;
 
+const eliminar = (id) => {
+    const csrf = document.getElementById('_csrf').value;
+    //función que manda la petición asíncrona
+    fetch('/construcciones/delete', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'csrf-token': csrf
+        },
+        body: JSON.stringify({id: id}) // Para enviar JSON al body
+    }).then(result => {
+        return result.json(); //Regresa otra promesa
+    }).then(data => {
+        console.log(data);
+        let html = '';
+        html += `
+        <div class="columns">`;
+        if (data.construcciones.length < 1) { 
+            html += `
+            <div class="notification is-info">
+                <button class="delete"></button>
+                No existe la construcción.            
+            </div>`;
+        }
+        let columns = 0;
+        for (let construccion of data.construcciones) { 
+            columns++;
+            html += `
+            <div class="column">
+                <div class="card">
+                    <div class="card-image">
+                    <figure class="image is-4by3">
+                        <img src="uploads/${construccion.imagen}" alt="Imagen de ${construccion.nombre}">
+                    </figure>
+                    </div>
+                    <div class="card-content">
+                    <div class="media">
+                        <div class="media-left">
+                        <figure class="image is-48x48">
+                            <img src="uploads/${construccion.imagen}" alt="Imagen de ${construccion.nombre}">
+                        </figure>
+                        </div>
+                        <div class="media-content">
+                        <p class="title is-4">${construccion.nombre}</p>
+                        <p class="subtitle is-6">@${construccion.nombre}</p>
+                        </div>
+                    </div>
+                
+                    <div class="content">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                        <a href="#">#css</a> <a href="#">#responsive</a>
+                        <br>
+                        <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time><br>
+                        <button class="button is-danger is-light" onclick="eliminar(${construccion.id})">Eliminar</button>
+                    </div>
+                    </div>
+                </div>
+            </div>`;
+            if (columns % 4 == 0) {
+                html += `</div>
+                <div class="columns">`;
+            }
+        } 
+        html += `</div>`;
+        //Modificamos el DOM de nuestra página de acuerdo a los datos de la segunda promesa
+        document.getElementById('respuesta_ajax').innerHTML = html;
+    }).catch(err => {
+        console.log(err);
+    });
+};
     
 </script>
 

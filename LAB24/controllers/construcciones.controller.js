@@ -46,6 +46,7 @@ exports.get_root = (request, response, next) => { // Para la ruta raiz
             ultima_construccion: ultima_construccion, // La cookie ultima construccion
             username: request.session.username || '', // En caso de que no exista, string vacío
             permisos: request.session.permisos || [], // Por defecto, un arreglo vacio
+            csrfToken: request.csrfToken(), // Al implementar AJAX y tener una petición tipo post, protegemos con el csrf
         });
     })
     .catch((error) => {
@@ -68,6 +69,18 @@ exports.get_buscar = (request, response, next) => {
         .then(([construcciones, fieldData]) => {
             // Para enviar las respuestas en formato JSON, en nuestro controlador tenemos que cambiar la respuesta por:
             return response.status(200).json({construcciones: construcciones});
+        })
+        .catch((error) => {console.log(error)});
+};
+
+exports.post_delete = (request, response, next) => {
+    Construccion.delete(request.body.id)
+        .then(() => {
+            Construccion.fetch()
+                .then(([construcciones, fieldData]) => {
+                    return response.status(200).json({construcciones: construcciones})
+                })
+                .catch((error) => {console.log(error)})
         })
         .catch((error) => {console.log(error)});
 };
