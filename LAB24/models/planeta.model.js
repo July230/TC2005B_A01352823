@@ -29,7 +29,7 @@ module.exports = class Planeta {
     }
 
     static fetchOne(id){
-        return db.execute('SELECT FROM Planeta WHERE idplaneta=?', [id]); // Si en la ruta planetas escribe el id, devuelve el planeta
+        return db.execute('SELECT FROM Planeta WHERE idPlaneta=?', [id]); // Si en la ruta planetas escribe el id, devuelve el planeta
     }
 
     static fetch(id){ // Con esto hacemos que si el usuario escriba el id y devuelve unicamente el planeta
@@ -38,5 +38,15 @@ module.exports = class Planeta {
         } else {
             return this.fetchAll(id);
         }
+    }
+
+    // Nueva funcion para consultar las construcciones por nombre
+    static search(valor_busqueda){
+        return db.execute(`SELECT * FROM Planeta WHERE nombre LIKE ?`,
+        ['%' + valor_busqueda + '%']);
+    }
+
+    static delete(id){
+        return db.execute('DELETE FROM Planeta WHERE idPlaneta=?', [id]);
     }
 }

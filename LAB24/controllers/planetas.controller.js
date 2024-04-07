@@ -48,7 +48,7 @@ exports.get_planetas = (request, response, next) => { // Para la ruta que tiene 
             username: request.session.username || '', // Usuario, en caso de que no exista, string vacio
             permisos: request.session.permisos || [], // Por defecto, un arreglo vacio
         });
-    }). catch((error) => {console.log(error)}); 
+    }).catch((error) => {console.log(error)}); 
 }
 
 exports.getPlanetas = (request, response, next) => {

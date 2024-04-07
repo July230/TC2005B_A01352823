@@ -18,7 +18,8 @@ const planetasController = require('../controllers/planetas.controller'); // De 
 router.get('/enviar', isAuth, canRegister, planetasController.get_registrar);  // Nuevo controlador con get registrar planeta
 router.post('/enviar', isAuth, canRegister, planetasController.post_registrar);  // Nuevo controlador con post registrar planeta
 router.get('/planetas', isAuth, canView, planetasController.get_planetas); // Nuevo controlador con get planetas 
-router.get('/', planetasController.get_root); // Nuevo controlador con get raiz
+router.get('/:planeta_id', isAuth, canView, planetasController.get_root);
 router.get('/razas', planetasController.get_razas);
+router.get('/', planetasController.get_root); // Nuevo controlador con get raiz
 
 module.exports = router;
