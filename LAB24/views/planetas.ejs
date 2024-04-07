@@ -146,7 +146,7 @@ const accion_asincrona = () => {
 
 document.getElementById('buscar').onkeyup = accion_asincrona;
 
-const eliminar = (id) => {
+const eliminar = (idPlaneta) => {
     const csrf = document.getElementById('_csrf').value;
     //función que manda la petición asíncrona
     fetch('/planetas/delete', {
@@ -155,7 +155,7 @@ const eliminar = (id) => {
             'Content-Type': 'application/json',
             'csrf-token': csrf
         },
-        body: JSON.stringify({id: id}) // Para enviar JSON al body
+        body: JSON.stringify({idPlaneta: idPlaneta}) // Para enviar JSON al body
     }).then(result => {
         return result.json(); //Regresa otra promesa
     }).then(data => {

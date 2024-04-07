@@ -29,7 +29,7 @@ module.exports = class Planeta {
     }
 
     static fetchOne(id){
-        return db.execute('SELECT FROM Planeta WHERE idPlaneta=?', [id]); // Si en la ruta planetas escribe el id, devuelve el planeta
+        return db.execute('SELECT * FROM Planeta WHERE idPlaneta=?', [id]); // Si en la ruta planetas escribe el id, devuelve el planeta
     }
 
     static fetch(id){ // Con esto hacemos que si el usuario escriba el id y devuelve unicamente el planeta
