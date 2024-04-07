@@ -47,18 +47,9 @@ exports.get_planetas = (request, response, next) => { // Para la ruta que tiene 
             ultimo_planeta: ultimo_planeta, // La cookie del ultimo planeta registrado
             username: request.session.username || '', // Usuario, en caso de que no exista, string vacio
             permisos: request.session.permisos || [], // Por defecto, un arreglo vacio
+            csrfToken: request.csrfToken(), // Al hacer peticiones tipo post en la vista, enviar el Token
         });
     }).catch((error) => {console.log(error)}); 
-}
-
-exports.getPlanetas = (request, response, next) => {
-    Planeta.fetchAll() // Metodo del modelo
-        .then(([rows, fieldData]) => { // Si se cumple la promesa
-            response.render('vista', {
-                Planeta: rows,
-            })
-        })
-        .catch(err => console.log(err)); // catch es en caso de que no, por lo que el error se muestra en consola
 }
 
 exports.get_root = (request, response, next) => { // Para ruta raiz
@@ -76,3 +67,23 @@ exports.get_razas = (request, response, next) => { // Para la ruta de get razas
         permisos: request.session.permisos || [], // Por defecto, un arreglo vacio
     });
 }
+
+exports.get_buscar = (request, response, next) => {
+    Planeta.search(request.params.valor_busqueda || '')
+        .then(([planetas, fieldData]) => {
+            // Para enviar las respuestas en formato JSON, en nuestro controlador tenemos que cambiar la respuesta por:
+            return response.status(200).json({planetas: planetas});
+        })
+        .catch((error) => {console.log(error)});
+};
+
+exports.post_delete = (request, response, next) => {
+    Planeta.delete(request.body.idPlaneta)
+        .then(() => {
+            return Planeta.fetch();
+        })
+        .then(([planetas, fieldData]) => {
+            return response.status(200).json({planetas: planetas})
+        })
+        .catch((error) => {console.log(error)});
+};

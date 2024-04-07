@@ -5,46 +5,231 @@
 }) %> 
 
 <h1 class="title">Planetas registrados</h1>
-<div class="columns">
-<!--Funciones de javaScript dentro de los operadores <%%>-->
-    <% let columns = 0; %> 
-    <% for (let planeta of planetas) { %>
-        <% columns++ %>
-        <div class="column">
-            <div class="card">
-                <div class="card-image">
-                <figure class="image is-4by3">
-                    <img src="uploads2/<%= planeta.imagen %>" alt="Imagen de <%= planeta.nombre %>">
-                </figure>
-                </div>
-                <div class="card-content">
-                    <div class="media">
-                        <div class="media-left">
-                        <figure class="image is-48x48">
-                            <img src="uploads2/<%= planeta.imagen %>" alt="Imagen de <%= planeta.nombre %>">
-                        </figure>
-                        </div>
-                        <div class="media-content">
-                        <p class="title is-4"><%= planeta.nombre %></p> <!--Usar igual, es mas seguro y se evitan ataques de scripting-->
-                        <p class="subtitle is-6">@<%= planeta.nombre %></p>
-                        </div>
-                    </div>
-                
-                    <div class="content">
-                        <%= planeta.descripcion %>
-                        <a>@bulmaio</a>.
-                        <a href="#">#css</a> <a href="#">#responsive</a>
-                        <br>
-                        <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-                    </div>
-                </div>
+
+<input type="hidden" id="_csrf" name="_csrf" value="<%= csrfToken %>" > <!--Al hacer peticiones tipo post y tener csrf, hay que agregarlo en la vista-->
+<input id="buscar" class="input is-info" type="text" placeholder="Buscar..."/><br><br>
+<div id="respuesta_ajax">
+
+    <div id="notificacion">
+        <% if (planetas.length < 1) { %>
+            <div class="notification is-info">
+                <button class="delete"></button>
+                No se ha encontrado coincidencia en los registros de planetas.
             </div>
-        </div>
-        <% if (columns % 4 == 0) { %>
-            </div>
-            <div class="columns">
+                No se ha encontrado coincidencia en los registros de planetas.
+            </div>       
         <% } %>
-    <% } %>
+    </div>
+
+    <div class="columns">
+    <!--Funciones de javaScript dentro de los operadores <%%>-->
+        <% let columns = 0; %> 
+        <% for (let planeta of planetas) { %>
+            <% columns++ %>
+            <div class="column">
+                <div class="card">
+                    <div class="card-image">
+                    <figure class="image is-4by3">
+                        <img src="uploads2/<%= planeta.imagen %>" alt="Imagen de <%= planeta.nombre %>">
+                    </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                            <figure class="image is-48x48">
+                                <img src="uploads2/<%= planeta.imagen %>" alt="Imagen de <%= planeta.nombre %>">
+                            </figure>
+                            </div>
+                            <div class="media-content">
+                            <p class="title is-4"><%= planeta.nombre %></p> <!--Usar igual, es mas seguro y se evitan ataques de scripting-->
+                            <p class="subtitle is-6">@<%= planeta.nombre %></p>
+                            </div>
+                        </div>
+                    
+                        <div class="content">
+                            <%= planeta.descripcion %>
+                            <a>@bulmaio</a>.
+                            <a href="#">#css</a> <a href="#">#responsive</a>
+                            <br>
+                            <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                            <button class="button is-danger is-light" onclick="eliminar(<%= planeta.idPlaneta %>)">Eliminar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% if (columns % 4 == 0) { %>
+                </div>
+                <div class="columns">
+            <% } %>
+        <% } %>
+    </div>
 </div>
+
+<script>
+const accion_asincrona = () => {
+    console.log('Buscando...');
+    const valor_busqueda = document.getElementById('buscar').value;
+
+    //función que manda la petición asíncrona
+    fetch('/planetas/buscar/' + valor_busqueda, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    }).then((result) => {
+        console.log(result);
+        return result.json(); //Regresa otra promesa
+    }).then((data) => {
+        console.log(data);
+        let html = '';
+
+        html += `<div id="notificacion">`;
+            if (data.planetas.length < 1) { 
+                html += 
+                    `<div class="notification is-info">
+                        <button class="delete"></button>
+                        No se ha encontrado coincidencia en los registros de planetas.
+                    </div>`;           
+            }
+        html += `</div>`;
+
+        html += `
+        <div class="columns">`;
+    
+        let columns = 0;
+        for (let planeta of data.planetas) { 
+            columns++;
+            html += `
+            <div class="column">
+                <div class="card">
+                    <div class="card-image">
+                    <figure class="image is-4by3">
+                        <img src="uploads2/${planeta.imagen}" alt="Imagen de ${planeta.nombre}">
+                    </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                            <figure class="image is-48x48">
+                                <img src="uploads2/${planeta.imagen}" alt="Imagen de ${planeta.nombre}">
+                            </figure>
+                            </div>
+                            <div class="media-content">
+                            <p class="title is-4">${planeta.nombre}</p> <!--Usar igual, es mas seguro y se evitan ataques de scripting-->
+                            <p class="subtitle is-6">@${planeta.nombre}</p>
+                            </div>
+                        </div>
+                    
+                        <div class="content">
+                            ${planeta.descripcion}
+                            <a>@bulmaio</a>.
+                            <a href="#">#css</a> <a href="#">#responsive</a>
+                            <br>
+                            <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                            <button class="button is-danger is-light" onclick="eliminar(${planeta.idPlaneta})">Eliminar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>`;
+            if (columns % 4 == 0) {
+                html += `</div>
+                <div class="columns">`;
+            }
+        } 
+        html += `</div>`;
+        //Modificamos el DOM de nuestra página de acuerdo a los datos de la segunda promesa
+        document.getElementById('respuesta_ajax').innerHTML = html;
+    }).catch((err) => {
+        console.log(err);
+    });
+};
+
+document.getElementById('buscar').onkeyup = accion_asincrona;
+
+const eliminar = (id) => {
+    const csrf = document.getElementById('_csrf').value;
+    //función que manda la petición asíncrona
+    fetch('/planetas/delete', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'csrf-token': csrf
+        },
+        body: JSON.stringify({id: id}) // Para enviar JSON al body
+    }).then(result => {
+        return result.json(); //Regresa otra promesa
+    }).then(data => {
+        console.log(data);
+        let html = '';
+        html += `<div id="notificacion">`;
+            if (data.planetas.length < 1) { 
+                html += 
+                    `<div class="notification is-info">
+                        <button class="delete"></button>
+                        No se ha encontrado coincidencia en los registros de planetas.
+                    </div>`;           
+            }
+        html += `</div>`;
+
+        html += `
+        <div class="columns">`;
+        
+        let columns = 0;
+        for (let planeta of data.planetas) { 
+            columns++;
+            html += `
+            <div class="column">
+                <div class="card">
+                    <div class="card-image">
+                    <figure class="image is-4by3">
+                        <img src="uploads2/${planeta.imagen}" alt="Imagen de ${planeta.nombre}">
+                    </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                            <figure class="image is-48x48">
+                                <img src="uploads2/${planeta.imagen}" alt="Imagen de ${planeta.nombre}">
+                            </figure>
+                            </div>
+                            <div class="media-content">
+                            <p class="title is-4">${planeta.nombre}</p> <!--Usar igual, es mas seguro y se evitan ataques de scripting-->
+                            <p class="subtitle is-6">@${planeta.nombre}</p>
+                            </div>
+                        </div>
+                    
+                        <div class="content">
+                            ${planeta.descripcion}
+                            <a>@bulmaio</a>.
+                            <a href="#">#css</a> <a href="#">#responsive</a>
+                            <br>
+                            <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                            <button class="button is-danger is-light" onclick="eliminar(${planeta.idPlaneta})">Eliminar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>`;
+            if (columns % 4 == 0) {
+                html += `</div>
+                <div class="columns">`;
+            }
+        } 
+        html += `</div>`;
+
+        //Modificamos el DOM de nuestra página de acuerdo a los datos de la segunda promesa
+        document.getElementById('respuesta_ajax').innerHTML = html;
+
+        //Modificamos el DOM de nuestra página de acuerdo a los datos de la segunda promesa
+        document.getElementById('notificacion').innerHTML = 
+            `<div class="notification is-info">
+                <button class="delete"></button>
+                El planeta ha sido eliminado de los registros. 
+            </div>`;
+    }).catch(err => {
+        console.log(err);
+    });
+};
+
+</script>
 
 <%- include('includes/footer.ejs') %>

@@ -36,7 +36,7 @@ module.exports = class Planeta {
         if(id){
             return this.fetchOne(id);
         } else {
-            return this.fetchAll(id);
+            return this.fetchAll();
         }
     }
 

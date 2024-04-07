@@ -17,9 +17,12 @@ const planetasController = require('../controllers/planetas.controller'); // De 
 // Controlador por cada get o post
 router.get('/enviar', isAuth, canRegister, planetasController.get_registrar);  // Nuevo controlador con get registrar planeta
 router.post('/enviar', isAuth, canRegister, planetasController.post_registrar);  // Nuevo controlador con post registrar planeta
-router.get('/planetas', isAuth, canView, planetasController.get_planetas); // Nuevo controlador con get planetas 
-router.get('/:planeta_id', isAuth, canView, planetasController.get_root);
-router.get('/razas', planetasController.get_razas);
+router.get('/planetas/buscar/:valor_busqueda', isAuth, canView, planetasController.get_buscar);
+router.get('/planetas/buscar', isAuth, canView, planetasController.get_buscar);
+router.get('/planeta/:planeta_id', isAuth, canView, planetasController.get_root);
+router.post('/planetas/delete', isAuth, canRegister, planetasController.post_delete); // Nuevo controlador para eliminar planetas
+router.get('/planetas', isAuth, canView, planetasController.get_planetas); // Nuevo controlador con get planetas
 router.get('/', planetasController.get_root); // Nuevo controlador con get raiz
+router.get('/razas', planetasController.get_razas);
 
 module.exports = router;
