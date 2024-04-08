@@ -1,0 +1,16 @@
+<!--Archivo ejs-->
+<%- include('includes/head.ejs', 
+    {username: username, 
+    permisos: permisos
+}) %>
+<h1 class="title">Agregar una construcción</h1>
+<form action="/construcciones/construir" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
+    <label class="label" for="nombre">Nombre</label>
+    <input name="nombre" id="nombre" type="text" class="input"><br>
+    <label class="label" for="imagen">Imagen</label>
+    <input name="imagen" id="imagen" type="file" class="input"><br><br> <!--Con file ahora subimos un archivo-->
+    <input class="button is-success" type="submit" value="Construir">
+</form>
+
+<%- include('includes/foot.ejs') %>
