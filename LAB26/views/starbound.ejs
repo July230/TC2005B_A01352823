@@ -16,4 +16,84 @@
     <br>
 </div>
 
+<!--Servicio Agregando una API, en este caso la de spotify-->
+<div id="spotifyPlaylist">
+    <script>
+        // Es necesario haberse autenticado y seguir los pasos indicados en el "dashboard"
+        // Copia el link de la playlist
+        const playlistId = '3sfcqxUYiRKiZQr5ZKP6AU';
+        // Authorization token that must have been created previously. See : https://developer.spotify.com/documentation/web-api/concepts/authorization
+        const token = '09488bc9824a480d9a8e745f5986dfde';
+
+
+
+        /* La siguiente función obtiene usa el token para conectarse
+        async function fetchWebApi(endpoint, method, body) {
+        const res = await fetch(`https://api.spotify.com/${endpoint}`, {
+            headers: {
+            Authorization: `Bearer ${token}`,
+            },
+            method,
+            body:JSON.stringify(body)
+        });
+        return await res.json();
+        }
+        */
+        /* Los siguientes pasos se utilizaron para crear una nueva playlist
+        // Estas son las piezas tomadas de spotify, el algoritmo de spotify las elige
+        const tracksUri = [
+        'spotify:track:7op0cDlR4lwobpF2VOAB3m','spotify:track:4tn5EDqodMsZRkIHV2cXyp','spotify:track:62kEWM664Bk3ZYW7IFgMv3','spotify:track:1UPWcUq3pVhRtHjICSJAIE','spotify:track:6eVd73LJocT1sVA3848k2P','spotify:track:3yJjnvo8xLP0GtrT6ULaie','spotify:track:6sBXmpq0crGn8nKfR9sa1F','spotify:track:0kKKNguEOEOfYC3xecdaBf','spotify:track:7fwaPdzqWxaPaREUvQOwOU','spotify:track:3lRfboen0tvzcfhVKXVo5v'
+        ];
+
+        // Crea una playlist con las piezas elegidas por spotify
+        async function createPlaylist(tracksUri){
+        const { id: user_id } = await fetchWebApi('v1/me', 'GET')
+
+        // Definir características de la playlist
+        const playlist = await fetchWebApi(
+            `v1/users/${user_id}/playlists`, 'POST', {
+            "name": "My recommendation playlist",
+            "description": "Playlist created by the tutorial on developer.spotify.com",
+            "public": false
+        })
+
+        // Devolver la playist de spotify
+        await fetchWebApi(
+            `v1/playlists/${playlist.id}/tracks?uris=${tracksUri.join(',')}`,
+            'POST'
+        );
+
+        return playlist;
+        }
+
+        const createdPlaylist = await createPlaylist(tracksUri);
+        console.log(createdPlaylist.name, createdPlaylist.id);
+        */
+        fetch(`https://api.spotify.com/v1/playlists/${playlistId}`, {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+          }
+        })
+        .then(response => response.json())
+        .then(data => {
+          const playlist = data;
+          const playlistEmbedUrl = `https://open.spotify.com/embed/playlist/${playlistId}`;
+      
+          // Crea el cuadro donde estará la playlist
+          const iframe = document.createElement('iframe');
+          iframe.src = playlistEmbedUrl;
+          iframe.title = 'Spotify Embed: Recommendation Playlist';
+          iframe.width = '100%';
+          iframe.height = '100%';
+          iframe.style.minHeight = '360px';
+          iframe.frameBorder = '0';
+          iframe.allow = 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';
+          iframe.loading = 'lazy';
+      
+          document.getElementById('spotifyPlaylist').appendChild(iframe);
+        })
+        .catch(error => console.error('Error:', error));
+
+    </script>
+</div>
 <%- include('includes/footer.ejs') %>
