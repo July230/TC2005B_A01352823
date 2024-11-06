@@ -1,0 +1,8 @@
+# Aquí hay algunos ejemplos de archivos comunmente  ignorados
+# Los archivos que esten aquí no se subiran al repositorio remoto
+
+# Node artifact files
+node_modules/
+
+# Archivo de MacOS
+.DS_Store

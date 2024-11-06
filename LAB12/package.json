@@ -1,0 +1,66 @@
+{
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  },
+  "name": "tc2005b_a01352823",
+  "description": "Este repositorio es para el curso construcción de software",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "abbrev": "^1.1.1",
+    "anymatch": "^3.1.3",
+    "balanced-match": "^1.0.2",
+    "binary-extensions": "^2.2.0",
+    "body-parser": "^1.20.2",
+    "brace-expansion": "^1.1.11",
+    "braces": "^3.0.2",
+    "chokidar": "^3.6.0",
+    "concat-map": "^0.0.1",
+    "debug": "^4.3.4",
+    "ejs": "^3.1.9",
+    "express": "^4.18.3",
+    "fill-range": "^7.0.1",
+    "fsevents": "^2.3.3",
+    "glob-parent": "^5.1.2",
+    "has-flag": "^3.0.0",
+    "ignore-by-default": "^1.0.1",
+    "is-binary-path": "^2.1.0",
+    "is-extglob": "^2.1.1",
+    "is-glob": "^4.0.3",
+    "is-number": "^7.0.0",
+    "lru-cache": "^6.0.0",
+    "minimatch": "^3.1.2",
+    "ms": "^2.1.2",
+    "nopt": "^1.0.10",
+    "normalize-path": "^3.0.0",
+    "picomatch": "^2.3.1",
+    "pstree.remy": "^1.1.8",
+    "readdirp": "^3.6.0",
+    "semver": "^7.6.0",
+    "simple-update-notifier": "^2.0.0",
+    "supports-color": "^5.5.0",
+    "to-regex-range": "^5.0.1",
+    "touch": "^3.1.0",
+    "undefsafe": "^2.0.5",
+    "yallist": "^4.0.0"
+  },
+  "scripts": {
+    "start": "nodemon lab12.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/July230/TC2005B_A01352823.git"
+  },
+  "keywords": [
+    "starbound",
+    "planetas",
+    "construir"
+  ],
+  "author": "July230",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/July230/TC2005B_A01352823/issues"
+  },
+  "homepage": "https://github.com/July230/TC2005B_A01352823#readme"
+}

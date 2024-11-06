@@ -1,0 +1,41 @@
+<!--Html que corresponde a planetas enviados-->
+<%- include('includes/header.ejs', {username: username}) %> <!--Al tener un usuario, hay que definirlo en el template, esto se hace en todos los templates-->
+
+<h1 class="title">Planetas registrados</h1>
+<div class="columns">
+<!--Funciones de javaScript dentro de los operadores <%%>-->
+    <% for (let planeta of planetas) { %>
+        <div class="column">
+            <div class="card">
+                <div class="card-image">
+                <figure class="image is-4by3">
+                    <img src="<%= planeta.imagen %>" alt="Imagen de <%= planeta.nombre %>">
+                </figure>
+                </div>
+                <div class="card-content">
+                    <div class="media">
+                        <div class="media-left">
+                        <figure class="image is-48x48">
+                            <img src="<%= planeta.imagen %>" alt="Imagen de <%= planeta.nombre %>">
+                        </figure>
+                        </div>
+                        <div class="media-content">
+                        <p class="title is-4"><%= planeta.nombre %></p> <!--Usar igual, es mas seguro y se evitan ataques de scripting-->
+                        <p class="subtitle is-6">@<%= planeta.nombre %></p>
+                        </div>
+                    </div>
+                
+                    <div class="content">
+                        <%= planeta.descripcion %>
+                        <a>@bulmaio</a>.
+                        <a href="#">#css</a> <a href="#">#responsive</a>
+                        <br>
+                        <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% } %>
+</div>
+
+<%- include('includes/footer.ejs') %>

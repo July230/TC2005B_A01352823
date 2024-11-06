@@ -13,8 +13,8 @@
             <img id="Starbound_picture" src="IMAGENES/Wallpaper_Starbound1.jpeg" alt="Un planeta desértico, un gigante gaseoso y una luna"> <!--Imagen y grosor-->
         </div>
         <nav>
-            <a href="Starbound.html">Hola Mundo Starbound</a>
-            <a href="passwords.html">Laboratorio 6</a>
+            <a href="LAB8/Starbound.html">Hola Mundo Starbound</a>
+            <a href="LAB8/passwords.html">Laboratorio 6</a>
         </nav>
         <h1>Ian Julián Estrada Castro</h1>
         <h4>Matrícula - A01352823</h4>
@@ -536,8 +536,511 @@
         <p>
             En node existen los require, el equivalente al include e import de C++ y Python respectivamente
         </p>
+        <h3>NPM</h3>
+        <p>
+            NPM es parte escencial de Node, el entorno de ejecución de JavaScript en el lado del servidor. Probablemente es la razón del éxito de Node
+            permitiendo que cientos de desarrolladores puedan compartir sus paquetes de software en distintos proyectos. 
+            NPM corresponde a las siglas de Node Package Manager o manejador de paquetes de node, es la herramienta por defecto de JavaScript para la tarea 
+            de compartir e instalar paquetes (Hernández Matías). NPM se compone de al menos dos partes principales:
+        </p>
+        <ul>
+            <li>Un repositorio online para publicar paquetes de software libre para ser utilizados en proyectos Node.js</li>
+            <li>Una herramienta para la terminal (command line utility) para interactuar con dicho repositorio que te ayuda a la instalación de utilidades, manejo de dependencias y la publicación de paquetes.</li>
+        </ul>
+        <h3>Package.json</h3>
+        <p>
+            Este archivo indica a npm que el directorio en el que se encuentra es en efecto un proyecto o paquete npm. 
+            Este archivo contiene la información del paquete incluyendo la descripción del mismo, versión, autor y más importante aún, dependencias.
+            El archivo Package.json se genera a través del comando <strong>npm init</strong> y llenando los campos correspondientes. 
+        </p>
+        <ul>
+            <li>version: Corresponde a la versión del proyecto.</li>
+            <li>description: Una breve descripción del proyecto.</li>
+            <li>entry point: Define cuál será el punto de "entrada" del proyecto. Esto es, que archivo se ejecutará cuando se importe el proyecto dentro de otro.</li>
+            <li>test command: Aquí se puede definir el comando que se quiere ejecutar para realizar las pruebas del proyecto</li>
+            <li>git repository: Define la url del repositorio git en donde este proyecto está alojado, se utiliza para informar a los usuarios del paquete el repositorio en donde encontrar el código fuente del proyecto.</li>
+            <li>author: El nombre e email de quien creó este proyecto.</li>
+            <li>license: Identifica el tipo de licencia de uso del proyecto. Permite a las personas saber que y que no está permitido al usar el código.</li>
+            <li>private: Es un valor booleano que te permite evitar que el paquete se publique en el repositorio. Si lo que se crea es un proyecto personal este valor será true.</li>
+        </ul>
+        <p>El archivo Package.json puede contener algunos de los siguientes campos:</p>
+        <ul>
+            <li>npm scripts: Esta sección define un listado de propiedades que permiten ejecutar comandos dentro del contexto de tu proyecto incluyendo: comandos de otros paquetes listados como dependencias, scripts personalizados, scripts bash, etc.</li>
+            <li>Dependencias y dependencias de desarrollo: Estas secciones, definen que paquetes disponibles en el repositorio de npm son requeridos por tu proyecto indicando también la versión necesaria. La versión mostrada aquí está en formato semver y corresponde al campo version mencionado anteriormente.</li>
+            <li>package-lock.json: Es autogenerado por <strong>npm install</strong> y es una lista descriptiva y exacta de las versiones instaladas durante el proceso. No esta destinado a ser leído ni manipulado por los desarrolladores, si no, para ser un insumo del proceso de manejo de dependencias.</li>
+        </ul>
+        <p><strong>Semver - Versionamiento semántico</strong>: Es una forma de comunicar a nuestros usurioa finales los tipos de cambios introducidos en las nuevas versiones.</p>
+        <h3>Introducción a express</h3>
+        <p>
+            Express es el framework web más popular de Node, y es la librería subyacente para un gran número de otros frameworks web de Node populares. Proporciona mecanismos para:
+        </p>
+        <ul>
+            <li>Escritura de manejadores de peticiones con diferentes verbos HTTP en diferentes caminos URL (rutas).</li>
+            <li>Integración con motores de renderización de "vistas" para generar respuestas mediante la introducción de datos en plantillas.</li>
+            <li>Establecer ajustes de aplicaciones web como qué puerto usar para conectar, y la localización de las plantillas que se utilizan para renderizar la respuesta.</li>
+            <li>Añadir procesamiento de peticiones "middleware" adicional en cualquier punto dentro de la tubería de manejo de la petición.</li>
+        </ul>
+        <p>
+            A pesar de que Express es en sí mismo bastante minimalista, los desarrolladores han creado paquetes de middleware compatibles para abordar casi cualquier problema de desarrollo web. 
+            Hay librerías para trabajar con cookies, sesiones, inicios de sesión de usuario, parámetros URL, datos POST, cabeceras de seguridad y muchos más. 
+        </p>
 
+        <h3>Introducción a EJS (Embedded JavaScript Templating)</h3>
+        <p>
+            <strong>Motor de plantillas</strong>: Son herramientas que ayudan a dividir el código html en partes más pequeñas, donde se puede reutilizar en otros archivos html y además tienen la capacidad de utilizar variables, 
+            con la finalidad de simplificar código. Algunas de sus ventajas son:
+        </p>
+        <ul>
+            <li>Mejora la productividad del desarrollador, el mantenimiento y legibilidad del código.</li>
+            <li>Rendimiento más rápido y mejora de procesamiento del lado del cliente.</li>
+            <li>Plantilla única para múltiples páginas.</li>
+        </ul>
+        <p>
+            Hay varios template engines populares disponibles para utilizar con Express. Algunos de los más conocidos son Pug (anteriormente conocido como Jade), EJS (Embedded JavaScript), Handlebars y Mustache, entre otros. 
+            Cada uno tiene su propia sintaxis y características, pero todos cumplen con el propósito fundamental de generar HTML dinámico.
+        </p>
+        <h5>EJS</h5>
+        <p>
+            EJS es un lenguaje de plantillas simple que le permite generar marcado HTML con JavaScript simple. En el laboratorio 12 se hace uso de este motor de templates.
+        </p>
+        <h3>Arquitectura MVC (Modelo-Vista-Controlador)</h3>
+        <p>
+            Es un patrón en el diseño de software comúnmente utilizado para implementar interfaces de usuario, datos y lógica de control. 
+            Enfatiza una separación entre la lógica de negocios y su visualización. Esta "separación de preocupaciones" o "responsabilidades" proporciona una mejor división del trabajo y una mejora de mantenimiento.
+            Algunos otros patrones de diseño se basan en MVC, como MVVM (Modelo-Vista-modelo de vista), MVP (Modelo-Vista-Presentador) y MVW (Modelo-Vista-Whatever).
+            Las tres partes del patrón de diseño del software MVC se pueden describir de la siguiente manera:
+        </p>
+        <ul>
+            <li>Modelo: Maneja datos y lógica de negocios.</li>
+            <li>Vista: Se encarga del diseño y presentación.</li>
+            <li>Controlador: Enruta comandos a los modelos y vistas.</li>
+        </ul>
+        <img src="IMAGENES/model-view-controller-light-blue.png" width="500">
+        <h5>Beneficios del estilo MVC</h5>
+        <ul>
+            <li>Separación de responsabilidades: Separa los datos en componentes distintos, el modelo, la vista y el controlador.</li>
+            <li>Rutilización del código: Es más fácil reutilizar el código en en diferentes partes del sistema.</li>
+            <li>Desarrollo del equipo: La separación clara de responsabilidades permite que los equipos de desarrolo trabajen de forma más eficiente y coordinada.</li>
+            <li>Facilita las pruebas: Como cada componente está separado, permite hacer pruebas unitarias y de integración de forma más sencilla.</li>
+            <li>Adaptabilidad y escalabilidad: Permite el escalamiento de la aplicación en caso de ser requerido.</li>
+        </ul>
+        <h5>Desvetajas del modelo MVC</h5>
+        <ul>
+            <li>Complejidad: La separación en capas agrega complejidad al sistema.</li>
+            <li>Archivos: La cantidad de archivos a mantener y desarrollar se incremente considerablemente.</li>
+            <li>Duplicación de lógica: De no implementarse correctamente, puede haber casos en los que la lógica de negocio (vistas) se duplique en el modelo y controlador, lo que lleva a problemas de mantenimiento y coherencia.</li>
+        </ul>
+        <hr class="barra">
+        <h3>Interacción con bases de datos: MariaDB y MySQL</h3>
+        <h5>MySQL</h5>
+        <p>
+            Lanzado originalmente en 1995, MySQL ha pasado por varios cambios de propiedad/administración, antes de terminar en la Oracle Corporation en 2010. 
+            A pesar de que Oracle está a cargo ahora, MySQL sigue siendo un software de código abierto. (Kinsta, 2022) <br>
+            MySQL almacena, gestiona y muestra datos en tablas. Funciona como un sistema cliente-servidor. Mientras que la base de datos actúa como un servidor en el que se almacena toda la información relevante, el software puede verse como un cliente. 
+            Con la ayuda del software, los usuarios de la base de datos relacional pueden formular diversas consultas, denominadas “queries”, en el lenguaje de consulta SQL y enviarlas al sistema de base de datos. 
+            Estos son procesados por MySQL, por lo que el acceso a los datos es también una parte importante de MySQL.(Equipo editorial de IONOS, 2023) <br>
+            SQL se compone de varios tipos de comandos, incluyendo:
+            <ul>
+                <li><strong>DDL (Data Definition Language):</strong> Utilizado para definir y modificar la estructura de la base de datos, como crear tablas, modificar su estructura, eliminar tablas, etc.</li>
+                <li><strong>DML (Data Manipulation Language):</strong> Utilizado para manipular datos en la base de datos, como insertar, actualizar y eliminar registros en las tablas.</li>
+                <li><strong>DQL (Data Query Language): </strong> Utilizado para realizar consultas que recuperan datos de la base de datos.</li>
+                <li><strong>DCL (Data Control Language):</strong> Utilizado para establecer permisos y roles de usuario en la base de datos, como otorgar o revocar privilegios de acceso.</li>
+                <li><strong>TCL (Transaction Control Language):</strong> Utilizado para administrar transacciones en la base de datos, como confirmar o deshacer transacciones.
+                </li>
+            </ul>
+            
+        </p>
+        <h5>MariaDB</h5>
+        <p>
+            MariaDB es un sistema de gestión de bases de datos relacionales (RDBMS) gratuito y de código abierto. 
+            Fue creado por los desarrolladores originales de MySQL por la preocupación de que MySQL pasara a ser comercializado después de que Oracle lo adquiriera en 2009.
+            MariaDB ofrece las mismas características que MySQL y se puede usar como sustituto directo del servidor de base de datos MySQL. (Content Studio, 2022) <br>
+        </p>
+        <h5>libreria mysql2</h5>
+        <p>
+            Para interactuar con una base de datos, es necesario crear una base de datos. En este casó usaremos MySQL, sin embargo, la lógica es muy similar si decides trabajar con cualquier otro motor de bases de datos. 
+            El paquete mysql2 es un paquete npm que proporciona una implementación de cliente MySQL escrita en JavaScript para Node.js. Permite a las aplicaciones Node.js conectarse a una base de datos MySQL y realizar consultas y otras operaciones en la base de datos de manera eficiente. <br>
+            Algunas características incluyen:
+            <ul>
+                <li><strong>Compatibilidad con Promesas:</strong> Ofrece soporte nativo para promesas, lo que permite a los desarrolladores realizar consultas asincrónicas de forma más sencilla y legible.</li>
+                <li><strong>Mayor rendimiento: </strong> Está optimizado para un rendimiento mejorado en comparación con otros clientes MySQL para Node.js, lo que lo hace más rápido y eficiente en el manejo de conexiones y consultas.</li>
+                <li><strong>Preparación de consultas: </strong> Admite la preparación de consultas, lo que permite reutilizar consultas con diferentes parámetros, lo que puede mejorar el rendimiento y la seguridad.</li>
+            </ul>
+        </p>
+        <h5>¿Qué ventajas tiene escribir el código SQL únicamente en la capa del modelo?</h5>
+        <p>
+            Debido a que se usa la arquitectura MVC, la interacción de la base de datos con javascript se hace a través del modelo, esto tiene varias ventajas:
+            <ul>
+                <li><strong>Separación de preocupaciones:</strong> Al mantener el código SQL en la capa del modelo, se mantiene la separación de preocupaciones entre las diferentes partes de la aplicación. El modelo se encarga específicamente de interactuar con la base de datos, mientras que otras partes de la aplicación, como las vistas y los controladores, pueden centrarse en su lógica específica.</li>
+                <li><strong>Reutilización del código:</strong> Al colocar el código SQL en el modelo, se puede reutilizar fácilmente en diferentes partes de la aplicación. Esto significa que al realizar la misma consulta en múltiples controladores o vistas, se puede llamar al método correspondiente en el modelo en lugar de tener que repetir el código SQL en varios lugares.</li>
+                <li><strong>Mantenimiento más sencillo:</strong> Al centralizar el código SQL en el modelo, se vuelve más fácil realizar cambios y mantenimiento en las consultas. Al o modificar una consulta, sólo es necesario hacerlo en un solo lugar en el modelo en lugar de buscar y actualizar múltiples instancias en diferentes partes de la aplicación.</li>
+                <li><strong>Seguridad:</strong> Al escribir el código SQL en el modelo y usar parámetros correctamente, se puede proteger tu aplicación contra ataques de <strong>Inyección SQL</strong>. Los modelos pueden proporcionar métodos seguros para interactuar con la base de datos, validando y escapando los datos correctamente antes de enviar consultas SQL a la base de datos.</li>
+            </ul>
+        </p>
+        <h5>Inyección SQL</h5>
+        <p>
+            Una inyección de SQL, a veces abreviada como SQLi, es un tipo de vulnerabilidad en la que un atacante usa un trozo de código SQL (lenguaje de consulta estructurado) para manipular una base de datos y acceder a información potencialmente valiosa. (¿Qué Es la Inyección de SQL? Definición y Explicación, 2023)
+            Es uno de los tipos de ataques más frecuentes y amenazadores, ya que puede atacar prácticamente cualquier sitio o aplicación web que use una base de datos basada en SQL (la mayoría). Es posible que un ataque de inyección de SQL exitoso no muestre ningún signo.
+            Sin embargo, a veces hay algunas señales externas, como las siguientes:
+             <ul>
+                <li>Recepción de una cantidad excesiva de solicitudes en un plazo breve. Por ejemplo, ver muchos correos electrónicos del formulario de contacto de la página web.</li>
+                <li>Anuncios que redirigen a sitios web sospechosos.</li>
+                <li>Ventanas emergentes desconocidas y mensajes de error. </li>
+             </ul>
+             Hay varios tipos de ataques por inyección SQL:
+             <ul>
+                <li><strong>SQLi basado en errores:</strong> La base de datos genera un mensaje de error por las acciones del atacante. El atacante obtiene información sobre la infraestructura de la base de datos en función de los datos que generaron estos mensajes de error.</li>
+                <li><strong>SQLi basado en unión:</strong> El atacante usa el operador UNION SQL para obtener los datos deseados mediante la fusión de varias declaraciones Select en una única respuesta HTTP.</li>
+                <li><strong>SQLi basado en el tiempo:</strong> Los atacantes envían una consulta de SQL a la base de datos, esto hace que la base de datos espere unos segundos antes de responder si la consulta es verdadera o falsa.</li>
+                <li><strong>SQLi booleana:</strong> Los atacantes envían una consulta de SQL a la base de datos, así permiten que la aplicación responda mediante la generación de un resultado verdadero o falso.</li>
+             </ul>
+        </p>
+        <h5>¿Cómo puedo prevenir un ataque por inyección SQL</h5>
+        <p>
+            La prevención de la inyección SQL implica implementar prácticas de seguridad en el desarrollo de aplicaciones web y en la configuración de bases de datos. Algunas medidas clave para prevenir la inyección SQL son:
+            <ul>
+                <li><strong>Validación de entrada de usuario: </strong> Verificar y validar cuidadosamente todos los datos ingresados por el usuario antes de utilizarlos en consultas SQL. Esto puede incluir el uso de expresiones regulares, validación de tipos de datos y restricciones de longitud.</li>
+                <li><strong>Escape de caracteres especiales: </strong> Siempre escapar los caracteres especiales en los datos ingresados por el usuario antes de utilizarlos en consultas SQL. Esto implica transformar los caracteres especiales (como comillas, guiones, etc.) en su equivalente seguro en SQL.</li>
+                <li><strong>Utilizar las versiones más recientes:</strong> Es importante usar la versión más reciente del entorno de desarrollo para maximizar la protección, ya que es posible que a las versiones anteriores les falten funciones de seguridad. </li>
+                <li><strong>Auditoría y monitoreo: </strong> Implementar registros de auditoría y monitoreo para registrar y supervisar las consultas SQL ejecutadas por la aplicación. Esto puede ayudar a detectar posibles intentos de inyección SQL y tomar medidas preventivas.</li>
+                <li><strong>Consultas parametrizadas:</strong> Utilizar consultas parametrizadas o consultas preparadas que separan claramente los datos de los comandos SQL. Esto permite que los datos ingresados por el usuario se envíen de forma segura como parámetros, en lugar de concatenarse directamente en la consulta SQL.</li>
+            </ul>
+        </p>
+        <hr>
+        <h3>Autentificación</h3>
+        <p>
+            La autenticación es el proceso que usan las empresas para confirmar que solo las personas, servicios y aplicaciones adecuados con los permisos correctos pueden acceder a recursos de la organización. 
+            Es una parte importante de la ciberseguridad porque la mayor prioridad de un infiltrado es obtener acceso no autorizado a los sistemas. (¿Qué Es la Autenticación? Definición y Métodos | Seguridad de Microsoft, s.f.)
+            Para llevar esto a cabo, roban el nombre de usuario y las contraseñas de los usuarios que sí tienen acceso. El proceso de autenticación incluye tres pasos principales:
+            <ul>
+                <li><strong>Identificación:</strong> Los usuarios establecen quiénes son a través de un nombre de usuario, normalmente.</li>
+                <li><strong>Autenticación: :</strong> Normalmente, los usuarios prueban que son quienes dicen ser al escribir una contraseña, sin embargo, para fortalecer la seguridad, muchas organizaciones también solicitan que prueben su identidad mediante algo que poseen (un teléfono o dispositivo de tokens) o algo que son (una huella dactilar o escáner facial).</li>
+                <li><strong>Autorización:</strong> El sistema comprueba que los usuarios tengan permisos para el sistema al que intentan acceder.</li>
+            </ul>
+            Existen varias formas de autenticación, entre las cuales se destacan:
+            <ul>
+                <li><strong>Autenticación basada en contraseñas:</strong> La forma más común de autenticación, donde los usuarios ingresan un nombre de usuario y una contraseña que deben coincidir con los datos almacenados en el sistema.</li>
+                <li><strong>Autenticación basada en tokens: </strong> Se emite un token al usuario después de que se autentica correctamente. Este token se utiliza para realizar solicitudes subsiguientes al servidor, en lugar de enviar credenciales con cada solicitud. </li>
+                <li><strong>Autenticación de dos factores (2FA): </strong> Agrega una capa adicional de seguridad al requerir no solo un nombre de usuario y contraseña, sino también otro factor de autenticación, como un código generado por una aplicación móvil o enviado por mensaje de texto.</li>
+                <li><strong>Autenticación basada en certificados:</strong> Se utilizan certificados digitales para autenticar a los usuarios. Cada usuario tiene un certificado único que se utiliza para verificar su identidad.</li>
+                <li><strong>Biometría:</strong> La autenticación biométrica utiliza características físicas únicas de los usuarios, como huellas dactilares, escaneo de retina o reconocimiento facial, para verificar su identidad.</li>
+            </ul>
+        </p>
+        <h3>Cross-Site Request Forgery (CSRF)</h3>
+        <p>
+            El Cross Site Request Forgery (CSRF o XSRF) es un tipo de ataque que se suele usar para estafas por Internet. Los delincuentes se apoderan de una sesión autorizada por el usuario (session riding) para realizar actos dañinos. El proceso se lleva a cabo mediante solicitudes HTTP.
+        </p>
+        <p>
+            El funcionamiento del CSRF es el siguiente: mientras el usuario está con la sesión iniciada en el portal, también visita otra página, la cual está creada por el hacker. En esta otra página, el usuario realiza una acción cualquiera, por ejemplo, el accionamiento de un botón. 
+            A continuación, el atacante envía una solicitud HTTP al portal empleado por el usuario y realiza una acción dañina en nombre del usuario, ya que la sesión sigue activa. Para conseguir todo esto, el atacante solo necesita conocer la solicitud HTTP correcta y esta solicitud es bastante fácil de leer. (Equipo editorial de IONOS, 2020)
+        </p>
+        <p>
+            Para evitar ataques de CSRF, tenemos que asegurar que nuestros usuarios estén trabajando sobre las vistas que nosotros proveemos. Esto lo podemos lograr por medio de un Token CSRF en nuestras formas y con ayuda de la instalación del paquete <strong>csurf</strong> de express.
+        </p>
+        <hr>
+        <h3>Control de acceso basado en roles</h3>
+        <p>
+            El control de acceso basado en roles (Rol-Based Control Acces) es un modelo de control de acceso que define y gestiona los permisos de los usuarios en función de sus roles dentro del sistema. 
+            Los roles se definen en función de características como la ubicación, el departamento, la antigüedad o las funciones de un usuario. Los permisos se asignan según el acceso (lo que el usuario puede ver), las operaciones (lo que el usuario puede hacer) y las sesiones (cuánto tiempo puede hacerlo el usuario). (¿Qué Es el Control de Acceso Basado En Roles? | Entrust, s.f.)
+            RBAC tiene tres reglas principales:
+            <ul>
+                <li><strong>Asignación de roles: </strong>Un usuario puede ejercer privilegios si se le ha asignado un rol.</li>
+                <li><strong>Autorización basada en roles:</strong> El rol de un usuario debe estar autorizado, lo que garantiza que los usuarios solo puedan asumir roles para los que están autorizados.</li>
+                <li><strong>Autorización de privilegios:</strong> Un usuario puede ejercer ciertos privilegios si está autorizado para hacerlo, según su autorización y asignación de roles.</li>
+            </ul>
+        </p>
+        <hr>
+        <p3>AJAX</p3>
+        <p>
+            Ajax (Asynchronous JavaScript and XML) se refiere a un grupo de tecnologías que se utilizan para desarrollar aplicaciones web. 
+            Al combinar estas tecnologías, las páginas web parece que son más receptivas puesto que los paquetes pequeños de datos se 
+            intercambian con el servidor y las páginas web no se vuelven a cargar cada vez que un usuario realiza un cambio de entrada. 
+            Ajax permite que un usuario de la aplicación web interactúe con una página web sin la interrupción que implica volver a cargar la página web. 
+            La interacción del sitio web ocurre rápidamente sólo con partes de la página de recarga y renovación. (IBM Documentation, s.f.)
+        </p>
+        <p3>RIA's</p3>
+        <p>
+            Rich Internet applications (o RIA) es el término según el cual se define a las aplicaciones web que se comportan del mismo modo que las tradicionales aplicaciones de escritorio, pero con la capacidad de ser ejecutadas en cualquier navegador web. 
+            A diferencia de las páginas web clásicas, estas aplicaciones están orientadas a realizar tareas complejas que tradicionalmente habían sido exclusivas de los programas de escritorio, aportando una gran flexibilidad y potencia al usuario final. (Edertone Software Engineering, s.f.)
+        </p>
+        <p>
+            Las aplicaciones RIA utilizan, al igual que las aplicaciones tradicionales de Internet, un navegador Web, pero cargan desde el principio toda la aplicación en el cliente, y sólo se produce comunicación con el servidor cuando se necesitan datos externos, ya sean de base de datos o de ficheros adicionales. 
+            Esto lleva a que no se tengan que hacer recargas de página. (Fcl, 2020)
+        </p>
+        <p5>¿Qué importancia tiene AJAX en el desarrollo de RIA's (Rich Internet Applications)?</p5>
+        <p>
+            AJAX permite una experiencia de usuario más interactiva y dinámica.
+        </p>
+        <ul>
+            <li><strong>Interactividad en tiempo real</strong>: Permite que las aplicaciones web actialicen y muestren datos en tiempo real sin necesidad de recargar toda la página.</li>
+            <li><strong>Mejora la velocidad y rendimiento</strong>: AJAX reduce el tiempo de carga y mejora el rendimiento al actualizar sólo partes específicas.</li>
+            <li><strong>Mejora la experiencia de usuairo</strong>: AJAX proporciona una experiencia más rica presentando funcionalidades como autocompletado de formularios, actializaciones en tiempo real y búsquedas.</li>
+            <li><strong>Reducción de la carga del servidor</strong>: Al enviar y recibir datos de forma asíncrona, AJAX permite que el servidor maneje solicitudes de manera más eficiente al evitar la sobrecarga de solicitudes simultáneas de varios usuarios.</li>
+        </ul>
+        <h5>¿Qué implicaciones de seguridad tiene AJAX? ¿Dónde se deben hacer las validaciones de seguridad, del lado del cliente o del lado del servidor?</h5>
+        <p>
+            Debido a su capacidad para enviar y recibir datos de forma asíncrona entre el cliente y el servidor AJAX introduce implicaciones de seguridad importantes. Algunas de las implicaciones de seguridad incluyen:
+        </p>
+        <ul>
+            <li><strong>Vulnerabilidad a ataques CSRF (Cross-Site Request Forgery)</strong>: Las solicitudes AJAX pueden ser susceptibles a ataques CSRF si no se implementan medidas de seguridad adecuadas.</li>
+            <li><strong>Exposición de datos sensibles</strong>: Si se envían datos sensibles a través de solicitudes AJAX sin cifrar o sin protección adecuada, existe el riesgo de que los datos sean interceptados por un atacante.</li>
+            <li><strong>Exposición de API</strong>: Si una API se utiliza para realizar solicitudes AJAX desde el cliente, es importante proteger adecuadamente la API para evitar el acceso no autorizado o el abuso por parte de los usuarios malintencionados.</li>
+            <li><strong>Inyeción de código malicioso</strong>: Si no se validan adecuadamente los datos recibidos a través de solicitudes AJAX en el lado del servidor, existe el riesgo de inyección de código malicioso que podría comprometer la seguridad de la aplicación.</li>
+        </ul>
+        <p>
+            Es fundamental realizar las validaciones más críticas en el lado del servidor. Esto se debe a que el lado del cliente es potencialmente inseguro y puede ser manipulado por un atacante. 
+            Validar y procesar los datos en el lado del servidor ayuda a garantizar que los datos recibidos sean seguros y confiables antes de procesarlos o almacenarlos en la base de datos. 
+            Además, las validaciones en el lado del servidor protegen contra ataques incluso si el usuario intenta eludir las validaciones del lado del cliente. 
+            Sin embargo, las validaciones del lado del cliente también son importantes para proporcionar una experiencia de usuario más fluida y evitar solicitudes innecesarias al servidor, pero no deben ser la única línea de defensa en términos de seguridad.
+        </p>
+        <h5>¿Qué es JSON?</h5>
+        <p>
+            JavaScript Object Notation (JSON) es un formato de intercambio de datos ligero y de texto que se utiliza comúnmente para transmitir datos estructurados entre un servidor y un cliente en una aplicación web.
+            Es legible tanto para máquinas como para humanos y se basa en una estructura de pares clave-valor:
+        </p>
+        <ul>
+            <li><strong>Sintáxis sencilla</strong>: JSON utiliza una sintaxis simple basada en pares clave-valor, que es fácil de entender y escribir para los desarrolladores.</li>
+            <li><strong>Ligero y eficiente</strong>: Debido a su naturaleza basada en texto, JSON es ligero y eficiente en términos de almacenamiento y transmisión de datos a través de la red.</li>
+            <li><strong>Independiente del lenguaje</strong>: JSON es independiente del lenguaje, lo que significa que puede ser utilizado por una amplia variedad de lenguajes de programación para serializar y deserializar datos.</li>
+            <li><strong>Facilidad de uso con JavaScript</strong>: JSON se integra de manera nativa con JavaScript, lo que facilita su manipulación en aplicaciones web que utilizan JavaScript tanto en el lado del cliente como en el servidor.</li>
+        </ul>
+        <p>Un ejemplo de JSON: {"nombre": "Juan", "edad": 30,"ciudad": "México"}</p>
+
+        <h5>XML(Extensible Markup Language)</h5>
+        <p>
+            XML es un lenguaje de marcado diseñado para almacenar y transportar datos de manera estructurada. 
+            Al igual que HTML, XML utiliza etiquetas para definir elementos de datos, pero a diferencia de HTML, XML no tiene un conjunto predefinido de etiquetas y atributos. 
+            En cambio, XML permite a los desarrolladores definir sus propias etiquetas y estructuras de datos. Las principales características de XML son:
+        </p>
+        <ul>
+            <li><strong>Extensibilidad</strong>: XML es "extensible" en el sentido de que los desarrolladores pueden definir sus propias etiquetas y estructuras de datos según sus necesidades específicas.</li>
+            <li><strong>Legibilidad para humanos y máquinas</strong>: Al igual que JSON, XML es legible tanto para humanos como para máquinas. Las etiquetas y la estructura jerárquica facilitan la comprensión del significado de los datos almacenados en un documento XML.</li>
+            <li><strong>Independiente del lenguaje y de la plataforma</strong>: Esto significa que puede ser utilizado por una variedad de sistemas y aplicaciones, independientemente del lenguaje en el que estén escritas.</li>
+            <li><strong>Soporte para validación y transformación</strong>: XML ofrece mecanismos integrados para validar la estructura y el contenido de los documentos XML mediante esquemas de validación como DTD (Document Type Definition) y XSD (XML Schema Definition).</li>
+        </ul>
+        <p>
+            XML es un lenguaje de marcado que proporciona reglas para definir cualquier dato. A diferencia de otros lenguajes de programación, XML no puede realizar operaciones de computación por sí mismo.
+            En cambio, se puede implementar cualquier software o lenguaje de programación para la administración estructurada de datos. (¿Qué Es XML? - Explicación del Lenguaje de Marcado Extensible (XML) - AWS, s.f.)
+        </p>
+        <hr>
+        <h3>Servicios Web</h5>
+        <p>
+            Componente de software que se encuentra en una computadora pero que puede ser “consumido” por varias aplicaciones o componentes que se encuentran en otras computadores o componentes.
+            Es una tecnología que permite la comunicación entre sistemas y aplicaciones a través de la red utilizando un conjunto de protocolos estándar basados en la web. 
+            Los servicios web permiten a diferentes sistemas y plataformas intercambiar datos y realizar operaciones, independientemente del lenguaje de programación utilizado o del sistema operativo en el que se ejecutan.
+            Se basan en los siguientes estándares y protocolos principales:
+        </p>
+        <ul>
+            <li><strong>XML (Extensible Markup Language)</strong></li>
+            <li><strong>HTTP (Hypertext Transpher Protocol)</strong></li>
+            <li><strong>SOAP (Simple Objecto Acces Protocol)</strong></li>
+            <li><strong>WSDL (Web Services Description Language)</strong></li>
+            <li><strong>UDDI (Universal Description, Discovery, and Integration)</strong></li>
+        </ul>
+        <h5>¿Por qué usar servicios web?</h5>
+        <p>
+            <ul>
+                <li>Promueven la portabilidad y la usabilidad</li>
+                <li>Permiten las transacciones B2B (Bussines to Bussines) de una forma estándar y accesible</li>
+                <li>Son independientes de la plataforma y el enguaje</li>
+                <li>Permiten el desacoplamiento (se puede tomar algo de lógica de la aplicación al servicio)</li>
+                <li>Pueden desarrollarse y mantenerse de manera independiente</li>
+                <li>Permiten la desentralización y la redundancia</li>
+            </ul>
+        </p>
+        <img class="image_container" src="IMAGENES/ServiciosWeb.png">
+        <h5>¿Qué tipos de servicios web existen?</h5>
+        <p>
+            SOAP (Simple Object Acces Protocol): XML + XML + XML + ... + XML.
+        </p>
+        <p>
+            REST (Representational State Transpher): Es un estilo arquitectónico de sistemas en red, para tratar las interacciones entre los recursos como máquinas de estado.
+        </p>
+        <div class="image_container">
+            <img class="image_container" src="IMAGENES/Rest.png">
+        </div>
+        <p>Al hacer un servicio, sólo se hace la lógica y las rutas, la vista no se programa, la interfaz es responsabilidad de los clientes</p>
+        <h5>¿Cómo han evolucionado los servicios web las aplicaciones web?</h5>
+        <div class="image_container">
+            <img class="image_container" src="IMAGENES/EvolucionServicioWeb.png">
+        </div>
+        <div class="image_container">
+            <img class="image_container" src="IMAGENES/Arquitecturas.png">
+        </div>
+        <h5>¿Qué ventajas y desventajas tiene la integración de tus aplicaciones web con servicios web desarrollados por terceros?</h5>
+        <p>
+            La integración de servicios web de terceros puede ofrecer las siguientes ventajas y desventajas.
+        </p>
+        <5>Ventajas</5>
+        <ul>
+            <li><strong>Facilidad de integración</strong>: Los servicios web suelen ofrecer interfaces bien definidas y documentadas, lo que facilita su integración con aplicaciones existentes.</li>
+            <li><strong>Reutilización de funcionalidades</strong>: Al utilizar servicios web desarrollados por terceros, las aplicaciones pueden aprovechar funcionalidades ya implementadas sin necesidad de desarrollarlas desde cero.</li>
+            <li><strong>Ahorro y tiempo de ejecución</strong>: La integración con servicios web externos puede ayudar a reducir el tiempo y los recursos necesarios para implementar ciertas funcionalidades en una aplicación.</li>
+            <li><strong>Acceso a datos y funciones adicionales</strong>: Al integrar servicios web externos, las aplicaciones pueden acceder a datos y funcionalidades que de otra manera estarían fuera de su alcance.</li>
+            <li><strong>Escalabilidad</strong>:  Utilizar servicios web externos puede ayudar a escalar una aplicación sin necesidad de aumentar la infraestructura interna, ya que los servicios web externos suelen estar diseñados para manejar grandes volúmenes de tráfico.</li>
+        </ul>
+        <h5>Deventajas</h5>
+        <ul>
+            <li><strong>Dependencia de terceros</strong>:  La integración con servicios web externos puede hacer que una aplicación sea dependiente del proveedor del servicio, lo que puede generar problemas si el servicio experimenta interrupciones o cambios inesperados.</li>
+            <li><strong>Riegos de seguridad</strong>:  La integración con servicios web externos puede introducir riesgos de seguridad, especialmente si los datos confidenciales se transfieren a través de la red pública o si el proveedor del servicio no implementa adecuadamente medidas de seguridad.</li>
+            <li><strong>Problemas de rendimiento</strong>: La dependencia de servicios web externos puede afectar el rendimiento de una aplicación, especialmente si los servicios externos son lentos o experimentan problemas de disponibilidad.</li>
+            <li><strong>Costos</strong>: Algunos servicios web externos pueden tener costos asociados, lo que puede aumentar los costos de operación de una aplicación a largo plazo.</li>
+            <li><strong>Limitaciones de personalización</strong>:  Los servicios web externos pueden no ofrecer la flexibilidad necesaria para personalizar funcionalidades según los requisitos específicos de una aplicación.</li>
+        </ul>
+        <hr>
+        <h3>Accesibilidad</h3>
+        <p>
+            La accesibilidad se refiere a que los sitios web, herramientas y tecnologías están diseñadas y desarrolladas de forma que personas con discapacidad puedan usarlas. Es fundamental para que puedan utilizar y consumir de los servicios web. Algunos puntos clave son: 
+        </p>
+        <ul>
+            <li><strong>Compatibilidad con tecnologías de asistencia:</strong> Las aplicaciones deben ser compatibles con tecnologías de asistencia como lectores de pantalla, magnificadores de pantalla, teclados alternativo, texto alternativo, etc.</li>
+            <li><strong>Contraste y legibilidad:</strong> El contenido de la aplicación debe tener un buen contraste entre el texto y el fondo, lo que facilita la lectura para las personas con discapacidad visual o dificultades de visión. Además, el texto debe ser lo suficientemente claro y legible.</li>
+            <li><strong>Navegación clara y sencilla:</strong> La navegación debe ser intuitiva y fácil de entender. Utiliza etiquetas de encabezado adecuadas. </li>
+            <li><strong>Compatibilidad con dispositivos móviles:</strong> La aplicación es compatible con dispositivos móviles y ofrece una experiencia de usuario optimizada para pantallas más pequeñas y dispositivos táctiles. Esto implica utilizar diseños responsivos y elementos de interfaz más grandes y fáciles de tocar.</li>
+            <li><strong>Formularios accesibles:</strong> Los formularios deben ser accesibles para todos los usuarios, incluidos aquellos que utilizan tecnologías de asistencia.</li>
+        </ul>
+        <h5>¿Por qué es importante la accesibilidad?</h5>
+        <p>
+            La accesibilidad es importante por las razones siguientes:
+        </p>
+        <ul>
+            <li><strong>Equidad:</strong> Se diseña para que personas con discapacidades tengan la misma oportunidad de acceder y utilizar los servicios web.</li>
+            <li><strong>Cumplimiento normativo:</strong> En algunos países existen leyes y regulaciones que exigen que los sitios web y aplicaciones sean accesibles para personas con discapacidades.</li>
+            <li><strong>Ampliación de audiencia:</strong> Al diseñar y desarrollar aplicaciones web accesibles, se puede llegar a una audiencia más amplia que incluye a personas con discapacidades, personas mayores y cualquier persona que prefiera o necesite utilizar tecnologías de asistencia.</li>
+            <li><strong>Mejora la experiencia de usuario:</strong> La accesibilidad no solo beneficia a personas con discapacidades, sino que también mejora la experiencia del usuario para todos los usuarios. </li>
+        </ul>
+        <h5>¿Cuáles son los lineamientos de accesibilidad que consideras más importantes? ¿Por qué?</h5>
+        <p>
+            El nivel AA de las Pautas de Accesibilidad al Contenido en la Web (WCAG) 2.0 es un estándar de accesibilidad ampliamente reconocido y adoptado. Este nivel establece criterios específicos que deben cumplir las aplicaciones web para garantizar un nivel adecuado de accesibilidad para la mayoría de las personas, incluidas aquellas con discapacidades.
+        </p>
+        <ul>
+            <li><strong>Percepción visual:</strong> Garantizar que el contenido visual sea presentado de manera clara y legible, con suficiente contraste entre el texto y el fondo, para facilitar la lectura y comprensión.</li>
+            <li><strong>Alternativas de contenido:</strong> Proporcionar alternativas textuales para elementos no textuales, como imágenes, videos y contenido multimedia, para que los usuarios que no pueden percibir estos elementos puedan acceder a la información de manera equivalente.</li>
+            <li><strong>Navegación y operabilidad:</strong> Asegurar que todas las funcionalidades del sitio web sean accesibles y utilizables mediante diferentes dispositivos de entrada. Esto incluye proporcionar atajos de teclado y asegurarse de que el sitio sea navegable y utilizable sin necesidad de un ratón.</li>
+            <li><strong>Consistencia y claridad:</strong> Garantizar que el contenido web sea compatible con tecnologías de asistencia, como lectores de pantalla y software de ampliación de pantalla, para que los usuarios con discapacidades puedan acceder al contenido de manera efectiva.</li>
+            <li><strong>Flexibilidad en el tamaño del texto:</strong> Utilizar una estructura de página clara y consistente, con una navegación intuitiva y un diseño bien organizado, para facilitar la comprensión y la orientación dentro del sitio web.</li>
+            <li><strong>Compatibilidad con tecnologías de asistencia:</strong> Permitir que los usuarios ajusten el tamaño del texto y la presentación del contenido según sus preferencias individuales, para garantizar una experiencia de usuario cómoda y accesible para todos.</li>
+        </ul>
+        <p>
+            De estos lineamientos, considero que la percepción visual y la navegación son los más importantes.
+        </p>
+        <ul>
+            <li>El color por si sólo juega un papel importante en la psicología. El contraste adecuado entre el texto y el fondo es crucial para garantizar que el contenido sea legible para todos los usuarios, incluidos aquellos con discapacidades visuales o dificultades para percibir colores. Un buen contraste facilita la lectura y comprensión del contenido.</li>
+            <li>Un navegación intuitiva es esencial para ayudar a lus usuarios a encontrar y acceder al contenido de manera eficiente.</li>
+        </ul>
+        <h5>Describe 3 cambios que harás en tu proyecto para hacerlo más accesible.</h5>
+        <ul>
+            <li>En formularios, usar placeholders y dropdown</li>
+            <li>Cambiar el contraste en algunas tablas</li>
+            <li>Colores en los íconos usados</li>
+        </ul>
+        <h3>Videojuegos</h3>
+        <h5>Una nueva industria</h5>
+        <ul>
+            <li>Incluye desarrollo, mercadotecnia y monetización de las videojuegos</li>
+            <li>La industria mantiene un constante crecimiento</li>
+            <li>La industria de los videojuegos también ha promovido el desarrollo y avance del hardware (tarjetas gráficas, targetas de sonido, procesadores, aceleradores de gráficos 3D, etc.)</li>
+        </ul>
+        <h5>Algunas estadísticas</h5>
+        <ul>
+            <li><strong>¿Cuántos Juegan?</strong> 65% de las casas en USA tienen un aparato para jugar videojuegos (60% juega diario)</li>
+            <li><strong>En el mundo</strong> 2.7 mil millones de jugadores en el mundo(2016)</li>
+            <li><strong>Edad:</strong> Promedio de 33 años (76% mayores de 18 años)</li>
+            <li><strong>¿Por qué juegan?</strong> 55% de jugadores frecuentes dicen que los ayuda a conectar con sus amigos</li>
+            <li><strong>Deporte:</strong> Esports continúan incrementando su popularidad cerca de mil millones generan y se espera que alcancen 2.5 mil millones para 2024</li>
+            <li><strong>Streaming:</strong> En 2017 660 millones de personas vieron a otras jugar</li>
+            <li>El tiempo que los adultos invierten en videojuegos está creciendo</li>
+        </ul>
+        <h5>Crunch culture</h5>
+        <p>
+            Muchas empresas declaran fechas de lanzamiento, lamentablemente en muchas ocasiones los cálculos son incorrectos y es necesario trabajar horas extras para cumplir con la expectativa. Surge el riego de entregar un producto mal hecho. Algunos ejemplos son:
+        </p>
+        <ul>
+            <li><strong>Ciberpunk</strong></li>
+            <li><strong>Mass effect</strong></li>
+            <li><strong>Red death redemption</strong></li>
+            <li><strong>Halo Infinite</strong></li>
+            <li><strong>Hollow knight silksong</strong></li>
+        </ul>
         
+        <h5>Tipos de juegos en la industria</h5>
+        <p>En la industria hay diferentes juegos dependiendo de las empresas que los hacen:</p>
+        <ul>
+            <li>Indie games (juegos indie): Empresas independientes, con equipos de trabajo pequeños y con un gran control sobre la dirección de la empresa</li>
+            <li>AAA: Son los títulos/juegos creados por las grandes compañías con grandes presupuestos y un gran equipo de trabajo en la parte de desarrollo y comercial</li>
+            <li>AA: Son juegos generados por empresas con un mejor presupuesto y un equipo de trabajo mediano pero no alcanza las capacidades de un estudio AAA</li>
+        </ul>
+        <ul>
+            <li><strong>Indie</strong>: Hollow Knight, Blasphemous, Cuphead, Cult of the lamb, Undertale, Minecraft (inicialmente)</li>
+            <li><strong>AAA</strong>: Battlefield, Halo, Call of duty, fortnite, Gears of war, Overwatch</li>
+            <li><strong>AA</strong>: For honor, Assasssins Creed, Little nightmares, Nier Automata</li>
+        </ul>
+        <p>La principal diferencia radica en el presupuesto, el tamaño del equipo y su alcance (marketing)</p>
+        <p>Un juego indie puede llegar a costar hasta 4 millones de dolares. Mientras que un AAA puede superar los 20 millones</p>
+        <h5>Profesiones en la industria</h5>
+        <ul>
+            <li>Software developer and game programmer</li>
+            <li>Games designer</li>
+            <li>Level designer</li>
+            <li>Games animator</li>
+            <li>Games artists</li>
+            <li>3D Models</li>
+            <li>Game play testers</li>
+            <li>Project managers</li>
+            <li>Producers</li>
+            <li>Graphic designers</li>
+            <li>FX artists</li>
+            <li>Audio engineer</li>
+            <li>Compositores</li>
+            <li>Matemathicians</li>
+            <li>QA</li>
+            <li>Quest designers</li>
+            <li>Combat designers</li>
+            <li>Interpreters and translators</li>
+            <li>Writers</li>
+            <li>Professinal gamers</li>
+        </ul>
+        <p>Sitio web recomandado: <strong>glassdoor</strong></p>
+        <p>"I think that inside every adult is the heart of a child. We just gradually convinve ourselves that we have to act more like adults" (Shigeru Miyamoto)</p>
+        <h5>Definiciones</h5>
+        <p>
+            Software empleado para el entretenimiento de una o varias personas. <br>
+            Un vodeojuego es una aplicación interactiva orientada al entretenimiento que a través de ciertos mandos o controles,
+            permite simular experiencias en la pantalla de un televisor, una computadora u otro dispositivo electrónico.
+        </p>
+        <h5>Pipeline en desarrollo</h5>
+        <p>Desarrollo y mantenimiento de un videojuego como software</p><br>
+        <p>Objetivo: Organizar el flujo de trabajo y lo que se espera del proyecto</p>
+        <ul>
+            <li><strong>Pre-producción:</strong> Es la primera etapa y aquí se define de que se tratara el juego, como, por qué y cuándo se desarrollará así como los recursos necesarios para completarlo. Toda la información es recopilada en el GDD (Game Design Document)</li>
+            <li><strong>Producción:</strong> La etapa más larga del proceso</li>
+            <li><strong>Post-Producción:</strong> Comienza cuando el juego es finalizado y el build se ha enviado al publisher. Un reducido equipo se queda para darle mantenimiento. Toda la documentación es recopilada y almacenada para futuras secuelas</li>
+        </ul>
+        <h5>Game engines</h5>
+        <ul>
+            <li><strong>Pricipiantes</strong> GODOT, Game Maker Studio</li>
+            <li><strong>Comerciales:</strong> Unity, Uneral engine</li>
+            <li><strong>Internos:</strong> Frostbite (EA), Snow Drop (Ubisoft)</li>
+        </ul>
+        <p>C++ es ampliamente utilizado en los juegos</p>
+        <ul>
+            <li>Provee excelente administración de memoria (low level memory manipulation)</li>
+            <li>Control, flexibilidad y optimización de recursos para un juego</li>
+            <li>Desempeño (performance)</li>
+            <li>Librerías y gráficos</li>
+        </ul>
+        <h5>CI (Continuous integration)</h5>
+        <p>Un flujo de trabajo de desarrollo orientado a integraciones pequeñas y frecuents a una rama estable, y lanzamientos frecuentes de esa rama a los clientes.</p>
+        <h5>CD (Continuous delivery)</h5>
+        <p>Una extención de CI, implementa automáticamente todos los cambios en un entorno de prueba y/o producción después de la etapa de compilación</p>
+        <h5>Consejos</h5>
+        <ul>
+            <li>Cuenta de github (version control)</li>
+            <li>Cuenta en linked</li>
+            <li>Aprender C++, actitud de aprendizaje</li>
+            <li>Aprende un engine comercial (Unity, Unreal)</li>
+            <li>Crea un juego en 2D</li>
+        </ul>
         <div class="fuentes">
             <h3>Fuentes bibliográficas</h3>
             <ol>
@@ -551,16 +1054,33 @@
                 <li>Collado, V. (2022, 23 febrero). ¿Qué es una dirección web o url? Cloud Computing | Adaptix Networks | Cómputo en la Nube. https://www.adaptixnetworks.com/que-es-una-direccion-web-o-url/</li>
                 <li>Cómo estructurar un formulario HTML - Aprende desarrollo web | MDN. (s. f.). MDN Web Docs. https://developer.mozilla.org/es/docs/Learn/Forms/How_to_structure_a_web_form</li>
                 <li>Conceptos básicos de las tablas HTML - Aprende desarrollo web | MDN. (s. f.). MDN Web Docs. https://developer.mozilla.org/es/docs/Learn/HTML/Tables/Basics</li>
+                <li>Content Studio. (2022, 18 junio). ¿Qué es MariaDB? https://www.purestorage.com/es/knowledge/what-is-mariadb.html#:~:text=MariaDB%20es%20un%20sistema%20de,Oracle%20lo%20adquiriera%20en%202009.</li>
                 <li>Controles de formulario originales - Aprende desarrollo web | MDN. (s. f.). MDN Web Docs. https://developer.mozilla.org/es/docs/Learn/Forms/Basic_native_form_controls</li>
+                <li>Edertone Software Engineering. (s.f.). Desarrollo de aplicaciones RIA - Edertone. https://www.edertone.com/es/Services_ria/</li>
+                <li>Equipo editorial de IONOS. (2020, 24 febrero). CSRF: explicación del ataque Cross Site Request Forgery. IONOS Digital Guide. https://www.ionos.mx/digitalguide/servidores/seguridad/cross-site-request-forgery/</li>
                 <li>Equipo editorial, Etecé. (2023c, noviembre 19). ¿Qué es la World Wide Web? - Concepto, importancia y más. Concepto. https://concepto.de/www/</li>
                 <li>Equipo editorial, Etecé. (2023d, noviembre 19). URL - Concepto, usos, partes y características. Concepto. https://concepto.de/url/</li>
+                <li>Equipo editorial de IONOS. (2023, 18 enero). ¿Qué es MySQL? IONOS Digital Guide. https://www.ionos.es/digitalguide/servidores/know-how/que-es-mysql/</li>
+                <li>Fcl. (2020, 12 septiembre). Rich internet applications. Blog de Programación Avanzada de Software. https://proasw.wordpress.com/2020/09/12/rich-internet-applications/</li>
                 <li>freeCodeCamp.org. (2018, 22 octubre). What's the Document Object Model, and why you should know how to use it. https://www.freecodecamp.org/news/whats-the-document-object-model-and-why-you-should-know-how-to-use-it-1a2d0bc5429d/</li>
+                <li>Garcia, M. (2022, 15 junio). Express (Parte VI) — Motor de plantillas con pug y EJS. Medium. https://mauriciogc.medium.com/express-parte-vi-motor-de-plantillas-con-pug-y-ejs-6837cd3a390d#:~:text=EJS%20es%20un%20lenguaje%20de,carpeta%20nueva%20llamada%20ejs%2Dlayout</li>
                 <li>González, E. (s. f.). ¿Cuáles son las versiones de HTML? Diferencias entre HTML 4 y HTML 5. Significado de strict. . . (CU00706B). aprenderaprogramar.com. https://www.aprenderaprogramar.com/index.php?option=com_content&view=article&id=444:icuales-son-las-versiones-de-html-diferencias-entre-html-4-y-html-5-significado-de-strict-cu00706b&catid=69&Itemid=192</li>
+                <li>Hernandez, M. (2021, 8 febrero). ¿Qué es NPM? freeCodeCamp.org. https://www.freecodecamp.org/espanol/news/que-es-npm/</li>
+                <li>Héctor Patricio. (2021, 4 diciembre). Versiona mejor tu código: versionamiento semántico y commits convencionales. The Dojo MX Blog. https://blog.thedojo.mx/2021/12/04/versiona-mejor-tu-codigo-versionamiento-semantico-y-commits-convencionales.html#:~:text=El%20versionamiento%20sem%C3%A1ntico%20(Semantic%20Versioning,introducidos%20en%20las%20nuevas%20versiones.</li>
+                <li>IBM documentation. (s.f.). https://www.ibm.com/docs/es/rational-soft-arch/9.6.1?topic=page-asynchronous-javascript-xml-ajax-overview</li>
+                <li>Introducción a Express/Node - Aprende desarrollo web | MDN. (2023, 17 octubre). MDN Web Docs. https://developer.mozilla.org/es/docs/Learn/Server-side/Express_Nodejs/Introduction</li>
                 <li>KeepCoding, R. (2022, 5 abril). ¿Qué es el material design? | KeepCoding Bootcamps. KeepCoding Bootcamps. https://keepcoding.io/blog/que-es-material-design/</li>
+                <li>KeepCoding, R. (2023, 10 agosto). ¿Qué son los template engines? | KeepCoding Bootcamps. KeepCoding Bootcamps. https://keepcoding.io/blog/que-son-los-template-engines/</li>
+                <li>Kinsta. (2022, 26 abril). ¿Qué es MySQL? Una Explicación para Principiantes. Kinsta®. https://kinsta.com/es/base-de-conocimiento/que-es-mysql/</li>
                 <li>Métodos de petición HTTP - HTTP | MDN. (2023, 24 julio). MDN Web Docs. https://developer.mozilla.org/es/docs/Web/HTTP/Methods</li>
                 <li>Pol, T. (2023, 29 septiembre). ¿Qué es una URL? significado, estructura y consejos de optimización. Semrush Blog. https://es.semrush.com/blog/que-es-una-url/</li>
                 <li>¿Qué es JavaScript? - Explicación de JavaScript (JS) - AWS. (s.f.). Amazon Web Services, Inc. https://aws.amazon.com/es/what-is/javascript/#:~:text=JavaScript%20es%20un%20lenguaje%20de,usuario%20de%20un%20sitio%20web.</li>
+                <li>¿Qué es el control de acceso basado en roles? | Entrust. (s.f.). https://www.entrust.com/es/resources/learn/what-is-role-based-access-control</li>
+                <li>¿Qué es la autenticación? Definición y métodos | Seguridad de Microsoft. (s.f.). https://www.microsoft.com/es-es/security/business/security-101/what-is-authentication</li>
+                <li>¿Qué es la inyección de SQL? Definición y explicación. (2023, 19 abril). latam.kaspersky.com. https://latam.kaspersky.com/resource-center/definitions/sql-injection</li>
+                <li>¿Qué es XML? - Explicación del lenguaje de marcado extensible (XML) - AWS. (s.f.). Amazon Web Services, Inc. https://aws.amazon.com/es/what-is/xml/</li>
                 <li>Referencia de Atributos HTML - HTML: Lenguaje de etiquetas de hipertexto | MDN. (2023, 28 noviembre). MDN Web Docs. https://developer.mozilla.org/es/docs/Web/HTML/Attributes</li>
+                <li>Stanley, P. (2018, 29 junio). Designing for accessibility is not that hard - UX Collective. Medium. https://uxdesign.cc/designing-for-accessibility-is-not-that-hard-c04cc4779d94</li>
                 <li>Varangouli, E. (2023, 20 enero). Lista de tags HTML: hoja de trucos HTML. ¿Qué son y para qué sirven? Semrush Blog. https://es.semrush.com/blog/lista-de-html-tags/</li>
             </ol>
         </div>

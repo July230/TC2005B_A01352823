@@ -1,0 +1,13 @@
+<!--Archivo ejs-->
+<%- include('includes/head.ejs') %>
+
+<h1 class="title">Agregar una construcción</h1>
+<form action="/construir" method="POST">
+    <label class="label" for="nombre">Nombre</label>
+    <input name="nombre" id="nombre" type="text" class="input"><br>
+    <label class="label" for="imagen">Imagen</label>
+    <input name="imagen" id="imagen" type="text" class="input"><br><br>
+    <input class="button is-success" type="submit" value="Construir">
+</form>
+
+<%- include('includes/foot.ejs') %>

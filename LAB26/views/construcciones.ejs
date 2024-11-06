@@ -1,0 +1,243 @@
+<%- include('includes/head.ejs', {username: username, permisos: permisos}) %> <!--Como se usa el head en varias, se le pasan con los parametros-->
+
+<h1 class="title">Hola mundo de Minecraft!</h1>
+
+<input type="hidden" id="_csrf" name="_csrf" value="<%= csrfToken %>" >
+<input id="buscar" class="input is-info" type="text" placeholder="Buscar..."/><br><br>
+<div id="respuesta_ajax">
+
+    <div id="notificacion">
+        <% if (construcciones.length < 1) { %>
+            <div class="notification is-info">
+                <button class="delete"></button>
+                No existe la construcción.            
+            </div>
+                No existe la construcción.     
+            </div>       
+        <% } %>
+    </div>
+
+    <div class="columns">
+
+        <% let columns = 0; %>
+        <% for (let construccion of construcciones) { %>
+            <% columns++ %>
+
+            <div class="column">
+                <div class="card">
+                    <div class="card-image">
+                    <figure class="image is-4by3">
+                        <img src="uploads/<%= construccion.imagen %>" alt="Imagen de <%= construccion.nombre %>">
+                    </figure>
+                    </div>
+                    <div class="card-content">
+                    <div class="media">
+                        <div class="media-left">
+                        <figure class="image is-48x48">
+                            <img src="uploads/<%= construccion.imagen %>" alt="Imagen de <%= construccion.nombre %>">
+                        </figure>
+                        </div>
+                        <div class="media-content">
+                        <p class="title is-4"><%= construccion.nombre %></p>
+                        <p class="subtitle is-6">@<%= construccion.nombre%></p>
+                        </div>
+                    </div>
+                
+                    <div class="content">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                        <a href="#">#css</a> <a href="#">#responsive</a>
+                        <br>
+                        <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time><br>
+                        <button class="button is-danger is-light" onclick="eliminar(<%= construccion.id %>)">Eliminar</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+            <% if (columns % 4 == 0) { %>
+                </div>
+                <div class="columns">
+            <% } %>
+            
+        <% } %>
+
+    </div>   
+
+</div>  
+
+<% if(ultima_construccion != '') { %>
+    <div>La última construcción fue <%= ultima_construccion %>.</div>
+<% } %>
+
+<!--
+    Para poder hacer una petición asíncrona desde el javascript de nuestro cliente, debemos identificar el evento que detonará la petición asíncrona.
+-->
+<script>
+const accion_asincrona = () => {
+    console.log('Buscando...');
+    const valor_busqueda = document.getElementById('buscar').value;
+
+    //función que manda la petición asíncrona
+    fetch('/construcciones/buscar/' + valor_busqueda, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    }).then((result) => {
+        console.log(result);
+        return result.json(); //Regresa otra promesa
+    }).then((data) => {
+        console.log(data);
+        let html = '';
+
+        html += `<div id="notificacion">`;
+            if (data.construcciones.length < 1) { 
+                html += 
+                    `<div class="notification is-info">
+                        <button class="delete"></button>
+                        No existe la construcción. 
+                    </div>`;           
+            }
+        html += `</div>`;
+
+        html += `
+        <div class="columns">`;
+    
+        let columns = 0;
+        for (let construccion of data.construcciones) { 
+            columns++;
+            html += `
+            <div class="column">
+                <div class="card">
+                    <div class="card-image">
+                    <figure class="image is-4by3">
+                        <img src="uploads/${construccion.imagen}" alt="Imagen de ${construccion.nombre}">
+                    </figure>
+                    </div>
+                    <div class="card-content">
+                    <div class="media">
+                        <div class="media-left">
+                        <figure class="image is-48x48">
+                            <img src="uploads/${construccion.imagen}" alt="Imagen de ${construccion.nombre}">
+                        </figure>
+                        </div>
+                        <div class="media-content">
+                        <p class="title is-4">${construccion.nombre}</p>
+                        <p class="subtitle is-6">@${construccion.nombre}</p>
+                        </div>
+                    </div>
+                
+                    <div class="content">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                        <a href="#">#css</a> <a href="#">#responsive</a>
+                        <br>
+                        <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time><br>
+                        <button class="button is-danger is-light" onclick="eliminar(${construccion.id})">Eliminar</button>
+                    </div>
+                    </div>
+                </div>
+            </div>`;
+            if (columns % 4 == 0) {
+                html += `</div>
+                <div class="columns">`;
+            }
+        } 
+        html += `</div>`;
+        //Modificamos el DOM de nuestra página de acuerdo a los datos de la segunda promesa
+        document.getElementById('respuesta_ajax').innerHTML = html;
+    }).catch((err) => {
+        console.log(err);
+    });
+};
+
+document.getElementById('buscar').onkeyup = accion_asincrona;
+
+const eliminar = (id) => {
+    const csrf = document.getElementById('_csrf').value;
+    //función que manda la petición asíncrona
+    fetch('/construcciones/delete', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'csrf-token': csrf
+        },
+        body: JSON.stringify({id: id}) // Para enviar JSON al body
+    }).then(result => {
+        return result.json(); //Regresa otra promesa
+    }).then(data => {
+        console.log(data);
+        let html = '';
+        html += `<div id="notificacion">`;
+            if (data.construcciones.length < 1) { 
+                html += 
+                    `<div class="notification is-info">
+                        <button class="delete"></button>
+                        No existe la construcción. 
+                    </div>`;           
+            }
+        html += `</div>`;
+
+        html += `
+        <div class="columns">`;
+        
+        let columns = 0;
+        for (let construccion of data.construcciones) { 
+            columns++;
+            html += `
+            <div class="column">
+                <div class="card">
+                    <div class="card-image">
+                    <figure class="image is-4by3">
+                        <img src="uploads/${construccion.imagen}" alt="Imagen de ${construccion.nombre}">
+                    </figure>
+                    </div>
+                    <div class="card-content">
+                    <div class="media">
+                        <div class="media-left">
+                        <figure class="image is-48x48">
+                            <img src="uploads/${construccion.imagen}" alt="Imagen de ${construccion.nombre}">
+                        </figure>
+                        </div>
+                        <div class="media-content">
+                        <p class="title is-4">${construccion.nombre}</p>
+                        <p class="subtitle is-6">@${construccion.nombre}</p>
+                        </div>
+                    </div>
+                
+                    <div class="content">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                        <a href="#">#css</a> <a href="#">#responsive</a>
+                        <br>
+                        <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time><br>
+                        <button class="button is-danger is-light" onclick="eliminar(${construccion.id})">Eliminar</button>
+                    </div>
+                    </div>
+                </div>
+            </div>`;
+            if (columns % 4 == 0) {
+                html += `</div>
+                <div class="columns">`;
+            }
+        } 
+        html += `</div>`;
+
+        //Modificamos el DOM de nuestra página de acuerdo a los datos de la segunda promesa
+        document.getElementById('respuesta_ajax').innerHTML = html;
+
+        //Modificamos el DOM de nuestra página de acuerdo a los datos de la segunda promesa
+        document.getElementById('notificacion').innerHTML = 
+            `<div class="notification is-info">
+                <button class="delete"></button>
+                La construcción fue eliminada. 
+            </div>`;
+    }).catch(err => {
+        console.log(err);
+    });
+};
+    
+</script>
+
+<%- include('includes/foot.ejs') %>

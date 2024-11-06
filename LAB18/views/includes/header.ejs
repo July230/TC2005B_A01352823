@@ -1,0 +1,76 @@
+<!--header se utiliza en otras vistas, asi que se guarda en la carpeta includes-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Starbound</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"> <!--Importar el ccs de bulma-->
+    </head>
+    <body>
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+                <img src="https://i1.sndcdn.com/artworks-000109033152-zvlom3-t500x500.jpg" width="112" height="28">
+            </a>
+        
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+            </div>
+
+            <div id="navbarBasicExample" class="navbar-menu">
+                <div class="navbar-start">
+            
+                <a class="navbar-item" href="/planetas"> <!--Importante saber los nombres de los enlace para las rutas-->
+                    Planetas
+                </a>
+
+                <a class="navbar-item" href="/enviar">
+                    Registrar planeta
+                </a>
+
+                <a class="navbar-item" href="/razas">
+                    Razas
+                </a>
+            
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                    Extras
+                    </a>
+            
+                    <div class="navbar-dropdown">
+                    <hr class="navbar-divider">
+                    <a class="navbar-item">
+                        Report an issue
+                    </a>
+                    </div>
+                </div>
+                </div>
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                    <div class="buttons">
+                        <% if (username == ''){ %>
+                        <a href="/users/signup" class="button is-link">
+                            <strong>Registrarse</strong>
+                        </a>
+                        <a href="/users/login" class="button is-light">
+                            Entrar
+                        </a>
+                        <% } else { %>
+                            <span>
+                                Hola <strong><%= username %></strong>
+                            </span>
+                            <a href="/users/logout" class="button is-danger">
+                                Salir
+                            </a>
+                        <% } %>
+                    </div>
+                    </div>
+                </div>
+                </div>
+        </nav>
+        <section class="section">
+            <div class="container">
